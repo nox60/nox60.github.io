@@ -96,7 +96,7 @@ git merge upstream/master
 
 ### 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
 
-`git rm --cached /path/to/file`，然后正常 add 和 commit 即可。
+`git rm --cached /path/to/file`，然后正常 add 和 commit 即可。   
 
 ### 如何不建立一个没有 parent 的 branch？
 
