@@ -8,6 +8,8 @@ keywords: Java, 自动装箱, 自动拆箱
 
 前天遇到了一个 NullPointerException，触发的代码类似下面这样：
 
+
+
 ```java
 public class Test {
     public static long test(long value) {
