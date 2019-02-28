@@ -6,6 +6,8 @@ description: 因为遇到一个 NullPointerException，弄清了 Java 的自动�
 keywords: Java, 自动装箱, 自动拆箱
 ---
 
+
+
 前天遇到了一个 NullPointerException，触发的代码类似下面这样：
 
 ```java
