@@ -58,6 +58,8 @@ public void print() {
 
 所以适用的是 `printf`，它的返回值是 `PrintStream` 类型的 `System.out`，判它是否为空即可。
 
+
+
 填入内容 `System.out.printf("a") == null`。
 
 ```java
