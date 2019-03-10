@@ -8,8 +8,3 @@
 # DiscoveryClient.java
 # Register()
 
-
-
-
-
-
