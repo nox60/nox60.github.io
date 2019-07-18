@@ -52,7 +52,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 GOROOT是指golang编译器的位置
 
-GOPATH是指项目根目录的位置,一般来说,这个变量会随着我们的项目改变而改变
+GOPATH是指项目根目录的位置, 使用go get拉下来的代码和编译出的二进制文件会放在这个目录里。
 
 GOBIN是指项目目录中bin目录所在的位置
 
