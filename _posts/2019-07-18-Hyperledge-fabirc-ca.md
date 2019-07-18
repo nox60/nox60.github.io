@@ -26,7 +26,13 @@ git config --global --unset https.proxy
 
 # Golang环境配置
 
-需要到
+需要到 https://golang.org/dl/
+
+选择合适的版本进行下载，此处是LINUX故选择LINUX版本。
+
+```aa
+wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz
+```
 
 配置好git的代理。
 
