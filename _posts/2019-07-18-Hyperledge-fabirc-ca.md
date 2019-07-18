@@ -118,7 +118,22 @@ to do
 
 # Hyberledger client
 
+以下面的命令启动客户端
 
+```client
+export FABRIC_CA_CLIENT_HOME=/root/ca-client
+fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
+```
+## 注册新用户
+
+下面的命令是用admin账户来注册一个新的账户 "admin2"
+
+
+
+```register
+export FABRIC_CA_CLIENT_HOME=/root/ca-client
+fabric-ca-client register --id.name admin2 --id.affiliation org1.department1 --id.attrs 'hf.Revoker=true,admin=true:ecert'
+```
 
 ### 所属三级目录
 
