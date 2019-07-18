@@ -61,4 +61,11 @@ GOBIN是指项目目录中bin目录所在的位置
 ```go
 go get -u github.com/hyperledger/fabric-ca/cmd/...
 ```
+执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
 
+
+## 二级目录
+
+### 所属三级目录
+
+## 另外一个二级目录
