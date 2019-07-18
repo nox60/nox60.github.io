@@ -124,9 +124,24 @@ to do
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
 fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 ```
-## 注册新用户
 
-下面的命令是用admin账户来注册一个新的账户 "admin2"
+## 参数说明
+
+| 缩写       |  参数     | 参类型  | 说明      | 例子|
+| ---------  | --------- | ----   | -------   | --- |
+|      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  | <a name="锚点名称">例子</a>|
+| -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  | <a href="#start_ca_server">例子</a> |
+|  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  | <a name="锚点名称">例子</a> |
+| -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="锚点名称">例子</a> | 
+
+
+
+
+- 注册新用户
+
+下面的命令是用admin账户来注册一个新的账户 "admin2"，所属的机构是"org1.department1", ":ecert"后缀表明这个admin属性将会插入这个账户的enrollment certificat. 然后用与权限控制。 suffix means that by default the “admin” attribute and its value will be inserted into the identity’s enrollment certificate, which can then be used to make access control decisions.
+
+maxenrollments 参数需要进行验证
 
 
 
@@ -134,6 +149,18 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
 fabric-ca-client register --id.name admin2 --id.affiliation org1.department1 --id.attrs 'hf.Revoker=true,admin=true:ecert'
 ```
+
+执行上面的命令之后，会看到有密码的输出，密码是自动生成的，类是这样的输出：
+
+```passwdprint
+Password: ziGRSLUqBXPT
+```
+
+
+
+- 用户登录
+
+
 
 ### 所属三级目录
 
