@@ -83,9 +83,9 @@ fabric-ca-server start -b admin:adminpw
 
 | 缩写       |  参数     | 参类型  | 说明      |
 | ---------  | --------- | ----   | -------   |
-|      | --address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  |
-| -b     | --boot       | string    | The user:pass for bootstrap admin which is required to build default config file  |
-|  | --ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  |
+|      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  |
+| -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  |
+|  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  |
 
 
 
