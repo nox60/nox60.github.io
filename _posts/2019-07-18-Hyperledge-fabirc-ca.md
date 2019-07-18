@@ -64,7 +64,33 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
 
 
-## 二级目录
+## 原生方式启动 fabric-ca-server
+
+首先需要编译程序
+
+```go
+go get -u github.com/hyperledger/fabric-ca/cmd/...
+```
+执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
+
+用以下的命令启动fabirc-ca-server
+
+```start
+fabric-ca-server start -b admin:adminpw
+```
+
+## 参数说明
+
+| 缩写       |  参数     | 参类型  | 说明      |
+| ---------  | --------- | ----   | -------   |
+|      | --address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  |
+| -b     | --boot       | string    | The user:pass for bootstrap admin which is required to build default config file  |
+|  | --ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  |
+
+
+
+
+## Docker方式启动 fabric-ca-server
 
 ### 所属三级目录
 
