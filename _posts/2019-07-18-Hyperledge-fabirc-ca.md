@@ -34,13 +34,29 @@ git config --global --unset https.proxy
 wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz
 ```
 
-配置好git的代理。
+解压
 
-配置好go环境，go环境参见：
+```unzip
+tar xzf go1.10.linux-amd64.tar.gz
+```
 
-https://www.jianshu.com/p/f5d9043874d0
+设置以下几个环境变量
+```
+# ========== Golang settings =====================
+export GOROOT="/root/bin/go"
+export GOPATH="/root/goprojects"
+export GOBIN=$GOPATH/bin
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
+其中，
 
-执行下面的命令：
+GOROOT是指golang编译器的位置
+
+GOPATH是指项目根目录的位置,一般来说,这个变量会随着我们的项目改变而改变
+
+GOBIN是指项目目录中bin目录所在的位置
+
+# Hyberledger server
 
 ```go
 go get -u github.com/hyperledger/fabric-ca/cmd/...
