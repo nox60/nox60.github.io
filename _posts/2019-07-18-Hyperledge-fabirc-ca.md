@@ -73,24 +73,33 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 ```
 执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
 
-用以下的命令启动fabirc-ca-server
+
+
+## 参数说明
+
+| 缩写       |  参数     | 参类型  | 说明      | 例子|
+| ---------  | --------- | ----   | -------   | --- |
+|      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  | < a name="锚点名称">例子< /a>
+|
+| -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  | < a name="start_ca_server">例子< /a> |
+|  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  | < a name="锚点名称">例子< /a> |
+
+| -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | < a name="锚点名称">例子< /a> | 
+
+
+<a name="start_ca_server">用以下的命令启动fabirc-ca-server </a>
 
 ```start
 fabric-ca-server start -b admin:adminpw
 ```
 
-## 参数说明
-
-| 缩写       |  参数     | 参类型  | 说明      |
-| ---------  | --------- | ----   | -------   |
-|      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  |
-| -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  |
-|  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  |
-
-
-
-
 ## Docker方式启动 fabric-ca-server
+
+to do
+
+# Hyberledger client
+
+
 
 ### 所属三级目录
 
