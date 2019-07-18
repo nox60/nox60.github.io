@@ -85,11 +85,32 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 | -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="锚点名称">例子</a> | 
 
 
-<a name="start_ca_server">用以下的命令启动fabirc-ca-server </a>
+
+<a name="init_ca_server">用以下的命令初始化fabirc-ca-server，初始化命令不会启动ca-server，只会生成相应的文件 </a>
+
+```init
+fabric-ca-server init -b admin:adminpw -H /root/ca-server/
+```
+
+
+<a name="start_ca_server">用以下的命令启动fabirc-ca-server，如果该服务器没有启动过，则等同于先初始化，再启动 </a>
 
 ```start
-fabric-ca-server start -b admin:adminpw
+fabric-ca-server start -b admin:adminpw -H /root/ca-server/
 ```
+
+初始化命令会在 /root/ca-server目录下生成以下文件：
+
+```files
+-rw-r--r--. 1 root root 19797 Jul 18 14:14 fabric-ca-server-config.yaml
+drwxr-xr-x. 3 root root  4096 Jul 18 14:14 msp
+-rw-r--r--. 1 root root   786 Jul 18 14:14 ca-cert.pem
+-rw-r--r--. 1 root root   843 Jul 18 14:14 IssuerPublicKey
+-rw-r--r--. 1 root root   215 Jul 18 14:14 IssuerRevocationPublicKey
+-rw-r--r--. 1 root root 61440 Jul 18 14:14 fabric-ca-server.db
+```
+
+
 
 ## Docker方式启动 fabric-ca-server
 
