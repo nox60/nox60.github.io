@@ -57,3 +57,18 @@ git clone https://github.com/hyperledger/fabric-samples.git
 
 进入到 fabric-samples/commercial-paper 目录，这个目录是commercial-paper这个demo项目的目录所在
 
+接下来将会做以下任务来演示该程序：
+
+- to run applications on behalf of Isabella and Balaji who will trade commercial paper with each other
+
+- to issue commands to on behalf of administrators from MagnetoCorp and DigiBank, including installing and instantiating smart contracts
+
+- to show peer, orderer and CA log output
+
+## 创建网络
+
+The tutorial currently uses the basic network; it will be updated soon to a configuration which better reflects the multi-organization structure of PaperNet. For now, this network is sufficient to show you how to develop an application and smart contract.
+
+目前看到了这一页
+
+https://hyperledger-fabric.readthedocs.io/en/latest/tutorial/commercial_paper.html#prerequisites
