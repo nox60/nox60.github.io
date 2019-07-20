@@ -47,4 +47,13 @@ TD：Golang安装
 
 $GOPATH is an important environment variable in Hyperledger Fabric; it identifies the root directory for installation. It is important to get right no matter which programming language you’re using! Open a new terminal window and check your $GOPATH is set using the env command:
 
+# 安装程序
+
+## 拉取最新代码
+
+```clonecode
+git clone https://github.com/hyperledger/fabric-samples.git
+```
+
+进入到 fabric-samples/commercial-paper 目录，这个目录是commercial-paper这个demo项目的目录所在
 
