@@ -157,6 +157,22 @@ Password: ziGRSLUqBXPT
 ```
 
 
+- 注册peer
+
+```registerpeer
+export FABRIC_CA_CLIENT_HOME=/root/ca-client
+fabric-ca-client register --id.name peer1 --id.type peer --id.affiliation org1.department1 --id.secret peer1pw
+```
+
+会输出以下信息：
+
+```aa
+2019/07/20 15:55:41 [INFO] Configuration file location: /root/ca-client/fabric-ca-client-config.yaml
+Password: peer1pw
+```
+
+- 登录 peer
+
 
 - 用户登录
 
