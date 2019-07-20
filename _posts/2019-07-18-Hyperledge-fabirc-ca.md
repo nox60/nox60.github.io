@@ -159,6 +159,8 @@ Password: ziGRSLUqBXPT
 
 - 注册peer
 
+技术债：此处为什么要指定clienthome?
+
 ```registerpeer
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
 fabric-ca-client register --id.name peer1 --id.type peer --id.affiliation org1.department1 --id.secret peer1pw
@@ -173,10 +175,51 @@ Password: peer1pw
 
 - 登录 peer
 
+登录peer的时候应该是要指定其自己的目录
+
+```enrollpeer
+export FABRIC_CA_CLIENT_HOME=/root/ca-client/clients/peer1
+fabric-ca-client enroll -u http://peer1:peer1pw@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+```
 
 - 用户登录
 
+试试用错误的密码登录
 
+```trytouserwrongpassword
+export FABRIC_CA_CLIENT_HOME=/root/ca-client/clients/peer1
+fabric-ca-client enroll -u http://peer1:peer1wrongpassword@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+```
+
+会看到有如下的输出：
+
+```wrongpasswordoutput
+2019/07/20 16:10:17 [INFO] Created a default configuration file at /root/ca-client/clients/peer1/fabric-ca-client-config.yaml
+2019/07/20 16:10:17 [INFO] generating key: &{A:ecdsa S:256}
+2019/07/20 16:10:17 [INFO] encoded CSR
+Error: Response from server: Error Code: 20 - Authentication failure
+```
+
+使用正确密码登录：
+
+```enrollpeer
+export FABRIC_CA_CLIENT_HOME=/root/ca-client/clients/peer1
+fabric-ca-client enroll -u http://peer1:peer1pw@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+```
+
+会看到有以下输出：
+
+
+技术债：解释相关生成的KEY是什么
+
+```output
+2019/07/20 16:12:12 [INFO] generating key: &{A:ecdsa S:256}
+2019/07/20 16:12:12 [INFO] encoded CSR
+2019/07/20 16:12:12 [INFO] Stored client certificate at /root/ca-client/clients/peer1/msp/signcerts/cert.pem
+2019/07/20 16:12:12 [INFO] Stored root CA certificate at /root/ca-client/clients/peer1/msp/cacerts/localhost-7054.pem
+2019/07/20 16:12:12 [INFO] Stored Issuer public key at /root/ca-client/clients/peer1/msp/IssuerPublicKey
+2019/07/20 16:12:12 [INFO] Stored Issuer revocation public key at /root/ca-client/clients/peer1/msp/IssuerRevocationPublicKey
+```
 
 ### 所属三级目录
 
