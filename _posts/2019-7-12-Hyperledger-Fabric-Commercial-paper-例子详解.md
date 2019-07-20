@@ -174,5 +174,26 @@ $ docker network inspect net_basic
 
 ## 作为 MagnetoCorp 使用
 
+本例子程序提供了用于监控状态的工具，利用该工具可以清楚的关注到docker容器的输出，这些输出信息中包含了各种有用的信息比如智能合约的安装执行等。
 
+该工具位于：
 
+fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/monitordocker.sh
+
+执行下面的命令可以关注net_basic网络的运行情况：
+
+```aaa
+
+(magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
+(magnetocorp admin)$ ./monitordocker.sh net_basic
+...
+latest: Pulling from gliderlabs/logspout
+4fe2ade4980c: Pull complete
+decca452f519: Pull complete
+(...)
+Starting monitoring on all containers on the network net_basic
+b7f3586e5d0233de5a454df369b8eadab0613886fc9877529587345fc01a3582
+
+```
+
+现在监测工具
