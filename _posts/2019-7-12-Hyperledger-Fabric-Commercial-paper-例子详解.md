@@ -123,3 +123,56 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
 
 
 ```
+
+
+通过命令可以看到四个容器已经启动起来
+
+```dockerpsa
+[root@ethereum-192-168-16-60 basic-network]# docker ps -a
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+e015028ac314        hyperledger/fabric-peer      "peer node start"        5 minutes ago       Up 5 minutes        0.0.0.0:7051->7051/tcp, 0.0.0.0:7053->7053/tcp   peer0.org1.example.com
+bdcb9cb18086        hyperledger/fabric-orderer   "orderer"                5 minutes ago       Up 5 minutes        0.0.0.0:7050->7050/tcp                           orderer.example.com
+48f5341cc65a        hyperledger/fabric-couchdb   "tini -- /docker-ent…"   5 minutes ago       Up 5 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp       couchdb
+922314e386e4        hyperledger/fabric-ca        "sh -c 'fabric-ca-se…"   5 minutes ago       Up 5 minutes        0.0.0.0:7054->7054/tcp                           ca.example.com
+
+```
+
+此时可以通过命令查看刚才创建的net_basic网络的状况
+
+```networkinspect
+$ docker network inspect net_basic
+
+    {
+        "Name": "net_basic",
+        "Id": "62e9d37d00a0eda6c6301a76022c695f8e01258edaba6f65e876166164466ee5",
+        "Created": "2018-11-07T13:46:30.4992927Z",
+        "Containers": {
+            "1fa1fd107bfbe61522e4a26a57c2178d82b2918d5d423e7ee626c79b8a233624": {
+                "Name": "orderer.example.com",
+                "IPv4Address": "172.20.0.4/16",
+            },
+            "469201085a20b6a8f476d1ac993abce3103e59e3a23b9125032b77b02b715f2c": {
+                "Name": "ca.example.com",
+                "IPv4Address": "172.20.0.2/16",
+            },
+            "53fe614274f7a40392210f980b53b421e242484dd3deac52bbfe49cb636ce720": {
+                "Name": "couchdb",
+                "IPv4Address": "172.20.0.3/16",
+            },
+            "ada3d078989b568c6e060fa7bf62301b4bf55bed8ac1c938d514c81c42d8727a": {
+                "Name": "peer0.org1.example.com",
+                "IPv4Address": "172.20.0.5/16",
+            }
+        },
+        "Labels": {}
+    }
+```
+
+从上面的网络地址和名字关系，可以看到四个容器的IPV4地址等相关信息。
+
+# 测试
+
+## 作为 MagnetoCorp 使用
+
+
+
