@@ -283,9 +283,30 @@ peer0.org1.example.com|2019-07-21 09:21:15.489 UTC [comm.grpc.server] 1 -> INFO 
 
 表明智能合约被正常的安装
 
+Note how peer chaincode install command specified the smart contract path, -p, relative to the cliMagnetoCorp container’s file system: /opt/gopath/src/github.com/contract. This path has been mapped to the local file system path .../organization/magnetocorp/contract via the magnetocorp/configuration/cli/docker-compose.yml file:
+
+注意命令中的 -p TD：-p不是绑定端口么？总之这里是是用了容器内部的文件，该文件其实是从本地映射上去的。映射关系如下：
+
 ```volumn
 volumes:
     - ...
     - ./../../../../organization/magnetocorp:/opt/gopath/src/github.com/
     - ...
 ```
+
+## 初始化智能合约
+
+目前，papercontract的相关链代码已经成功的安装到了PaperNet的节点上，管理员可以在不同网络的通道上启用该合约代码，从而被连接到通道上的应用程序调用；但因为本例中只是为PaperNet启动了一个基本网络，所以此处只在一个单独的通道(mychannel)中启用papercontract。
+
+通过下面的代码在mychannel中初始化 papercontract
+
+```instantiate
+(magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P "AND ('Org1MSP.member')"
+
+2018-11-07 14:22:11.162 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.example.com:7050
+2018-11-07 14:22:11.163 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default escc
+2018-11-07 14:22:11.163 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default vscc
+```
+
+该命令的执行时间可能较长。TD：解释为什么
+
