@@ -196,4 +196,96 @@ b7f3586e5d0233de5a454df369b8eadab0613886fc9877529587345fc01a3582
 
 ```
 
-现在监测工具
+现在监测工具开始监测网络的输出了，我们打开另外一个网络终端，来做一些操作，观察其输出情况。
+
+TD：首先拉起一个 MagnetoCorp的进程
+
+```startMagenet
+(magnetocorp admin)$ cd commercial-paper/organization/magnetocorp/configuration/cli/
+(magnetocorp admin)$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
+
+Pulling cliMagnetoCorp (hyperledger/fabric-tools:)...
+latest: Pulling from hyperledger/fabric-tools
+3b37166ec614: Already exists
+(...)
+Digest: sha256:058cff3b378c1f3ebe35d56deb7bf33171bf19b327d91b452991509b8e9c7870
+Status: Downloaded newer image for hyperledger/fabric-tools:latest
+Creating cliMagnetoCorp ... done
+```
+
+此时可以看到一个 hyperledger/fabric-tools 镜像所产生的容器已经被拉起
+
+```dockerps
+(magnetocorp admin)$ docker ps
+
+CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                            NAMES
+562a88b25149        hyperledger/fabric-tools     "/bin/bash"              About a minute ago   Up About a minute                                                    cliMagnetoCorp
+b7f3586e5d02        gliderlabs/logspout          "/bin/logspout"          7 minutes ago        Up 7 minutes        127.0.0.1:8000->80/tcp                           logspout
+ada3d078989b        hyperledger/fabric-peer      "peer node start"        29 minutes ago       Up 29 minutes       0.0.0.0:7051->7051/tcp, 0.0.0.0:7053->7053/tcp   peer0.org1.example.com
+1fa1fd107bfb        hyperledger/fabric-orderer   "orderer"                29 minutes ago       Up 29 minutes       0.0.0.0:7050->7050/tcp                           orderer.example.com
+53fe614274f7        hyperledger/fabric-couchdb   "tini -- /docker-ent…"   29 minutes ago       Up 29 minutes       4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp       couchdb
+469201085a20        hyperledger/fabric-ca        "sh -c 'fabric-ca-se…"   29 minutes ago       Up 29 minutes       0.0.0.0:7054->7054/tcp                           ca.example.com
+
+```
+
+## 智能合约 Smart contract
+
+在 Commercial paper 这个例子中提到的三种行为：
+
+- issue
+- buy
+- redeem
+
+是PaperNet的三种智能合约方式的体现。TD：打开代码阅读智能合约
+
+使用编辑器打开合约代码。
+
+```viewcode
+ commercial-paper/organization/magnetocorp/contract
+```
+
+在lib目录下可以查看 papercontract.js 文件。目前该版本的合约代码使用js编写。
+
+Smart contracts are the focus of application development, and are contained within a Hyperledger Fabric artifact called chaincode. One or more smart contracts can be defined within a single chaincode, and installing a chaincode will allow them to be consumed by the different organizations in PaperNet. It means that only administrators need to worry about chaincode; everyone else can think in terms of smart contracts.
+
+智能合约是区块链体系里实现业务逻辑的核心方式，而在hyperledger中，一个或多个只能合约组成一个chaincode(链代码)。
+
+MagnetoCorp的管理员使用 peer chaincode install 命令，从本地机器拷贝 papercontract 智能合约到 peer的容器中，一旦智能合约被安装到 peer 节点并且在 channel 中被实例化，papercontract就可以被应用所调用。
+
+TD： and interact with the ledger database via the putState() and getState() Fabric APIs. Examine how these APIs are used by StateList class within ledger-api\statelist.js.
+
+可以查看 ledger-api/statelist.js 里面的源代码获得更多信息。
+
+现在我们来以MagnetoCorp 管理员的身份安装 papercontract。在 MagnetoCorp 管理员的命令行窗口中，通过对cliMagnetCorp 容器执行 docker exec 命令来运行 peer chaincode install 指令，以此实现安装。
+
+```installchaincode
+(magnetocorp admin)$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+
+2018-11-07 14:21:48.400 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+2018-11-07 14:21:48.400 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+2018-11-07 14:21:48.466 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" >
+```
+
+执行时，相应的，我们会在一直监控的屏幕上TD：此处增加锚点 看到如下输出：
+
+```output
+
+peer0.org1.example.com|2019-07-21 09:21:15.480 UTC [endorser] callChaincode -> INFO 037 [][7a4e9834] Entry chaincode: name:"lscc"
+               couchdb|[notice] 2019-07-21T09:21:15.482738Z nonode@nohost <0.27044.32> 912847fcd0 couchdb:5984 172.19.0.5 undefined GET /mychannel_lscc 404 ok 0
+peer0.org1.example.com|2019-07-21 09:21:15.488 UTC [couchdb] CreateDatabaseIfNotExist -> INFO 038 Created state database mychannel_lscc
+               couchdb|[notice] 2019-07-21T09:21:15.488095Z nonode@nohost <0.27044.32> 8b5b32b64b couchdb:5984 172.19.0.5 undefined PUT /mychannel_lscc 201 ok 5
+peer0.org1.example.com|2019-07-21 09:21:15.489 UTC [lscc] executeInstall -> INFO 039 Installed Chaincode [papercontract] Version [0] to peer
+peer0.org1.example.com|2019-07-21 09:21:15.489 UTC [endorser] callChaincode -> INFO 03a [][7a4e9834] Exit chaincode: name:"lscc"  (9ms)
+               couchdb|[notice] 2019-07-21T09:21:15.489032Z nonode@nohost <0.27044.32> ba8ff625cd couchdb:5984 172.19.0.5 undefined GET /mychannel_lscc/papercontract?attachments=true 404 ok 1
+peer0.org1.example.com|2019-07-21 09:21:15.489 UTC [comm.grpc.server] 1 -> INFO 03b unary call completed {"grpc.start_time": "2019-07-21T09:21:15.479Z", "grpc.service": "protos.Endorser", "grpc.method": "ProcessProposal", "grpc.peer_address": "172.19.0.7:57948", "grpc.code": "OK", "grpc.call_duration": "9.314212ms"}
+
+```
+
+表明智能合约被正常的安装
+
+```volumn
+volumes:
+    - ...
+    - ./../../../../organization/magnetocorp:/opt/gopath/src/github.com/
+    - ...
+```
