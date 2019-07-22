@@ -310,3 +310,12 @@ volumes:
 
 该命令的执行时间可能较长。TD：解释为什么
 
+TD：执行该命令的时候，看到output那边有一大堆404，但是似乎又没问题。要看看是什么原因。
+
+
+## Application dependencies
+
+此处要注意npm-global的位置，我改动到 /opt/local目录下面了，参考的是这个文章：
+
+https://stackoverflow.com/questions/29468404/gyp-warn-eacces-user-root-does-not-have-permission-to-access-the-dev-dir
+
