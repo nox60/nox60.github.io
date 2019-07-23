@@ -90,6 +90,12 @@ fabric-ca-server的编译方式（链接）
 第四个环境变量：FABRIC_CA_SERVER_CA_KEYFILE
 TD: 此处要分析研究该文件的来源
 
+综上所述，模拟该docker启动的二进制命令是：
+
+```d
+fabric-ca-server start -b admin:adminpw
+```
+--port
 
 
 
