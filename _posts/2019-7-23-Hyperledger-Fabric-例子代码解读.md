@@ -1,35 +1,30 @@
-```eee
+# CA容器
 
-#
-# Copyright IBM Corp All Rights Reserved
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-version: '2'
-
-networks:
-  basic:
-
-services:
-  ca.example.com:
-    image: hyperledger/fabric-ca
-    environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca.example.com
-      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk
-      # 此处 两个CA 需要解释一下
+```ca
+    ca.example.com:
+      image: hyperledger/fabric-ca
+      environment:
+        - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+        - FABRIC_CA_SERVER_CA_NAME=ca.example.com
+        - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
+        - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk
+        # 此处 两个CA 需要解释一下
       
-    ports:
-      - "7054:7054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw'
-      # 这行命令是这个容器启动时调用的命令，表示创建一个ca并且初始化管理员账户和密码，在之前的文章中有介绍：
-    volumes:
-      - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
-    container_name: ca.example.com
-    networks:
-      - basic
+      ports:
+        - "7054:7054"
+      command: sh -c 'fabric-ca-server start -b admin:adminpw'
+        # 这行命令是这个容器启动时调用的命令，表示创建一个ca并且初始化管理员账户和密码，在之前的文章中有介绍，参见对CA的详解：https://nox60.github.io/2019/07/18/Hyperledge-fabirc-ca/
+      volumes:
+        - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+        # 此处就是把本地的一些准备好的ca信息挂在到容器中去
+      container_name: ca.example.com
+      networks:
+        - basic
+```
 
+# orderer容器
+
+```eee
   orderer.example.com:
     container_name: orderer.example.com
     image: hyperledger/fabric-orderer
@@ -42,6 +37,7 @@ services:
       - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
     command: orderer
+    # 启动之后执行orderer命令
     ports:
       - 7050:7050
     volumes:
@@ -51,6 +47,11 @@ services:
     networks:
       - basic
 
+```
+
+# peer节点容器
+
+```eee
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
     image: hyperledger/fabric-peer
@@ -90,6 +91,13 @@ services:
     networks:
       - basic
 
+```
+
+
+# couchdb容器
+
+```eee
+ 
   couchdb:
     container_name: couchdb
     image: hyperledger/fabric-couchdb
