@@ -65,6 +65,12 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
 
 用二进制程序的方式模拟上面的docker
 
+首先，要注意这行挂载，上面容器运行的时候，有些文件是从外面挂载进去的：
+
+./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+
+熟悉Docker的话，对这行应该一目了然，这是把本地目录 ./crypto-config/peerOrganizations/org1.example.com/ca/ 向 容器里的 /etc/hyperledger/fabric-ca-server-config 目录映射
+
 fabric-ca-server的编译方式（链接）
 
 注意上面的第一个环境变量：FABRIC_CA_HOME
@@ -80,6 +86,7 @@ fabric-ca-server的编译方式（链接）
 
 第三个环境变量：FABRIC_CA_SERVER_CA_CERTFILE
 指定服务器的pem私钥？文件
+
 
 # orderer容器
 
