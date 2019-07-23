@@ -1,5 +1,7 @@
 # CA容器
 
+容器所用镜像：hyperledger/fabric-ca
+
 ```ca
     ca.example.com:
       image: hyperledger/fabric-ca
@@ -23,6 +25,8 @@
 ```
 
 # orderer容器
+
+容器所用镜像：hyperledger/fabric-orderer
 
 ```eee
   orderer.example.com:
@@ -50,6 +54,8 @@
 ```
 
 # peer节点容器
+
+容器所用镜像：hyperledger/fabric-peer
 
 ```eee
   peer0.org1.example.com:
@@ -96,8 +102,9 @@
 
 # couchdb容器
 
+容器所用镜像：hyperledger/fabric-couchdb
+
 ```eee
- 
   couchdb:
     container_name: couchdb
     image: hyperledger/fabric-couchdb
@@ -111,6 +118,13 @@
     networks:
       - basic
 
+
+```
+
+# cli容器？
+
+
+```eee
   cli:
     container_name: cli
     image: hyperledger/fabric-tools
