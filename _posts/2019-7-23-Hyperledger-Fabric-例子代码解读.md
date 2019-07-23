@@ -96,7 +96,7 @@ TD: 此处要分析研究该文件的来源
 ```d
 fabric-ca-server start \
 -b admin:adminpw \
--H /root/ca-server/ \
+-H /root/ca-server2/ \
 --port 7088 \
 --ca.name ca.example.com \
 --ca.certfile /root/softwares/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem \
