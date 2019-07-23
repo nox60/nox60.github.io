@@ -82,11 +82,11 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 |      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  | <a name="锚点名称">例子</a>|
 | -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  | <a href="#start_ca_server">例子</a> |
 |  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  | <a name="锚点名称">例子</a> |
-| -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="锚点名称">例子</a> | 
+| -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="init_ca_server">例子</a> | 
 
 
 
-<a name="init_ca_server">用以下的命令初始化fabirc-ca-server，初始化命令不会启动ca-server，只会生成相应的文件 </a>
+<a name="init_ca_server">用以下的命令初始化fabirc-ca-server，初始化命令不会启动ca-server，只会生成相应的文件</a>
 
 ```init
 fabric-ca-server init -b admin:adminpw -H /root/ca-server/

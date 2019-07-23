@@ -63,6 +63,24 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
         - basic
 ```
 
+用二进制程序的方式模拟上面的docker
+
+fabric-ca-server的编译方式（链接）
+
+注意上面的第一个环境变量：FABRIC_CA_HOME
+这个环境变量是CA服务器的home目录。
+- 如果 -home 选项有配置，则使用其配置的值
+- 否则，如果 FABRIC_CA_SERVER_HOME 环境变量值有设置，则使用其值
+- 否则，如果 FABRIC_CA_HOME 环境变量值有设置，则使用其值
+- 否则，如果 CA_CFG_PATH 环境变量值有值，则使用其值
+- 如果以上都没有，则使用当前工作目录。
+
+上面第二个环境变量：FABRIC_CA_SERVER_CA_NAME
+对应的命令行中的 --ca.name 参数，指定 ca服务器的名称
+
+第三个环境变量：FABRIC_CA_SERVER_CA_CERTFILE
+指定服务器的pem私钥？文件
+
 # orderer容器
 
 容器所用镜像：hyperledger/fabric-orderer
