@@ -1,3 +1,5 @@
+```eee
+
 #
 # Copyright IBM Corp All Rights Reserved
 #
@@ -16,11 +18,12 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
       - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk
-      # 此处
+      # 此处 两个CA 需要解释一下
       
     ports:
       - "7054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
+      # 这行命令是这个容器启动时调用的命令，表示创建一个ca并且初始化管理员账户和密码，在之前的文章中有介绍：
     volumes:
       - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca.example.com
@@ -125,3 +128,5 @@ services:
     #  - orderer.example.com
     #  - peer0.org1.example.com
     #  - couchdb
+
+```
