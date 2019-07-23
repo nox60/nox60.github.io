@@ -85,17 +85,23 @@ fabric-ca-server的编译方式（链接）
 对应的命令行中的 --ca.name 参数，指定 ca服务器的名称
 
 第三个环境变量：FABRIC_CA_SERVER_CA_CERTFILE
-指定服务器的pem私钥？文件 TD：此处要分析研究该文件的来源
+指定服务器的pem私钥？文件 TD：此处要分析研究该文件的来源, --ca.certfile
 
 第四个环境变量：FABRIC_CA_SERVER_CA_KEYFILE
+指定服务器的XXXX，--ca.keyfile
 TD: 此处要分析研究该文件的来源
 
 综上所述，模拟该docker启动的二进制命令是：
 
 ```d
-fabric-ca-server start -b admin:adminpw
+fabric-ca-server start \
+-b admin:adminpw \
+-H /root/ca-server/ \
+--port 7088 \
+--ca.name ca.example.com \
+--ca.certfile /root/softwares/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem \
+--ca.keyfile /root/softwares/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk
 ```
---port
 
 
 

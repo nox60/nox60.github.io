@@ -93,10 +93,12 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/
 ```
 
 
+
 <a name="start_ca_server">用以下的命令启动fabirc-ca-server，如果该服务器没有启动过，则等同于先初始化，再启动 </a>
 
 ```start
-fabric-ca-server start -b admin:adminpw -H /root/ca-server/
+fabric-ca-server start -b admin:adminpw -H /root/ca-server/ \
+
 ```
 
 初始化命令会在 /root/ca-server目录下生成以下文件：
