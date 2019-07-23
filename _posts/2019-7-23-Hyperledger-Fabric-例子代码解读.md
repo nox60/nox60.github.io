@@ -85,7 +85,12 @@ fabric-ca-server的编译方式（链接）
 对应的命令行中的 --ca.name 参数，指定 ca服务器的名称
 
 第三个环境变量：FABRIC_CA_SERVER_CA_CERTFILE
-指定服务器的pem私钥？文件
+指定服务器的pem私钥？文件 TD：此处要分析研究该文件的来源
+
+第四个环境变量：FABRIC_CA_SERVER_CA_KEYFILE
+TD: 此处要分析研究该文件的来源
+
+
 
 
 # orderer容器
