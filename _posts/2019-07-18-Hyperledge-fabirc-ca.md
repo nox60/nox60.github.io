@@ -5,14 +5,17 @@
 X.509是一种非常**通用的证书格式**。所有的证书都符合ITU-T X.509国际标准，因此(理论上)为一种应用创建的证书可以用于任何其他符合X.509标准的应用。
 
 - 服务器CERTFILE
+
 服务器公钥
 
 - 服务器KEYFILE
+
 服务器私钥
 
 更多的关于ssl/tls的加密握手过程，参加以下文章：
 
 https://www.cnblogs.com/barrywxx/p/8570715.html
+
 https://www.cnblogs.com/monkey0307/p/9675123.html
 
 # Git环境配置
