@@ -167,11 +167,10 @@ csr:
 ```ssl
 
 fabric-ca-server init -b admin:adminpw -H /root/ca-server/ \
---ca.keyfile mytest_key.pem \
 --ca.certfile mytest_cert.pem 
-
 ```
 
+会得到ca server的公钥文件 mytest_cert.pem，位于 -H 参数指定的 ca server 的 home 目录中，而 ca server 的私钥文件，是无法指定生成的文件名和路径的，会默认生成到：msp/keystore 下面，很长的一个文件名，以 _sk 结尾，类似这个文件名：6784cb078951bb1a04e444a66e71dba0f388beffd5b2b3587b61d2a5044c132e_sk，可以将该文件拷贝到合适的位置，然后修改文件名为 xxx_key.pem 。然后在 server 启动的时候，通过 -&zwnj-ca.keyfile 挂载
 
 
 ## 参数说明
