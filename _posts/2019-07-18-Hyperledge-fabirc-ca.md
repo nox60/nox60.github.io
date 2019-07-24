@@ -140,12 +140,41 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/
 
 从输出中可以看到各种证书文件的位置
 
+以上操作生成了 fabric-ca-server-config.yaml 文件，文件中包含了 CSR 的配置信息，可以根据需要进行修改：
+
+```csr
+csr:
+   cn: mytest-ca-server
+   keyrequest:
+     algo: ecdsa
+     size: 256
+   names:
+      - C: US
+        ST: "North Carolina"
+        L:
+        O: Hyperledger
+        OU: Fabric
+   hosts:
+     - ethereum-192-168-16-60
+     - localhost
+   ca:
+      expiry: 131400h
+      pathlength: 1
+```
+
+此处修改了CSR信息，然后重新用下面的命令
+
+```ssl
+
+fabric-ca-server init -b admin:adminpw -H /root/ca-server/ \
+--ca.keyfile mytest_key.pem \
+--ca.certfile mytest_cert.pem 
+
+```
 
 
 
 ## 参数说明
-
-
 
 | 缩写       |  参数     | 参类型  | 说明      | 例子|
 | ---------  | --------- | ----   | -------   | --- |
@@ -153,8 +182,7 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/
 | -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  | <a href="#start_ca_server">例子</a> |
 |  | -&zwnj;-ca.certfile | string    | PEM编码格式的ca公钥文件 (默认为) "ca-cert.pem")  | <a name="锚点名称">例子</a> |
 |  | -&zwnj;-ca.chainfile | string    | PEM-encoded CA chain file (default "ca-chain.pem")  | <a name="锚点名称">例子</a> |
-|  | -&zwnj;-ca.keyfile | string    | PEM编码格式的ca私钥文件，默认是不生成的  | <a name="锚点名称">例子</a> |
-
+|  | -&zwnj;-ca.keyfile | string    | PEM编码格式的ca私钥文件，注意，keyfile是无法指定生成的文件名和路径的，本参数的意义是在启动的时候，指定keyfile的位置，keyfile的指定生成位置是在 msp/keystore 目录下  | <a name="锚点名称">例子</a> |
 | -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="init_ca_server">例子</a> | 
 
 
