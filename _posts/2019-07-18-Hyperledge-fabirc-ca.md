@@ -138,6 +138,9 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/
 2019/07/24 15:51:23 [INFO] Initialization was successful
 ```
 
+从输出中可以看到各种证书文件的位置
+
+
 
 
 ## 参数说明
@@ -148,7 +151,10 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/
 | ---------  | --------- | ----   | -------   | --- |
 |      | -&zwnj;-address      | string    | fabric-ca-server 监听地址 (默认) "0.0.0.0")  | <a name="锚点名称">例子</a>|
 | -b     | -&zwnj;-boot       | string    | The user:pass for bootstrap admin which is required to build default config file  | <a href="#start_ca_server">例子</a> |
-|  | -&zwnj;-ca.certfile | string    | PEM-encoded CA certificate file (default "ca-cert.pem")  | <a name="锚点名称">例子</a> |
+|  | -&zwnj;-ca.certfile | string    | PEM编码格式的ca公钥文件 (默认为) "ca-cert.pem")  | <a name="锚点名称">例子</a> |
+|  | -&zwnj;-ca.chainfile | string    | PEM-encoded CA chain file (default "ca-chain.pem")  | <a name="锚点名称">例子</a> |
+|  | -&zwnj;-ca.keyfile | string    | PEM编码格式的ca私钥文件，默认是不生成的  | <a name="锚点名称">例子</a> |
+
 | -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="init_ca_server">例子</a> | 
 
 
