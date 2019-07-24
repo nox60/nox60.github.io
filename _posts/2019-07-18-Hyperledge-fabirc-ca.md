@@ -91,7 +91,6 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
 
 
-
 ## 参数说明
 
 | 缩写       |  参数     | 参类型  | 说明      | 例子|
