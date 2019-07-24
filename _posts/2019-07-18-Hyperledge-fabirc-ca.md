@@ -30,6 +30,10 @@ https://www.cnblogs.com/monkey0307/p/9675123.html
 
 https://blog.csdn.net/simatongming/article/details/79241158
 
+PKI/CA相关
+
+https://www.jianshu.com/p/c65fa3af1c01
+
 # Git环境配置
 
 Git的下载，安装参见官网。
