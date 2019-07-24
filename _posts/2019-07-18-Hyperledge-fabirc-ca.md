@@ -88,12 +88,6 @@ GOBIN是指项目目录中bin目录所在的位置
 
 # Hyberledger server
 
-```go
-go get -u github.com/hyperledger/fabric-ca/cmd/...
-```
-执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
-
-
 ## 原生方式启动 fabric-ca-server
 
 首先需要编译程序
@@ -103,8 +97,52 @@ go get -u github.com/hyperledger/fabric-ca/cmd/...
 ```
 执行之后，如果一切正常，GOPATH里面将会有拉下来的代码和编译之后的二进制文件。
 
+验证编译是否成功，可以执行：fabric-ca-server version，应该有类似下面的输出：
+
+```output
+$ fabric-ca-server version
+fabric-ca-server:
+ Version: 1.4.2
+ Go version: go1.12.7
+ OS/Arch: linux/amd64
+```
+
+可以看到fabric-ca-server的版本和其他环境参数，说明fabric-ca-server安装成功
+
+### 初始化服务器
+
+```initserver
+fabric-ca-server init -b admin:adminpw -H /root/ca-server/
+```
+
+以上命令会在 /root/ca-server初始化 fabric-ca-server 服务所需的文件
+
+执行之后可以看到下面的输出：
+
+```output
+2019/07/24 15:51:23 [INFO] Created default configuration file at /root/ca-server/fabric-ca-server-config.yaml
+2019/07/24 15:51:23 [INFO] Server Version: 1.4.2
+2019/07/24 15:51:23 [INFO] Server Levels: &{Identity:2 Affiliation:1 Certificate:1 Credential:1 RAInfo:1 Nonce:1}
+2019/07/24 15:51:23 [WARNING] &{69 The specified CA certificate file /root/ca-server/ca-cert.pem does not exist}
+2019/07/24 15:51:23 [INFO] generating key: &{A:ecdsa S:256}
+2019/07/24 15:51:23 [INFO] encoded CSR
+2019/07/24 15:51:23 [INFO] signed certificate with serial number 183344645062561379720845729659759174911862589852
+2019/07/24 15:51:23 [INFO] The CA key and certificate were generated for CA
+2019/07/24 15:51:23 [INFO] The key was stored by BCCSP provider 'SW'
+2019/07/24 15:51:23 [INFO] The certificate is at: /root/ca-server/ca-cert.pem
+2019/07/24 15:51:23 [INFO] Initialized sqlite3 database at /root/ca-server/fabric-ca-server.db
+2019/07/24 15:51:23 [INFO] The issuer key was successfully stored. The public key is at: /root/ca-server/IssuerPublicKey, secret key is at: /root/ca-server/msp/keystore/IssuerSecretKey
+2019/07/24 15:51:23 [INFO] Idemix issuer revocation public and secret keys were generated for CA ''
+2019/07/24 15:51:23 [INFO] The revocation key was successfully stored. The public key is at: /root/ca-server/IssuerRevocationPublicKey, private key is at: /root/ca-server/msp/keystore/IssuerRevocationPrivateKey
+2019/07/24 15:51:23 [INFO] Home directory for default CA: /root/ca-server
+2019/07/24 15:51:23 [INFO] Initialization was successful
+```
+
+
 
 ## 参数说明
+
+
 
 | 缩写       |  参数     | 参类型  | 说明      | 例子|
 | ---------  | --------- | ----   | -------   | --- |
