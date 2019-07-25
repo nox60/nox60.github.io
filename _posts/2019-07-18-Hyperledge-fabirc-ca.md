@@ -218,15 +218,13 @@ drwxr-xr-x. 3 root root  4096 Jul 18 14:14 msp
 -rw-r--r--. 1 root root 61440 Jul 18 14:14 fabric-ca-server.db
 ```
 
-
-
 ## Docker方式启动 fabric-ca-server
 
 to do
 
 # Hyberledger client
 
-以下面的命令启动客户端
+以下面的命令以为admin账户登录
 
 ```client
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
@@ -246,6 +244,8 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 
 
 - 注册新用户
+
+注册用户之前，需要使用具有权限的账户（admin）登录。
 
 下面的命令是用admin账户来注册一个新的账户 "admin2"，所属的机构是"org1.department1", ":ecert"后缀表明这个admin属性将会插入这个账户的enrollment certificat. 然后用与权限控制。 suffix means that by default the “admin” attribute and its value will be inserted into the identity’s enrollment certificate, which can then be used to make access control decisions.
 
@@ -267,11 +267,13 @@ Password: ziGRSLUqBXPT
 
 - 注册peer
 
-TD：此处为什么要指定clienthome?
-
 ```registerpeer
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
-fabric-ca-client register --id.name peer1 --id.type peer --id.affiliation org1.department1 --id.secret peer1pw
+fabric-ca-client register \
+--id.name peer1 \
+--id.type peer \
+--id.affiliation org1.department1 \
+--id.secret peer1pw
 ```
 
 会输出以下信息：

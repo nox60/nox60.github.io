@@ -136,6 +136,20 @@ fabric-ca-server start \
 
 ```
 
+用二进制程序的方式模拟上面的docker
+
+首先要注意的是三个挂载点：
+
+1. 第一个挂载了 /config/ 目录，该目录里有orderer.yaml 配置文件；
+
+2. 第二个挂载点挂载了对应的msp的CA 证书，在例子代码中，这些证书是实现生成好的，此处需要请求第一步启动的CA服务进程申请。
+
+3. 第三个挂载点对应了peer 的msp的CA 证书
+
+上面的docker方式使用了五个环境变量对服务进行配置，而在二进制方式中，更多的配置方式来自于配置文件 orderer.yaml 里面的配置。
+
+
+
 # peer节点容器
 
 容器所用镜像：hyperledger/fabric-peer
@@ -201,8 +215,10 @@ fabric-ca-server start \
     networks:
       - basic
 
-
 ```
+
+此处启动的couchdb是最简单的，没有进行太多配置，要查看其它程序怎么关联这个couchdb容器的
+
 
 # cli容器？
 
