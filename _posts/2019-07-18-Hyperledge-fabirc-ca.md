@@ -331,6 +331,16 @@ TD：解释相关生成的KEY是什么
 2019/07/20 16:12:12 [INFO] Stored Issuer revocation public key at /root/ca-client/clients/peer1/msp/IssuerRevocationPublicKey
 ```
 
+client certificate：  client的公钥
+
+CA certificate:       CA的公钥？
+
+Issuer public key:
+
+Issuer revocation public key:
+
+
+
 TD：此处要尝试使用另外一个账户登录，但是路径一样会发生什么
 
 TD：是否有了各种证书，就不需要密码就可以操作了？
