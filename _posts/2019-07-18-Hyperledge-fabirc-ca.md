@@ -335,7 +335,7 @@ client certificate：  client的公钥
 
 CA certificate:       CA的公钥？
 
-Issuer public key:
+Issuer public key:    
 
 Issuer revocation public key:
 
