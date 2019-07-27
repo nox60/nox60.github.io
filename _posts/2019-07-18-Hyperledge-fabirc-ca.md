@@ -182,6 +182,18 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/ \
 
 会得到ca server的公钥文件 mytest_cert.pem，位于 -H 参数指定的 ca server 的 home 目录中，而 ca server 的私钥文件，是无法指定生成的文件名和路径的，会默认生成到：msp/keystore 下面，很长的一个文件名，以 _sk 结尾，类似这个文件名：6784cb078951bb1a04e444a66e71dba0f388beffd5b2b3587b61d2a5044c132e_sk，可以将该文件拷贝到合适的位置，然后修改文件名为 xxx_key.pem 。然后在 server 启动的时候，通过 -&zwnj-ca.keyfile 挂载
 
+| 路径与文件名       |  说明|
+| ---------  | ------- |
+|   fabric-ca-server-config.yaml   |  CA服务端配置文件  |
+|   ca-cert.pem   |  CA服务器公钥  |
+|   IssuerPublicKey  |  CA服务器Issuer公钥，会下发到客户端  |
+|   IssuerRevocationPublicKey   |  CA服务器IssuerRevocation公钥，会下发到客户端  |
+|   fabric-ca-server.db   |  CA服务器DB文件？TD：  |
+|   msp/keystore/xxxxxxxxxxxxxxxxxxxxxx_sk   |  CA服务器私钥  |
+|   msp/keystore/IssuerSecretKey   |   CA服务器Issuer私钥  |
+|   msp/keystore/IssuerRevocationPrivateKey   |  CA服务器IssuerRevocation私钥  |
+
+
 
 ## 参数说明
 
@@ -240,6 +252,7 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 |   msp/IssuerRevocationPublicKey   |  CA吊销使用的公钥？  |
 |   msp/keystore/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_sk   | 客户私钥文件  |
 |   msp/signcerts/cert.pem   |  客户公钥文件  |
+
 
 
 ## 参数说明
