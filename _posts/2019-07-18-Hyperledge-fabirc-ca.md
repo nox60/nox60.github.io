@@ -180,7 +180,7 @@ fabric-ca-server init -b admin:adminpw -H /root/ca-server/ \
 --ca.certfile mytest_cert.pem 
 ```
 
-会得到ca server的公钥文件 mytest_cert.pem，位于 -H 参数指定的 ca server 的 home 目录中，而 ca server 的私钥文件，是无法指定生成的文件名和路径的，会默认生成到：msp/keystore 下面，很长的一个文件名，以 _sk 结尾，类似这个文件名：6784cb078951bb1a04e444a66e71dba0f388beffd5b2b3587b61d2a5044c132e_sk，可以将该文件拷贝到合适的位置，然后修改文件名为 xxx_key.pem 。然后在 server 启动的时候，通过 -&zwnj-ca.keyfile 挂载
+init命令会生成一系列文件，文件相关说明如下：
 
 | 路径与文件名       |  说明|
 | ---------  | ------- |
@@ -311,9 +311,11 @@ Password: peer1pw
 登录peer的时候应该是要指定其自己的目录
 
 ```enrollpeer
-export FABRIC_CA_CLIENT_HOME=/root/ca-client/clients/peer1
+export FABRIC_CA_CLIENT_HOME=/root/peer1
 fabric-ca-client enroll -u http://peer1:peer1pw@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
 ```
+该操作执行后，则类似上面的admin类型的用户登录一样，会生peer节点相关的各种密钥文件，存放位置在/root/peer1里面
+
 
 - 用户登录
 
