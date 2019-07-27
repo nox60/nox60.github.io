@@ -231,6 +231,16 @@ to do
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
 fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 ```
+如果这是第一次在该机器上登录，会发现上面所指定的 FABRIC_CA_CLIENT_HOME 目录 /root/ca-client 里会生成一些文件：
+
+| 路径与文件名       |  说明|
+| ---------  | ------- |
+|   fabric-ca-client-config.yaml   |  客户端配置文件  |
+|   msp/IssuerPublicKey   |  Issuer方公钥？TD：需要验证  |
+|   msp/IssuerRevocationPublicKey   |  CA吊销使用的公钥？  |
+|   msp/keystore/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_sk   | 客户私钥文件  |
+|   msp/signcerts/cert.pem   |  客户公钥文件  |
+
 
 ## 参数说明
 
@@ -242,8 +252,6 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 | -H | -&zwnj;-home | string    | 服务端home目录，默认当前目录 | <a name="锚点名称">例子</a> | 
 
 
-
-
 - 注册新用户
 
 注册用户之前，需要使用具有权限的账户（admin）登录。
@@ -253,10 +261,12 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 maxenrollments 参数需要进行验证
 
 
-
 ```register
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
-fabric-ca-client register --id.name admin2 --id.affiliation org1.department1 --id.attrs 'hf.Revoker=true,admin=true:ecert'
+fabric-ca-client register \
+--id.name admin2 \
+--id.affiliation org1.department1 \
+--id.attrs 'hf.Revoker=true,admin=true:ecert'
 ```
 
 执行上面的命令之后，会看到有密码的输出，密码是自动生成的，类是这样的输出：
@@ -264,7 +274,6 @@ fabric-ca-client register --id.name admin2 --id.affiliation org1.department1 --i
 ```passwdprint
 Password: ziGRSLUqBXPT
 ```
-
 
 - 注册peer
 
