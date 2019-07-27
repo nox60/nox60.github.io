@@ -232,8 +232,6 @@ peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点�
 
 
 
-
-
 # cli容器？
 
 
