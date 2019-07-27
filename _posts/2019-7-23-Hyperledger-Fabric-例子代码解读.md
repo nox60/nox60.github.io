@@ -228,7 +228,8 @@ hyperledger/fabric-couchdb
 
 peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点需要连接couchdb，所以需要在配置文件里面提供couchdb的信息
 
-上面的docker启动参数中有多个环境变量，这些环境变量在peer以二进制方式启动时候的配置文件core.yaml中有对应关系，二进制方式启动的时候，要做对应的配置改动。配置好的yaml文件参见：core.yaml
+上面的docker启动参数中有多个环境变量，这些环境变量在peer以二进制方式启动时候的配置文件core.yaml中有对应关系，二进制方式启动的时候，要做对应的配置改动。配置好的yaml文件参见：[core.yaml](./data/core.yaml "core.yamltilte")
+core.yaml
 
 
 
