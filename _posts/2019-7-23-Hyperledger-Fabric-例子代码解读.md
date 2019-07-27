@@ -107,6 +107,36 @@ fabric-ca-server start \
 
 
 
+# couchdb容器
+
+容器所用镜像：hyperledger/fabric-couchdb
+
+```eee
+  couchdb:
+    container_name: couchdb
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 5984:5984
+    networks:
+      - basic
+
+```
+
+couchdb相对而言是比较简单的，例子中也没有进行太多配置，此处就不用二进制的方式启动它了，直接手动用Docker的方式启动，下面命令启动：
+
+```couch
+docker run -it -d --name simple-couchdb -p 5984:5984 \
+-e "COUCHDB_USER=" \
+-e "COUCHDB_PASSWORD=" \
+hyperledger/fabric-couchdb
+```
+
+
 # orderer容器
 
 容器所用镜像：hyperledger/fabric-orderer
@@ -202,28 +232,6 @@ peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点�
 
 
 
-
-# couchdb容器
-
-容器所用镜像：hyperledger/fabric-couchdb
-
-```eee
-  couchdb:
-    container_name: couchdb
-    image: hyperledger/fabric-couchdb
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    ports:
-      - 5984:5984
-    networks:
-      - basic
-
-```
-
-此处启动的couchdb是最简单的，没有进行太多配置，要查看其它程序怎么关联这个couchdb容器的
 
 
 # cli容器？
