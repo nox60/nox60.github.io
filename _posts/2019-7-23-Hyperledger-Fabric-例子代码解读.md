@@ -196,6 +196,12 @@ fabric-ca-server start \
 
 ```
 
+peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点需要连接couchdb，所以需要在配置文件里面提供couchdb的信息
+
+
+
+
+
 
 # couchdb容器
 
