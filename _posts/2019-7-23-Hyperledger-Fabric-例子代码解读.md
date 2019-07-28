@@ -191,11 +191,30 @@ hyperledger/fabric-couchdb
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.org1.example.com
+      # 该值在core.yaml中有对应的值
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
+      # 上面两行是日志相关配置
+
       - CORE_PEER_LOCALMSPID=Org1MSP
+      # 这一行重要，这是localMSP的ID，如果该ID有误，如果该id有误？。。。TD:
+
+
+      # 下面是core.yaml中的注释解释：
+      # Identifier of the local MSP
+      # ----!!!!IMPORTANT!!!-!!!IMPORTANT!!!-!!!IMPORTANT!!!!----
+      # Deployers need to change the value of the localMspId string.
+      # In particular, the name of the local MSP ID of a peer needs
+      # to match the name of one of the MSPs in each of the channel
+      # that this peer is a member of. Otherwise this peer's messages
+      # will not be identified as valid by other nodes.
+
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      # msp配置路径
+
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+      # peer注册的地址？
+
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
