@@ -218,6 +218,8 @@ hyperledger/fabric-couchdb
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_basic
+      # 该参数用于配置docker相关，如果二进制方式启动，应该影响不大
+
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb:5984
       # 这一行连接couchdb，连接的配置项在core.yaml中: state -> couchDBAddress 以及后面的配置项
