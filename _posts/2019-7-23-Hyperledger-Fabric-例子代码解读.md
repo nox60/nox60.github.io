@@ -211,11 +211,12 @@ hyperledger/fabric-couchdb
       # that this peer is a member of. Otherwise this peer's messages
       # will not be identified as valid by other nodes.
 
-      - CORE_PEER_MSPCONFIGPATH=/root/peer_node/msp/peer/
-      # msp配置路径
+      - CORE_PEER_MSPCONFIGPATH=/root/peer_node/msp
+      # msp配置路径，该配置项在core.yaml中的配置名称为mspConfigPath，该路径一般配置的位置为 FABRIC_CFG_PATH=/root/peer_node 下面的msp目录
+
 
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-      # peer注册的地址？
+      # peer注册的地址, 在core.yaml中为 core->address
 
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
