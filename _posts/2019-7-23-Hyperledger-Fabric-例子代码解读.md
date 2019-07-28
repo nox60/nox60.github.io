@@ -211,7 +211,7 @@ hyperledger/fabric-couchdb
       # that this peer is a member of. Otherwise this peer's messages
       # will not be identified as valid by other nodes.
 
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/root/peer_node/msp/peer/
       # msp配置路径
 
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
@@ -256,9 +256,7 @@ hyperledger/fabric-couchdb
 
 peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点需要连接couchdb，所以需要在配置文件里面提供couchdb的信息
 
-上面的docker启动参数中有多个环境变量，这些环境变量在peer以二进制方式启动时候的配置文件core.yaml中有对应关系，二进制方式启动的时候，要做对应的配置改动。配置好的yaml文件参见：<https://github.com/nox60/nox60.github.io/blob/master/_posts/data/core.yaml>
-
-
+上面的docker启动参数中有多个环境变量，这些环境变量在peer以二进制方式启动时候的配置文件core.yaml中有对应关系，core.yaml中的配置信息和docker启动时的环境变量配置信息的对应关系已经在上面有描述，二进制方式启动的时候，要做对应的配置改动。配置好的yaml文件参见：<https://github.com/nox60/nox60.github.io/blob/master/_posts/data/core.yaml>
 
 
 # cli容器？
