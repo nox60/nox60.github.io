@@ -199,7 +199,6 @@ hyperledger/fabric-couchdb
       - CORE_PEER_LOCALMSPID=Org1MSP
       # 这一行重要，这是localMSP的ID，如果该ID有误，如果该id有误？。。。TD:
 
-
       # 下面是core.yaml中的注释解释：
       # Identifier of the local MSP
       # ----!!!!IMPORTANT!!!-!!!IMPORTANT!!!-!!!IMPORTANT!!!!----
