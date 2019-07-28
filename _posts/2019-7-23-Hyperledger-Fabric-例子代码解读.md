@@ -190,8 +190,11 @@ hyperledger/fabric-couchdb
     image: hyperledger/fabric-peer
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      # 这一行用于docker相关，影响不大
+
       - CORE_PEER_ID=peer0.org1.example.com
       # 该值在core.yaml中有对应的值
+
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       # 上面两行是日志相关配置
