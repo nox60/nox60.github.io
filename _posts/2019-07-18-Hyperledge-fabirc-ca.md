@@ -408,4 +408,3 @@ In Idemix, the end user is involved. The issuer revokes an end user’s credenti
 The version of the CRI is incremented when an enroll request is received by the fabric-ca-server and there are no revocation handles remaining in the revocation handle pool. In this case, the fabric-ca-server must generate a new pool of revocation handles which increments the epoch of the CRI. The number of revocation handles in the revocation handle pool is configurable via the idemix.rhpoolsize server configuration property.
 
 
-
