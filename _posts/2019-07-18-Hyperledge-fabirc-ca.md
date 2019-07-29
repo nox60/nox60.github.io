@@ -195,7 +195,6 @@ init命令会生成一系列文件，文件相关说明如下：
 |   msp/keystore/IssuerRevocationPrivateKey   |  CA服务器IssuerRevocation私钥  |
 
 
-
 ## 参数说明
 
 | 缩写       |  参数     | 参类型  | 说明      | 例子|
