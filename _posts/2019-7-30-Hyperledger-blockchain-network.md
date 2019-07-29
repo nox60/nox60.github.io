@@ -1,1 +1,2 @@
-![avatar](/iamges/network.digram.1.png)
+![avatar](./images/network.diagram.1.png)
+
