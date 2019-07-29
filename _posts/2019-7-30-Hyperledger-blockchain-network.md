@@ -11,4 +11,5 @@ There is an ordering service O4 that services as a network administration point 
 - 通道C1是由通道配置信息CC1所控制的，CC1是由R1和R2管理的。
 - 通道C2是由通道配置信息CC2所控制的，CC2是由R2和R3管理的。
 - 整个区块链网络N的管理权限由交易排序服务O4所有，并作为系统通道。
-- 交易排序服务O4
+- 交易排序服务O4同时为C1和C2两个通道提供服务。最终负责打包所有的交易到区块中。
+- 四个组织都充当CA的角色。
