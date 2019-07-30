@@ -80,3 +80,39 @@ Even though channel C1 is a part of the network N, it is quite distinguishable f
 We can also see that once a channel has been created, it is in a very real sense “free from the network”. It is only organizations that are explicitly specified in a channel configuration that have any control over it, from this time forward into the future. Likewise, any updates to network configuration NC4 from this time onwards will have no direct effect on channel configuration CC1; for example if consortia definition X1 is changed, it will not affect the members of channel C1. Channels are therefore useful because they allow private communications between the organizations constituting the channel. Moreover, the data in a channel is completely isolated from the rest of the network, including other channels.
 
 As an aside, there is also a special system channel defined for use by the ordering service. It behaves in exactly the same way as a regular channel, which are sometimes called application channels for this reason. We don’t normally need to worry about this channel, but we’ll discuss a little bit more about it later in this topic.
+
+# 节点和账本 Peers and Ledgers
+接下来我们将用通道来真正连接区块链网络中的各个组织。我们将加入两种新的重要组件节点和账本
+
+![avatar](/images/posts/hyperledger/network.diagram.5.png)
+
+*节点P1加入了通道C1，节点从物理上掌握账本L1，P1和O4讲通过C1通信*
+
+节点从物理上讲，具有账本的副本(节点的存储磁盘上有账本的拷贝)，但是从逻辑上讲，账本是被通道掌握的：这是因为一个通道上只有一个账本，所有的节点都同步了这同一个账本。
+
+节点的一个非常重要的属性就是基于X509的CA证书身份，以此来保证节点和所属机构的关联。一旦节点创立，它就可以通过orderer节点O4来假如C1，当O4收到这个加入请求之后，他将使用CC1的配置来确定P1具有相关权限。例如：CC1会确定P1是否有在账本L1上的读写权限。
+
+注意，决定节点是怎样加入通道的由管理通道的组织决定的，尽管我们目前只加入了一个节点，后面我们会在更多的通道上加入更多的节点。
+
+# 应用程序、智能合约、链代码
+
+![avatar](/images/posts/hyperledger/network.diagram.6.png)
+
+*一个智能合约S5安装到P1节点，R1组织下属的应用程序A1可以使用S5来通过P1访问P1持有的账本L1。*
+
+A1可以通过C1来连接特定的网络资源，在上图的例子中，A1可以连接P1节点和排序节点O4，另外要注意到，通道在通信过程中承担消息中心的职责。尽管A1应用程序在网络之外，依然可以连接到通道C1上。
+
+从上面图中，看起来A1可以直接通过P1连接到L1，但是实际上，所有的程序连接都是通过智能合约代码来实现的：上图中是S5，S5给A1提供了对账本进行查询和更新的接口，简而言之，S5是客户端程序A1和账本L1之间的中介。
+
+智能合约代码是由各机构的开发人员为了实现业务需求专门开发的业务逻辑代码，智能合约代码的目标是生成交易信息，并且分发到区块链网络中，最终形成区块链上的记录信息。智能合约代码需要安装，然后实例化，才能生效。
+
+# 安装智能合约
+当开发工程师开发完智能合约代码之后，需要机构R1管理员安装到节点P1上。
+
+当一个机构在同一个通道上有多个节点时，只需要选择一个节点安装智能合约，不用在所有节点上都进行安装。
+
+# 实例化智能合约
+
+当智能合约安装之后，并没有真正的启用，只有实例化之后，智能合约才真正的能够被调用。实例化操作需要机构管理员进行操作。
+
+
