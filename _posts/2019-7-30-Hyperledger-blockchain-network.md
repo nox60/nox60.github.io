@@ -54,4 +54,17 @@ We’ll discuss the ordering service a little more later in this topic, but for 
 ![avatar](/images/posts/hyperledger/network.diagram.3.png)
 *网络管理员定义了一个具有两个成员的联盟X1，这两个组织成员分别是R1和R2，这个联盟的定义保存在NC4中，CA1和CA2将分别作为这两个组织的签发机构。*
 
-因为NC4控制了网络配置权限，所以R1和R4可以创建新的联盟。上图
+因为NC4控制了网络配置权限，所以R1和R4可以创建新的联盟。上图中显示了新增的联盟X1，其有两个成员组织R1和R2。同时我们可以看到CA2将作为R2的CA服务，用于识别R2的账户。一个联盟可以具有任意数量的成员。
+
+联盟的意义在哪里？联盟是联盟链的核心实现，一个联盟里面的所有组织将同步该联盟里面发生的所有交易，所以当有部分组织需要保持账本同步的时候，他们就应该被组成为一个联盟。
+
+接下来我们将为联盟X1创建一个重要的组件：通道 channel
+
+# 为联盟创建通道
+
+接下来将会为联盟创建通道，通道是实现联盟成员之间互相通信的重要组成部分。在一个网络中可能有多个通道组成。
+
+下图展示了我们增加的第一个通道C1
+
+![avatar](/images/posts/hyperledger/network.diagram.4.png)
+*通道C1的创建是实现联盟X1里面的成员通信，目前该联盟里面只有R1和R2，该通道的配置由CC1(channel configuration)定义。CC1和NC4是完全独立的。CC1是由R1和R2在进行管理的。R4虽然是NC4的管理员，但是对CC1没有任何管理权限*
