@@ -157,4 +157,24 @@ A1可以通过C1来连接特定的网络资源，在上图的例子中，A1可�
 
 # 安装和初始化
 
+# Simplifying the visual vocabulary 简化图中的概念
 
+![avatar](/images/posts/hyperledger/network.diagram.8.png)
+
+上图取消了通道的划线，而是用蓝色的圈表示通道编号。这样我们在描述更大的网络结构时将更容易。
+
+# 加入另外一个联盟
+
+到目前为止，我们只有X1一个联盟，下图中，我们将加入X2这个联盟
+
+![avatar](/images/posts/hyperledger/network.diagram.9.png)
+
+上图中，我们加入了X2这个由R2和R3组成的新联盟。新的联盟依然只能由具备网路管理权限的NC4配置文件来定义，所以能够做到以上工作的只有R1或者R4(具备配置权限)。
+
+# 加入新通道
+
+此时我们已经加入了一个新的联盟X2，我们需要加入一个新的通道C2，C2在图中将用红色圈表示。
+
+![avatar](/images/posts/hyperledger/network.diagram.10.png)
+
+此时，通道的配置信息CC2决定了通道内的权限，CC2的管理员是R2和R3。和CC1一样，CC2和NC4是完全隔离开的。没有关系。
