@@ -68,3 +68,15 @@ We’ll discuss the ordering service a little more later in this topic, but for 
 
 ![avatar](/images/posts/hyperledger/network.diagram.4.png)
 *通道C1的创建是实现联盟X1里面的成员通信，目前该联盟里面只有R1和R2，该通道的配置由CC1(channel configuration)定义。CC1和NC4是完全独立的。CC1是由R1和R2在进行管理的。R4虽然是NC4的管理员，但是对CC1没有任何管理权限*
+
+C1使的X1里面的成员能够互相通信。我们可以注意到，C1连接了orderer服务O4，但是but that nothing else is attached to it. 在下一个阶段我们可以连接一个客户端应用程序以及peer节点。
+
+Even though channel C1 is a part of the network N, it is quite distinguishable from it. Also notice that organizations R3 and R4 are not in this channel – it is for transaction processing between R1 and R2. In the previous step, we saw how R4 could grant R1 permission to create new consortia. It’s helpful to mention that R4 also allowed R1 to create channels! In this diagram, it could have been organization R1 or R4 who created a channel C1. Again, note that a channel can have any number of organizations connected to it – we’ve shown two as it’s the simplest configuration.
+
+另外要注意到的是，C1是有一个完全独立的配置信息CC1的，和整个网络的配置信息NC4独立开来。CC1由R1和R2进行管理和配置。R3和R4对CC1没有权限。R3和R4如果想和C1通信，需要R1或者R2在CC1里面赋予合理的权限之后。另外需要注意的是,R4虽然是NC4的管理员，但是他却无法把自己加入到C1中，这个操作只能由R1和R2完成。
+
+通道的重要性体现在，他实现了联盟内成员的通信以及数据共享。通道也可以实现和其他联盟的数据通信和共享。
+
+We can also see that once a channel has been created, it is in a very real sense “free from the network”. It is only organizations that are explicitly specified in a channel configuration that have any control over it, from this time forward into the future. Likewise, any updates to network configuration NC4 from this time onwards will have no direct effect on channel configuration CC1; for example if consortia definition X1 is changed, it will not affect the members of channel C1. Channels are therefore useful because they allow private communications between the organizations constituting the channel. Moreover, the data in a channel is completely isolated from the rest of the network, including other channels.
+
+As an aside, there is also a special system channel defined for use by the ordering service. It behaves in exactly the same way as a regular channel, which are sometimes called application channels for this reason. We don’t normally need to worry about this channel, but we’ll discuss a little bit more about it later in this topic.
