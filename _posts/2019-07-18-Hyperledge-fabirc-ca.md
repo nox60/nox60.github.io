@@ -56,6 +56,7 @@ git config --global http.proxy 'socks5://127.0.0.1:1080'
 git config --global https.proxy 'socks5://127.0.0.1:1080'
 ```
 
+
 取消
 
 ```unset
@@ -192,7 +193,6 @@ init命令会生成一系列文件，文件相关说明如下：
 |   msp/keystore/xxxxxxxxxxxxxxxxxxxxxx_sk   |  CA服务器私钥  |
 |   msp/keystore/IssuerSecretKey   |   CA服务器Issuer私钥  |
 |   msp/keystore/IssuerRevocationPrivateKey   |  CA服务器IssuerRevocation私钥  |
-
 
 
 ## 参数说明
@@ -406,6 +406,5 @@ In X509, the issuer revokes an end user’s certificate and its ID is included i
 In Idemix, the end user is involved. The issuer revokes an end user’s credential similar to X509 and evidence of this revocation is recorded in the CRI. The CRI is given to the end user (aka “prover”). The end user then generates a proof that their credential has not been revoked according to the CRI. The end user gives this proof to the verifier who verifies the proof according to the CRI. For verification to succeed, the version of the CRI (known as the “epoch”) used by the end user and verifier must be same. The latest CRI can be requested by sending a request to /api/v1/idemix/cri API endpoint.
 
 The version of the CRI is incremented when an enroll request is received by the fabric-ca-server and there are no revocation handles remaining in the revocation handle pool. In this case, the fabric-ca-server must generate a new pool of revocation handles which increments the epoch of the CRI. The number of revocation handles in the revocation handle pool is configurable via the idemix.rhpoolsize server configuration property.
-
 
 
