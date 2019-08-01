@@ -135,7 +135,6 @@ docker run -it -d --name simple-couchdb -p 5984:5984 \
 hyperledger/fabric-couchdb
 ```
 
-
 # orderer容器
 
 容器所用镜像：hyperledger/fabric-orderer
