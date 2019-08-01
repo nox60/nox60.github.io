@@ -33,6 +33,11 @@ v10.16.0
 ```
 能正确显示版本号，说明node安装成功
 
+另外需要参考下面的帖子对 npm 的全局安装目录进行改动：
+
+https://stackoverflow.com/questions/29468404/gyp-warn-eacces-user-root-does-not-have-permission-to-access-the-dev-dir
+
+
 
 ## Docker
 
