@@ -237,7 +237,7 @@ drwxr-xr-x. 3 root root  4096 Jul 18 14:14 msp
 
 ## Docker方式启动 fabric-ca-server
 
-to do
+TD：
 
 # Hyberledger client
 
@@ -276,7 +276,6 @@ fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
 下面的命令是用admin账户来注册一个新的账户 "admin2"，所属的机构是"org1.department1", ":ecert"后缀表明这个admin属性将会插入这个账户的enrollment certificat. 然后用与权限控制。 suffix means that by default the “admin” attribute and its value will be inserted into the identity’s enrollment certificate, which can then be used to make access control decisions.
 
 maxenrollments 参数需要进行验证
-
 
 ```register
 export FABRIC_CA_CLIENT_HOME=/root/ca-client
@@ -407,8 +406,12 @@ TD：后面要实验
 
 In X509, the issuer revokes an end user’s certificate and its ID is included in the CRL. The verifier checks to see if the user’s certificate is in the CRL and if so, returns an authorization failure. The end user is not involved in this revocation process, other than receiving an authorization error from a verifier.
 
+
+
 In Idemix, the end user is involved. The issuer revokes an end user’s credential similar to X509 and evidence of this revocation is recorded in the CRI. The CRI is given to the end user (aka “prover”). The end user then generates a proof that their credential has not been revoked according to the CRI. The end user gives this proof to the verifier who verifies the proof according to the CRI. For verification to succeed, the version of the CRI (known as the “epoch”) used by the end user and verifier must be same. The latest CRI can be requested by sending a request to /api/v1/idemix/cri API endpoint.
 
 The version of the CRI is incremented when an enroll request is received by the fabric-ca-server and there are no revocation handles remaining in the revocation handle pool. In this case, the fabric-ca-server must generate a new pool of revocation handles which increments the epoch of the CRI. The number of revocation handles in the revocation handle pool is configurable via the idemix.rhpoolsize server configuration property.
+
+
 
 
