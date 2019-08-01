@@ -106,7 +106,6 @@ fabric-ca-server start \
 ```
 
 
-
 # couchdb容器
 
 容器所用镜像：hyperledger/fabric-couchdb
