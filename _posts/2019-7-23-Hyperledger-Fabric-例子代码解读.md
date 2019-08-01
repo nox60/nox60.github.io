@@ -105,7 +105,6 @@ fabric-ca-server start \
 --ca.keyfile /root/softwares/fabric-samples/basic-network/crypto-config/peerOrganizations/org1.example.com/ca/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk
 ```
 
-
 # couchdb容器
 
 容器所用镜像：hyperledger/fabric-couchdb
