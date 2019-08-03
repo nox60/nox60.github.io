@@ -198,7 +198,7 @@ identity for the administration of private resources**. MSPs are mandatory
 at every level of administration --- they must be defined for the network,
 channel, peer, orderer, and users.
 
-通道MSP和本地MSP的区别反应了组织和其管理员在他们本地资源管理上的不同需求，例如一个peer节点或者排序节点，以及他们的通道资源（比如账本，智能合约以及联盟信息）这都是通道或者网络级别的资源；这些资源是不同级别的
+通道MSP和本地MSP的区别反应了组织和其管理员在他们本地资源管理上的不同需求，例如一个peer节点或者排序节点，以及他们的通道资源（比如账本，智能合约以及联盟信息）这都是通道或者网络级别的资源；这些资源是不同级别的，高等级的MSP和网络相关的管理有关；而低等级的MSP
 
 ![MSP3](./membership.diagram.2.png)
 
