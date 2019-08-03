@@ -61,6 +61,8 @@ multiple MSPs and name them accordingly, e.g., `ORG2-MSP-NATIONAL` and
 `ORG2` in the `NATIONAL` sales channel compared to the `GOVERNMENT` regulatory
 channel.
 
+一个组织和他的MSP之间的特别的关系使得在对msp命名的时候，将MSP的名字放在组织后面让人很易懂。比如，组织'ORG1'如果有一个MSP，则很合适将名字取为：ORG1-MSP。在很多情况下，一个组织会有多个会员身份，比如说，当有多个通道被用于在不同的组织之间处理不同的业务逻辑，在这种情况下，就比较合适使用上面的命名方式：'ORG2-MSP-NATIONAL'和'ORG2-MSP-GOVERNMENT'，分别是ORG2的销售通道和处理政府相关事务的常规通道。
+
 
 
 ![MSP1](./membership.diagram.3.png)
@@ -70,6 +72,8 @@ the typical relationship between an MSP and an organization --- a single MSP def
 the list of members of an organization. In the second configuration, different MSPs
 are used to represent different organizational groups with national, international,
 and governmental affiliation.*
+
+一个组织中不同的MSP配置。第一个配置现实了组织和其MSP之间比较典型的关系。一个单独的MSP定义了组织下属的所有会员；在第二个配置中，不同的MSP用来反应不同的组和国家，国际，以及政府部门之间的关系。
 
 #### Organizational Units and MSPs
 
