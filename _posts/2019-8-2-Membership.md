@@ -212,7 +212,7 @@ identities from RCA2. Note that these are administration identities, reflecting
 who can administer these components. So while ORG1 administers the network,
 ORG2.MSP does exist in the network definition.*
 
-不同级别的MSP，节点和排序节点的MSP是存在本地的，
+不同级别的MSP，节点和排序节点的MSP是存在本地的，然而通道节点（包括网络配置通道）的MSP是通道共享给所有加入该通道的节点的。在这些配置中，ORG1在管理通道配置，
 
  * **Network MSP:** The configuration of a network defines who are the
  members in the network --- by defining the MSPs of the participant organizations
