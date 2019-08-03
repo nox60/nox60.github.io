@@ -185,6 +185,7 @@ resides on and is maintained by the channel or the network.
 
 本地MSP只是定义在节点或者用户的本地文件环境中。因此，对于一个peer节点或者用户来说，物理上或者逻辑上也只能有一个MSP配置文件存在。无论如何，通道的MSP配置对于所有连接到该通道的节点来说都是可用的。
 
+
 ### MSP Levels
 
 The split between channel and local MSPs reflects the needs of organizations
