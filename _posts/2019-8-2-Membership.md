@@ -152,7 +152,7 @@ the channel configuration. For example, the channel of this figure is managed by
 both ORG1 and ORG2. Similar principles apply for the network, orderers, and users,
 but these are not shown here for simplicity.*
 
-
+本地和通道MSP。可信的域信息（比如某个组织）对于所有节点的定义，都是保存在节点的本地MSP内。比如，ORG1或者ORG2，代表了通道上的一个组织，要实现这个配置需要把该组织的本地MSP添加到通道的配置中。
 
 You may find it helpful to see how local and channel MSPs are used by seeing
 what happens when a blockchain administrator installs and instantiates a smart
