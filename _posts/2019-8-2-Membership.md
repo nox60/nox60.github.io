@@ -273,6 +273,8 @@ subfolder representing different elements of an MSP configuration.
 
 Let's describe these folders in a little more detail and see why they are important.
 
+下面分析了所有目录：
+
 * **Root CAs:** This folder contains a list of self-signed X.509 certificates of
   the Root CAs trusted by the organization represented by this MSP.
   There must be at least one Root CA X.509 certificate in this MSP folder.
@@ -280,6 +282,8 @@ Let's describe these folders in a little more detail and see why they are import
   This is the most important folder because it identifies the CAs from
   which all other certificates must be derived to be considered members of the
   corresponding organization.
+
+根CA目录：这个目录包含了自签发的X.509证书，
 
 
 * **Intermediate CAs:** This folder contains a list of X.509 certificates of the
