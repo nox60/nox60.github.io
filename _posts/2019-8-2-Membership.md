@@ -134,8 +134,12 @@ the chain of trust for the organization's members would need to be included in t
 channel configuration. Otherwise transactions originating from this organization's
 identities will be rejected.
 
+对比来看，通道MSP定义了通道层级的管理员和一些特殊权限。所有的加入通道的组织都有这样的MSP定义。而Peer节点和排序节点在通道上将共享这些通道MSP，并且因此能够正确的对通道参与者授权。这就意味着如果有一个机构希望加入这个通道，关于这个组织的会员需要被加入通道MSP配置信息。。。否则该组织在通道上提交的交易请求将会被拒绝。
+
 The key difference here between local and channel MSPs is not how they function
 --- both turn identities into roles --- but their **scope**.
+
+本地MSP和通道MSP的关键区别不在于他们的功能，他们都是把身份转化为角色，关键的区别在于他们的范围。
 
 <a name="msp2img"></a>
 
@@ -147,6 +151,8 @@ of an organization on a channel is achieved by adding the organization's MSP to
 the channel configuration. For example, the channel of this figure is managed by
 both ORG1 and ORG2. Similar principles apply for the network, orderers, and users,
 but these are not shown here for simplicity.*
+
+
 
 You may find it helpful to see how local and channel MSPs are used by seeing
 what happens when a blockchain administrator installs and instantiates a smart
