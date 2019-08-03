@@ -137,6 +137,7 @@ identities will be rejected.
 The key difference here between local and channel MSPs is not how they function
 --- both turn identities into roles --- but their **scope**.
 
+
 <a name="msp2img"></a>
 
 ![MSP2](./membership.diagram.4.png)
