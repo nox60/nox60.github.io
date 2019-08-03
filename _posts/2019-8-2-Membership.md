@@ -84,16 +84,25 @@ to reflect these separate lines of business. When a CA issues X.509 certificates
 the `OU` field in the certificate specifies the line of business to which the
 identity belongs.
 
+一个组织经常拆分为不同的组织单元OU，每个不同的组织单元都负责其不同的一些相关职能，。比如说，ORG1有`ORG1-MANUFACTURING` 和 `ORG1-DISTRIBUTION`两个组织单元，横线后面的单元名称体现了其的不同智能，当一个CA签发X.509证书的时候，其`OU`字段体现了相关信息。
+
 We'll see later how OUs can be helpful to control the parts of an organization who
 are considered to be the members of a blockchain network. For example, only
 identities from the `ORG1-MANUFACTURING` OU might be able to access a channel,
 whereas `ORG1-DISTRIBUTION` cannot.
+
+在后面将会看到不同的组织单元划分对于一个在区块链上的组织如何控制其各部分是有帮助的。
+
+在后面将会看到将一个组织的不同单元作为区块链中的不同组织是有意义的。比如，仅仅使`ORG1-MANUFACTURING` 这个单元能够连接到一个通道，而
+ `ORG1-DISTRIBUTION` 则不能.
 
 Finally, though this is a slight misuse of OUs, they can sometimes be used by
 different organizations in a consortium to distinguish each other. In such cases, the
 different organizations use the same Root CAs and Intermediate CAs for their chain
 of trust, but assign the `OU` field to identify members of each organization.
 We'll also see how to configure MSPs to achieve this later.
+
+
 
 ### Local and Channel MSPs
 
