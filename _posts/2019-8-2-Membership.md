@@ -18,6 +18,10 @@ within the scope of the organization the MSP represents (e.g., admins, or as mem
 of a sub-organization group), and sets the basis for defining **access privileges**
 in the context of a network and channel (e.g., channel admins, readers, writers).
 
+MSP不仅仅是列出网络中的账户或者通道里的成员。MSP可以实现权限识别，
+
+
+
 The configuration of an MSP is advertised to all the channels where members of
 the corresponding organization participate (in the form of a **channel MSP**). In
 addition to the channel MSP, peers, orderers, and clients also maintain a **local MSP**
