@@ -48,7 +48,7 @@ important about organizations (or **orgs**) is that they manage their
 members under a single MSP. Note that this is different from the organization
 concept defined in an X.509 certificate, which we'll talk about later.
 
-一个组织是指一组成员, 有可能是大到一个跨国公司，也有可能小到一个花店。最重要的是一个组织管理他们的成员在同一个单独的msp下。注意这个和X.509定义的组织概念是不一样的。后面我们会详细的讨论这个。
+一个组织是指一组成员, 有可能是大到一个跨国公司，也有可能小到一个花店。最重要的是一个组织将他们的成员放在同一个单独的msp下。注意，这个和X.509定义的组织概念是不一样的。后面我们会详细的讨论这个。
 
 The exclusive relationship between an organization and its MSP makes it sensible to
 name the MSP after the organization, a convention you'll find adopted in most policy
