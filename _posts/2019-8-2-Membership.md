@@ -212,7 +212,7 @@ identities from RCA2. Note that these are administration identities, reflecting
 who can administer these components. So while ORG1 administers the network,
 ORG2.MSP does exist in the network definition.*
 
-不同级别的MSP，节点和排序节点的MSP是存在本地的，然而通道节点（包括网络配置通道）的MSP是通道共享给所有加入该通道的节点的。在这些配置中，ORG1在管理通道配置，
+不同级别的MSP，节点和排序节点的MSP是存在本地的，然而通道节点（包括网络配置通道）的MSP是通道共享给所有加入该通道的节点的。在这些配置中，ORG1在管理通道配置，但是其他的业务通道则可以是ORG1和ORG2共同管理。peer节点是一个ORG2的成员并且是ORG2在管理，然而ORG1 管理了orderer排序节点。ORG1信任来自RCA1的证书，然而ORG2信任来自RCA2的证书。注意到，
 
  * **Network MSP:** The configuration of a network defines who are the
  members in the network --- by defining the MSPs of the participant organizations
