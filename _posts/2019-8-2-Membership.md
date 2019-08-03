@@ -116,11 +116,14 @@ of the users allow the user side to authenticate itself in its transactions as a
 of a channel (e.g. in chaincode transactions), or as the owner of a specific role
 into the system (an org admin, for example, in configuration transactions).
 
-MSP在区块链网络中有两种存储方式，一种是通道中的配置，一种是在参与者的本地配置。本地MSP一般用于定于用户以及其节点（peer节点或者排序节点），节点的本地MSP定义了那个节点的权限：比如谁是那个节点的管理员。本地MSP用于让用户允许用户端授权他们自己成为一个通道的成员。比如，在区块链交易过程中。
+MSP在区块链网络中有两种存储方式，一种是通道中的配置，一种是在参与者的本地配置。本地MSP一般用于定于用户以及其节点（peer节点或者排序节点），节点的本地MSP定义了那个节点的权限：比如谁是那个节点的管理员。本地MSP用于让用户允许用户端授权他们自己成为一个通道的成员。比如，在区块链交易过程中，或者，作为一个特殊权限的所有者进入一个系统（比如一个组织的管理员，可以配置交易）
 
 **Every node and user must have a local MSP defined**, as it defines who has
 administrative or participatory rights at that level (peer admins will not necessarily
 be channel admins, and vice versa).
+
+所有节点和用户都能够有一个本地MSP定义，就像定义每个人的管理员权限和成员权限一样。节点管理员不需要是通道管理员，反之亦然。
+
 
 In contrast, **channel MSPs define administrative and participatory rights at the
 channel level**. Every organization participating in a channel must have an MSP
