@@ -18,8 +18,9 @@ within the scope of the organization the MSP represents (e.g., admins, or as mem
 of a sub-organization group), and sets the basis for defining **access privileges**
 in the context of a network and channel (e.g., channel admins, readers, writers).
 
-MSP不仅仅是列出网络中的账户或者通道里的成员。MSP可以实现权限识别，
+MSP不仅仅能够列出一个网络中有哪些账户或者一个通道有哪些成员，MSP可以确定一个参与者在
 
+MSP不仅仅是列出网络中的账户或者通道里的成员。MSP可以实现权限识别，
 
 
 The configuration of an MSP is advertised to all the channels where members of
@@ -29,6 +30,7 @@ to authenticate member messages outside the context of a channel and to define t
 permissions over a particular component (who has the ability to install chaincode on
 a peer, for example).
 
+MSP的配置会被通知到channel里面的所有成员
 
 In addition, an MSP can allow for the identification of a list of identities that
 have been revoked --- as discussed in the [Identity](../identity/identity.html)
