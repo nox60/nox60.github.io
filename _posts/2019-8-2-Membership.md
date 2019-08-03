@@ -172,7 +172,7 @@ command. (Other things must happen too, but concentrate on the above for now.)
 
 当管理员B通过 'RCA1' 所签发的身份 连接到peer节点
 
-'RCA1' 给管理员B签发了一个身份，管理员B将该身份保存在本地MSP中，然后通过保存在本地MSP中的身份连接到peer节点
+'RCA1' 给管理员B签发了一个身份，管理员B将该身份保存在本地MSP中，然后通过保存在本地MSP中的身份连接到peer节点，然后管理员B尝试在这个peer节点上安装一个智能合约，这个peer节点检查了自己的本地MSP信息'ORG1-MSP', 检查这个管理员B的身份，发现管理员B确实是'ORG1'的一个成员。则允许安装该智能合约。在安装完智能合约后，管理员B如果希望在通道上实例化一个智能合约，但这是一个通道操作，所有在通道上关联的组织将会最终确认这个操作。因此，这peer节点需要确认通道的MSP之后，才能提交这个实例化命令。
 
 **Local MSPs are only defined on the file system of the node or user** to which
 they apply. Therefore, physically and logically there is only one local MSP per
