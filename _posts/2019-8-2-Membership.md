@@ -170,6 +170,10 @@ operation, all organizations on the channel must agree to it. Therefore, the
 peer must check the MSPs of the channel before it can successfully commit this
 command. (Other things must happen too, but concentrate on the above for now.)
 
+当管理员B通过 'RCA1' 所签发的身份 连接到peer节点
+
+'RCA1' 给管理员B签发了一个身份，管理员B将该身份保存在本地MSP中，然后通过保存在本地MSP中的身份连接到peer节点
+
 **Local MSPs are only defined on the file system of the node or user** to which
 they apply. Therefore, physically and logically there is only one local MSP per
 node or user. However, as channel MSPs are available to all nodes in the
