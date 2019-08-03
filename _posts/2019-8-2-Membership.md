@@ -30,7 +30,8 @@ to authenticate member messages outside the context of a channel and to define t
 permissions over a particular component (who has the ability to install chaincode on
 a peer, for example).
 
-MSP的配置会被通知到channel里面的所有成员
+在channel MSP情况下：MSP的配置会被通知到channel，这些channel里面的所有成员。
+在local MSP情况下：channel MSP, peers, orders和用户都会维护一个本地的MSP，
 
 In addition, an MSP can allow for the identification of a list of identities that
 have been revoked --- as discussed in the [Identity](../identity/identity.html)
@@ -47,6 +48,8 @@ important about organizations (or **orgs**) is that they manage their
 members under a single MSP. Note that this is different from the organization
 concept defined in an X.509 certificate, which we'll talk about later.
 
+一个组织是指一组成员, 有可能是大到一个跨国公司，也有可能小到一个花店。最重要的是一个组织管理他们的成员在同一个单独的msp下。注意这个和X.509定义的组织概念是不一样的。后面我们会详细的讨论这个。
+
 The exclusive relationship between an organization and its MSP makes it sensible to
 name the MSP after the organization, a convention you'll find adopted in most policy
 configurations. For example, organization `ORG1` would likely have an MSP called
@@ -57,6 +60,8 @@ multiple MSPs and name them accordingly, e.g., `ORG2-MSP-NATIONAL` and
 `ORG2-MSP-GOVERNMENT`, reflecting the different membership roots of trust within
 `ORG2` in the `NATIONAL` sales channel compared to the `GOVERNMENT` regulatory
 channel.
+
+
 
 ![MSP1](./membership.diagram.3.png)
 
