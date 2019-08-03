@@ -212,12 +212,14 @@ identities from RCA2. Note that these are administration identities, reflecting
 who can administer these components. So while ORG1 administers the network,
 ORG2.MSP does exist in the network definition.*
 
-不同级别的MSP，节点和排序节点的MSP是存在本地的，然而通道节点（包括网络配置通道）的MSP是通道共享给所有加入该通道的节点的。在这些配置中，ORG1在管理通道配置，但是其他的业务通道则可以是ORG1和ORG2共同管理。peer节点是一个ORG2的成员并且是ORG2在管理，然而ORG1 管理了orderer排序节点。ORG1信任来自RCA1的证书，然而ORG2信任来自RCA2的证书。注意到，
+不同级别的MSP，节点和排序节点的MSP是存在本地的，然而通道节点（包括网络配置通道）的MSP是通道共享给所有加入该通道的节点的。在这些配置中，ORG1在管理通道配置，但是其他的业务通道则可以是ORG1和ORG2共同管理。peer节点是一个ORG2的成员并且是ORG2在管理，然而ORG1 管理了orderer排序节点。ORG1信任来自RCA1的证书，然而ORG2信任来自RCA2的证书。注意到，这些管理类证书。反应了谁可以管理这些组件，因此ORG1管理了网络，而ORG2.MSP存在域网络定义中？
 
  * **Network MSP:** The configuration of a network defines who are the
  members in the network --- by defining the MSPs of the participant organizations
  --- as well as which of these members are authorized to perform
  administrative tasks (e.g., creating a channel).
+
+网络MSP，配置谁是网络中的成员的配置信息，通过定义组织中的参与者。。就像定义哪些成员是授权可以管理任务的：比如创建一个通道。
 
  * **Channel MSP:** It is important for a channel to maintain the MSPs of its members
  separately. A channel provides private communications between a particular set of
@@ -229,6 +231,8 @@ ORG2.MSP does exist in the network definition.*
  network configuration channel (or any other channel). Administrative rights
  exist within the scope of what is being administrated (unless the rules have
  been written otherwise --- see the discussion of the `ROLE` attribute below).
+
+ 通道MSP，对于将一个通道成员的MSP分开管理是比较重要的一个事情。一个通道为他的参与组织提供了私有的通信方式，
 
  * **Peer MSP:** This local MSP is defined on the file system of each peer and there is a
  single MSP instance for each peer. Conceptually, it performs exactly the same function
