@@ -232,7 +232,7 @@ ORG2.MSP does exist in the network definition.*
  exist within the scope of what is being administrated (unless the rules have
  been written otherwise --- see the discussion of the `ROLE` attribute below).
 
- 通道MSP，对于将一个通道成员的MSP分开管理是比较重要的一个事情。一个通道为他的参与组织提供了私有的通信方式，
+ 通道MSP，对于将一个通道成员的MSP分开管理是比较重要的一个事情。一个通道为他的参与组织提供了私有的通信方式，相应的这些组织也获得了通道的管理权？？通道的策略反应了 在通道的上下文定义中谁有能力加入通道的固定操作，比如，增加组织，或者实例化智能合约。注意，这些没有必然的联系：有权限管理一个通道或者管理网络配置通道或者其他通道。管理权限存在在可管理的范围里。
 
  * **Peer MSP:** This local MSP is defined on the file system of each peer and there is a
  single MSP instance for each peer. Conceptually, it performs exactly the same function
@@ -240,9 +240,13 @@ ORG2.MSP does exist in the network definition.*
  An example of an action whose authorization is evaluated using the peer's local MSP is
  the installation of a chaincode on the peer.
 
+ PEER MSP，节点MSP，本地MSP是定义在文件系统中的，因此一个peer节点有一个单独的本地MSP文件。就想定义通道MSP一样？？？这里有个例子就是，谁有权限就等于谁可以安装智能合约到一个节点上。
+
  * **Orderer MSP:** Like a peer MSP, an orderer local MSP is also defined on the file system
  of the node and only applies to that node. Like peer nodes, orderers are also owned by a single
  organization and therefore have a single MSP to list the actors or nodes it trusts.
+
+ 排序节点MSP，就像一个普通节点MSP一样，排序节点MSP一样是定义在本地文件系统中的，所以一个节点只有一个。排序只是一个单独的组织存在，因此其只是列出了所有操作者或者其信任的节点。
 
 ### MSP Structure
 
@@ -251,11 +255,15 @@ of the root or intermediate CAs that are used to establish an actor's or node's
 membership in the respective organization. There are, however, more elements that are
 used in conjunction with these two to assist with membership functions.
 
+到现在为止，已经可以MSP的看到很多重要的元素是用来定义CA或者intermediate CAs 用来创建用户或者节点的身份关系，因此，更多的元素用来连接两个或者多个。。。。
+
 ![MSP4](./membership.diagram.5.png)
 
 *The figure above shows how a local MSP is stored on a local filesystem. Even though
 channel MSPs are not physically structured in exactly this way, it's still a helpful
 way to think about them.*
+
+上面的图现实了一个MSP如何存在本地文件系统中的。尽管所有通道MSP都不是物理存在于这样的方式的，但是照这样的思路李杰，依然是很有帮助的
 
 As you can see, there are nine elements to an MSP. It's easiest to think of these elements
 in a directory structure, where the MSP name is the root folder name with each
