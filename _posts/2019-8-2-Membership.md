@@ -183,7 +183,7 @@ channel and kept synchronized via consensus**. So while there is a copy of each
 channel MSP on the local file system of every node, logically a channel MSP
 resides on and is maintained by the channel or the network.
 
-本地MSP只是定义在节点或者用户的本地文件环境中。因此，对于一个peer节点或者用户来说，物理上或者逻辑上也只能有一个MSP配置文件存在。无论如何，通道的MSP配置对于所有连接到该通道的节点来说都是可用的。
+本地MSP只是定义在节点或者用户的本地文件环境中。因此，对于一个peer节点或者用户来说，物理上或者逻辑上也只能有一个MSP配置文件存在。无论如何，通道的MSP配置对于所有连接到该通道的节点来说都是可用的，他们？逻辑上都只会定义一次在通道定义的时候。无论如何，一个通道MSP将在所有的文件系统中保存并且依靠共识机制保持同步。因此在所有节点中都有通道MSP的本地拷贝存在。逻辑上讲，一个通道是由该通道维护的。
 
 
 ### MSP Levels
@@ -197,6 +197,8 @@ network administration concerns** while **MSPs at a lower level handle
 identity for the administration of private resources**. MSPs are mandatory
 at every level of administration --- they must be defined for the network,
 channel, peer, orderer, and users.
+
+通道MSP和本地MSP的区别反应了组织和其管理员在他们本地资源管理上的不同需求，例如一个peer节点或者排序节点，以及他们的通道资源（比如账本，智能合约以及联盟信息）这都是通道或者网络级别的资源；这些资源是不同级别的
 
 ![MSP3](./membership.diagram.2.png)
 
