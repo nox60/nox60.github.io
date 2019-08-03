@@ -269,6 +269,8 @@ As you can see, there are nine elements to an MSP. It's easiest to think of thes
 in a directory structure, where the MSP name is the root folder name with each
 subfolder representing different elements of an MSP configuration.
 
+可以看到图中有九种MSP元素，很容易想象这些元素之间有直接关系。当MSP名字是root 文件夹的时候，所有的下级文件家都反应了不同的MSP配置元素。
+
 Let's describe these folders in a little more detail and see why they are important.
 
 * **Root CAs:** This folder contains a list of self-signed X.509 certificates of
