@@ -320,16 +320,21 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   holding an identity (signed by one of MSP designated CAs) with a specific OU
   in it.
   
-  组织单元，
+  组织单元是定义在config.yaml文件中的，并视为组织机构的列表，相关成员被试为组织的MSP的部分。这相当有效。。。。
 
   Specifying OUs is optional. If no OUs are listed, all the identities that are part of
   an MSP --- as identified by the Root CA and Intermediate CA folders --- will be considered
   members of the organization.
 
+定义组织单元是一个可选项，如果没有组织单元被定义，则所有成员都是属于MSP的，被根证书或者Intermediate CA定义，都将会被视为组织成员。
+  
+
 
 * **Administrators:** This folder contains a list of identities that define the
   actors who have the role of administrators for this organization. For the standard MSP type,
   there should be one or more X.509 certificates in this list.
+
+  管理员目录，包含了一组被定义为具备管理组织管理权限的管理员列表。对于标准的MSP格式来说，这应该是一个或者多个X.509证书列表。
 
   It's worth noting that just because an actor has the role of an administrator it doesn't
   mean that they can administer particular resources! The actual power a given identity has
@@ -338,11 +343,17 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   administrators have the rights to add new organizations to the channel, whereas the
   `ORG1-DISTRIBUTION` administrators have no such rights.
 
+  要注意的是，一个成员即便拥有管理员的权限（角色？）但也不代表他可以管理特殊的资源！具体的对系统资源的管理权限。。。。。
+
+  比如说，一个通道有可能指定了 `ORG1-MANUFACTURING`的管理员具有增加新组织到通道里的权限，而`ORG1-DISTRIBUTION` 的管理员可能则没有这样的权限。
+
   Even though an X.509 certificate has a `ROLE` attribute (specifying, for example, that
   an actor is an `admin`), this refers to an actor's role within its organization
   rather than on the blockchain network. This is similar to the purpose of
   the `OU` attribute, which --- if it has been defined --- refers to an actor's place in
   the organization.
+
+  尽管X.509证书具备一个`ROLE`属性，比如说，有一个角色的该属性可以是`admin`，这个
 
   The `ROLE` attribute **can** be used to confer administrative rights at the channel level
   if the policy for that channel has been written to allow any administrator from an organization
