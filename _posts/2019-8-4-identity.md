@@ -70,7 +70,7 @@ secure communications in a network.** It's PKI that puts the **S** in **HTTPS** 
 you're reading this documentation on a web browser, you're probably using a PKI to make
 sure it comes from a verified source.
 
-PKI是一组提供安全通信的网络
+PKI是一套互联网安全体系，其提供安全的网络通信技术。如果你正在通过浏览器在线阅读本文档，你也可能正在使用PKI保证你正在阅读可信的资源。
 
 ![PKI](./identity.diagram.7.png)
 
@@ -82,11 +82,15 @@ for the certificates that are no longer valid. Revocation of a certificate can h
 a number of reasons. For example, a certificate may be revoked because the cryptographic
 private material associated to the certificate has been exposed.*
 
+PKI是由发行数字证书的发行机构CA构建的，CA将数字证书签发给需要进行加密通信的机构。CA有一个吊销列表用来记录哪些机构不再使用CA证书。吊销可能有多种原因：比如一个数字证书的私有相关信息可能被泄漏。
+
 Although a blockchain network is more than a communications network, it relies on the
 PKI standard to ensure secure communication between various network participants, and to
 ensure that messages posted on the blockchain are properly authenticated.
 It's therefore important to understand the basics of PKI and then why MSPs are
 so important.
+
+尽管区块链网络是在普通通信网络之上的。但是区块链网络也依赖于PKI标准来确保在多方交换信息的时候的通信安全。并确保消息在区块链网络中是经过合理的授权了的。因此理解PKI体系和MSP非常重要。
 
 There are four key elements to PKI:
 
@@ -99,12 +103,16 @@ Let's quickly describe these PKI basics, and if you want to know more details,
 [Wikipedia](https://en.wikipedia.org/wiki/Public_key_infrastructure) is a good
 place to start.
 
+
+
 ## Digital Certificates
 
 A digital certificate is a document which holds a set of attributes relating to
 the holder of the certificate. The most common type of certificate is the one
 compliant with the [X.509 standard](https://en.wikipedia.org/wiki/X.509), which
 allows the encoding of a party's identifying details in its structure.
+
+一个数字证书其实是一份保存了一系列用户属性的文件。用的最多的数字证书格式是X.509格式。该格式允许结构性的编码？
 
 For example, Mary Morris in the Manufacturing Division of Mitchell Cars in Detroit,
 Michigan might have a digital certificate with a `SUBJECT` attribute of `C=US`,
@@ -114,6 +122,12 @@ information about Mary which she can use to prove key facts about her. There are
 many other attributes in an X.509 certificate, but let's concentrate on just these
 for now.
 
+比如Mary Morris在底特律汽车的工厂部门。该证书可能有多个字段比如：
+
+ `C=US`, `ST=Michigan`, `L=Detroit`, `O=Mitchell Cars`, `OU=Manufacturing`, `CN=Mary Morris /UID=123456`.
+
+Mary的证书和她的身份证很类似，都是提供了一系列的和她有关的信息，她可以证明这些信息是她本人的。X.509有非常多的属性在该证书里，但是本文目前只关注上述这些。
+
 ![DigitalCertificate](./identity.diagram.8.png)
 
 *A digital certificate describing a party called Mary Morris. Mary is the `SUBJECT` of the
@@ -121,6 +135,8 @@ certificate, and the highlighted `SUBJECT` text shows key facts about Mary. The
 certificate also holds many more pieces of information, as you can see. Most importantly,
 Mary's public key is distributed within her certificate, whereas her private signing key
 is not. This signing key must be kept private.*
+
+数字证书描述了Mary Morris的部分信息。Mary是证书的`SUBJECT`，`SUBJECT`高亮的信息代表了Mary的关键信息。这份证书因此也持有了更多的信息，更重要的是，Mary的公钥描述了她的数字签名，相反的，她的私钥则不是，私钥需要妥善的私有保存。
 
 What is important is that all of Mary's attributes can be recorded using a mathematical
 technique called cryptography (literally, "*secret writing*") so that tampering will
@@ -131,6 +147,8 @@ information securely (meaning, its own **private signing key**), anyone reading 
 certificate can be sure that the information about Mary has not been tampered with ---
 it will always have those particular attributes for Mary Morris. Think of Mary's X.509
 certificate as a digital identity card that is impossible to change.
+
+最重要的是Mary的信息可以被一种称为cryptography（数字水印？）的技术进行记录，所以无法篡改，
 
 ## Authentication, Public keys, and Private Keys
 
