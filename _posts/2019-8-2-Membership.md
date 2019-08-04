@@ -378,7 +378,7 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   as issued by. This "list of lists" is optional. It will only become populated
   as certificates are revoked.
 
-这个列表从概念上说是CRL为，其实也反应了组织对会员信息的吊销。一个本地或者通道MSP管理员，
+这个列表从概念上说是CRL为，其实也反应了组织对会员信息的吊销。一个本地或者通道MSP管理员，只需要更新CA提供的CRL，则可以快速的吊销一个成员或者节点
 
 
 * **Node Identity:** This folder contains the identity of the node, i.e.,
@@ -389,6 +389,8 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   in a transaction proposal response, for example, to indicate that the peer has
   endorsed it --- which can subsequently be checked against the resulting
   transaction's endorsement policy at validation time.
+
+  节点标示，这个文件夹包含了节点的标示信息，比如加密材料
 
   This folder is mandatory for local MSPs, and there must be exactly one X.509 certificate
   for the node. It is not used for channel MSPs.
