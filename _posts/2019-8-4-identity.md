@@ -148,7 +148,7 @@ certificate can be sure that the information about Mary has not been tampered wi
 it will always have those particular attributes for Mary Morris. Think of Mary's X.509
 certificate as a digital identity card that is impossible to change.
 
-最重要的是Mary的信息可以被一种称为cryptography（数字水印？）的技术进行记录，所以无法篡改，
+最重要的是Mary的信息可以被一种称为cryptography（数字水印？）的技术进行记录，所以无法篡改。Cryptography 的方式使的Mary在展现其相关信息给对 Cryptography加密方式信任的第三方时，可以获得信任。因为CA是过山保管了Mary证书签发的信息了的，第三方在阅读证书的时候，可以确保Mary的证书是没有被篡改过的，这一结论可以找CA证实。可以把Mary的X.509证书信息试为一种无法被修改的加密电子身份证卡。
 
 ## Authentication, Public keys, and Private Keys
 
@@ -160,9 +160,13 @@ For example, you might want to be sure you're communicating with the real Mary
 Morris rather than an impersonator. Or if Mary has sent you a message, you might want
 to be sure that it hasn't been tampered with by anyone else during transmission.
 
+授权和消息完整性在安全通信中是非常重要的概念。授权需要通信双方能够互相信任并且交换。。。。一个消息是否被整合的意思是在传输过程中不会被篡改。比如，你需要首先相信你正在和真正的Mary Morris通信而不是一个伪造的对象，还有就是Mary发了一个消息给你，你要能够相信该消息是没有被在发送途中被别人篡改过的。
+
 Traditional authentication mechanisms rely on **digital signatures** that,
 as the name suggests, allow a party to digitally **sign** its messages. Digital
 signatures also provide guarantees on the integrity of the signed message.
+
+传统的授权方式使用的是数字签名方式，就想这个名字所提到的，允许发送双方在发送信息的时候对消息体进行签名，然后数字签名提供了消息完整性的保证。
 
 Technically speaking, digital signature mechanisms require each party to
 hold two cryptographically connected keys: a public key that is made widely available
