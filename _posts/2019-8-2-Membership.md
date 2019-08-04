@@ -283,13 +283,18 @@ Let's describe these folders in a little more detail and see why they are import
   which all other certificates must be derived to be considered members of the
   corresponding organization.
 
-根CA目录：这个目录包含了自签发的X.509证书，
+根CA目录：这个目录包含了自签发的X.509证书，根CA信任的所有组织，在这个MSP中。必须至少有一个CA X.509的证书存在于MSP文件夹中。
+
+这个目录结构很重要，。。。。。
+
 
 
 * **Intermediate CAs:** This folder contains a list of X.509 certificates of the
   Intermediate CAs trusted by this organization. Each certificate must be signed by
   one of the Root CAs in the MSP or by an Intermediate CA whose issuing CA chain ultimately
   leads back to a trusted Root CA.
+
+Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表。所有的证书必须签发自可信一个根证书签发机构
 
   An intermediate CA may represent a different subdivision of the organization
   (like `ORG1-MANUFACTURING` and `ORG1-DISTRIBUTION` do for `ORG1`), or the
@@ -300,8 +305,12 @@ Let's describe these folders in a little more detail and see why they are import
   it is possible to have a functioning network that does not have an Intermediate
   CA, in which case this folder would be empty.
 
+一个 intermediate CA 可能代表一个不同的下级组织，比如`ORG1-MANUFACTURING` and `ORG1-DISTRIBUTION` 。或者也可能是这个组织本身，在后面的案例中，intermediate CA将用来代表组织的下级机构。可以在组织的MSP配置过程中体会到这个概念。注意，一个网络不包含任何intermediate CA是可以的，在这个情况下，相关目录就是空的。
+
   Like the Root CA folder, this folder defines the CAs from which certificates must be
   issued to be considered members of the organization.
+
+  就像根CA目录，这个目录定义了  。。。。。。 CA
 
 
 * **Organizational Units (OUs):** These are listed in the `$FABRIC_CFG_PATH/msp/config.yaml`
@@ -310,6 +319,8 @@ Let's describe these folders in a little more detail and see why they are import
   useful when you want to restrict the members of an organization to the ones
   holding an identity (signed by one of MSP designated CAs) with a specific OU
   in it.
+  
+  组织单元，
 
   Specifying OUs is optional. If no OUs are listed, all the identities that are part of
   an MSP --- as identified by the Root CA and Intermediate CA folders --- will be considered
