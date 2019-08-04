@@ -175,11 +175,15 @@ and acts as authentication anchor, and a private key that is used to produce
 the origin and integrity of a received message by checking that the
 attached signature is valid under the public key of the expected sender.
 
+从技术桑说，数字签名机制需要双方都有加密的连接key，比如一个公钥用于扮演验证定位器？的作用，而私钥则用于产生信息的数字签名。在收到信息一端使用发送方的公钥来检查信息是否完整，？？？
+
 **The unique relationship between a private key and the respective public key is the
 cryptographic magic that makes secure communications possible**. The unique
 mathematical relationship between the keys is such that the private key can be used to
 produce a signature on a message that only the corresponding public key can match, and
 only on the same message.
+
+
 
 ![AuthenticationKeys](./identity.diagram.9.png)
 
