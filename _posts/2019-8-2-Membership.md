@@ -353,13 +353,14 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   the `OU` attribute, which --- if it has been defined --- refers to an actor's place in
   the organization.
 
-  尽管X.509证书具备一个`ROLE`属性，比如说，有一个角色的该属性可以是`admin`，这个
+  尽管X.509证书具备一个`ROLE`属性，比如说，有一个角色的该属性可以是`admin`，这个属性指向了其在组织中的权限，而不是在区块链网络中的。这个类似`OU` 字段，指定了该角色在该组织中的角色。
 
   The `ROLE` attribute **can** be used to confer administrative rights at the channel level
   if the policy for that channel has been written to allow any administrator from an organization
   (or certain organizations) permission to perform certain channel functions (such as
   instantiating chaincode). In this way, an organizational role can confer a network role.
 
+`ROLE`属性可以用于管理员在通道级别的权限，如果该通道策略已经被定义为来自某个机构或者指定机构的管理员可以对通道执行操作，那么该组织的权限则可以引用到一个网络的权限。
 
 * **Revoked Certificates:** If the identity of an actor has been revoked,
   identifying information about the identity --- not the identity itself --- is held
@@ -368,12 +369,16 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   whenever the X.509 certificate is being used to make sure the certificate has not
   been revoked.
 
+  吊销证书，如果一个角色的权限被吊销了，身份的说明信息是被MSP目录。。。。
+
   This list is conceptually the same as a CA's Certificate Revocation List (CRL),
   but it also relates to revocation of membership from the organization. As a result,
   the administrator of an MSP, local or channel, can quickly revoke an actor or node
   from an organization by advertising the updated CRL of the CA the revoked certificate
   as issued by. This "list of lists" is optional. It will only become populated
   as certificates are revoked.
+
+这个列表从概念上说是CRL为，其实也反应了组织对会员信息的吊销。一个本地或者通道MSP管理员，
 
 
 * **Node Identity:** This folder contains the identity of the node, i.e.,
