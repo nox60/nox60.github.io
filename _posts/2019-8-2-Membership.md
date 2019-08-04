@@ -402,9 +402,13 @@ Intermediate CA 目录包含了当前组织信任的X.509格式的证书列表�
   folder and is used to sign data --- for example to sign a transaction proposal response,
   as part of the endorsement phase.
 
+  私钥目录是peer节点和排序节点的本地MSP目录里的，里面存储了节点的私钥，这个私钥匹配节点的身份和签名信息。该目录用来对数据进行签名，比如签名一个交易信息，就像一部分背书内容。
+
   This folder is mandatory for local MSPs, and must contain exactly one private key.
   Obviously, access to this folder must be limited only to the identities of users who have
   administrative responsibility on the peer.
+
+  该目录在本地MSP中的存在是强制性质的，并且必须包含有且仅有一个私钥。很显然，只有受限制的用户才能访问该目录，接触该目录也必须是
 
   Configuration of a **channel MSPs** does not include this folder, as channel MSPs
   solely aim to offer identity validation functionalities and not signing abilities.
