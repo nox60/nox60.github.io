@@ -41,7 +41,7 @@ pay with a different card --- let's call it an "ImagineCard" --- it doesn't matt
 the card is authentic and you have sufficient funds in your account. It will be not be
 accepted.
 
-
+当消费者在超市购物结束需要结账的时候，会拿出自己的信用卡进行结账，而该超市只接受VISA，Mastercard或者AMEX卡进行支付，如果尝试使用一张不同的卡，假设其名字叫'ImagineCard'，不管这个卡是谁授权的以及是否你又足够的钱在账户里，这张卡都将是不被接受的。
 
 ![Scenario](./identity.diagram.6.png)
 
@@ -50,12 +50,16 @@ and MSPs work together in the same way --- a PKI provides a list of identities,
 and an MSP says which of these are members of a given organization that participates in
 the network.*
 
+上面的例子说明，有一张合法的信用卡是不够的，重要的是还得具有一张能够被超市所接受的信用卡。PKI体系和MSP体系协作完成实现了这一约束体系。PKI提供了身份说明，而MSP确认了成员所属的组织以及参加了哪些网络。
+
 PKI certificate authorities and MSPs provide a similar combination of functionalities.
 A PKI is like a card provider --- it dispenses many different types of verifiable
 identities. An MSP, on the other hand, is like the list of card providers accepted
 by the store, determining which identities are the trusted members (actors)
 of the store payment network. **MSPs turn verifiable identities into the members
 of a blockchain network**.
+
+PKI身份体系和MSP结合起来提供认证：PKI就像发卡方，发型了多种不同的身份，而MSP就想商店所列出的接受的卡类型的列表，确认了哪些身份是该商店的支付网络中的受信成员。MSP将可验证的身份转化为区块链网络的成员列表。
 
 Let's drill into these concepts in a little more detail.
 
@@ -65,6 +69,8 @@ Let's drill into these concepts in a little more detail.
 secure communications in a network.** It's PKI that puts the **S** in **HTTPS** --- and if
 you're reading this documentation on a web browser, you're probably using a PKI to make
 sure it comes from a verified source.
+
+PKI是一组提供安全通信的网络
 
 ![PKI](./identity.diagram.7.png)
 
