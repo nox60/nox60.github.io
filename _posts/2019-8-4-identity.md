@@ -296,10 +296,13 @@ in browsers. However, because **some** CA must be used to manage identity
 certificates. It is also possible --- and fully appropriate --- to use a
 public/commercial root or intermediate CA to provide identification.
 
-
+因为CA机制非常重要，所以Fabric提供了内建的CA组件，这样可以在区块链网络中使用自签发的CA。这个组件被称为
+Fabric CA，是私有的根CA提供者，可以实现区块链网络内部的基于X.509标准的证书签发。因为Fabric CA是一种自定义来实现Fabric网络里面的根的CA，它并不适合用来提供网络上使用的，可以用于浏览器的ssl加密的证书。无论如何，因为CA必须用于管理身份，Fabric CA可以用于提供和管理证书。所以也可以也完全适合使用商业伤的CA根证书或者中级证书来解决首Fabric网络的授权问题。
 
 If you're interested, you can read a lot more about Fabric CA
 [in the CA documentation section](http://hyperledger-fabric-ca.readthedocs.io/).
+
+如果有兴趣，可以阅读Fabric CA的相关文档
 
 ## Certificate Revocation Lists
 
