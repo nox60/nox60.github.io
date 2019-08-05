@@ -302,7 +302,7 @@ Fabric CA，是私有的根CA提供者，可以实现区块链网络内部的基
 If you're interested, you can read a lot more about Fabric CA
 [in the CA documentation section](http://hyperledger-fabric-ca.readthedocs.io/).
 
-如果有兴趣，可以阅读Fabric CA的相关文档
+如果有兴趣，可以阅读Fabric CA相关文档。
 
 ## Certificate Revocation Lists
 
@@ -310,10 +310,14 @@ A Certificate Revocation List (CRL) is easy to understand --- it's just a list o
 references to certificates that a CA knows to be revoked for one reason or another.
 If you recall the store scenario, a CRL would be like a list of stolen credit cards.
 
+CRL作为证书的吊销记录，就是一个因为某些被吊销的证书的列表。回忆一下商店那个应用场景，CRL就像一个已挂失信用卡的列表。
+
 When a third party wants to verify another party's identity, it first checks the
 issuing CA's CRL to make sure that the certificate has not been revoked. A
 verifier doesn't have to check the CRL, but if they don't they run the risk of
 accepting a compromised identity.
+
+
 
 ![CRL](./identity.diagram.12.png)
 
