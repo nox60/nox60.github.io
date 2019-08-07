@@ -64,7 +64,6 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
         - basic
 ```
 
-
 用二进制程序的方式模拟上面的docker
 
 首先，要注意这行挂载，上面容器运行的时候，有些文件是从外面挂载进去的：
