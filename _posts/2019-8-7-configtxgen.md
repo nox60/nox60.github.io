@@ -28,8 +28,10 @@ Usage of configtxgen:
       指定一个profile文件
   -channelID string
     	The channel ID to use in the configtx
+      通道ID
   -configPath string
     	The path containing the configuration to use (if set)
+      配置文件地址，如果设置得有的话
   -inspectBlock string
     	Prints the configuration contained in the block at the specified path
   -inspectChannelCreateTx string
@@ -55,14 +57,20 @@ Usage of configtxgen:
 Write a genesis block to `genesis_block.pb` for channel `orderer-system-channel`
 for profile `SampleSingleMSPSoloV1_1`.
 
+为通道 `orderer-system-channel` 按照配置信息 `SampleSingleMSPSoloV1_1` 生成创世区块
+
 ```
 configtxgen -outputBlock genesis_block.pb -profile SampleSingleMSPSoloV1_1 -channelID orderer-system-channel
 ```
+
+要注意上面的配置信息段落：SampleSingleMSPSoloV1_1
 
 ### Output a channel creation tx
 
 Write a channel creation transaction to `create_chan_tx.pb` for profile
 `SampleSingleMSPChannelV1_1`.
+
+按照配置信息 `SampleSingleMSPChannelV1_1`  生成通道的创造性交易？生成的文件名为 `create_chan_tx.pb`
 
 ```
 configtxgen -outputCreateChannelTx create_chan_tx.pb -profile SampleSingleMSPChannelV1_1 -channelID application-channel-1
