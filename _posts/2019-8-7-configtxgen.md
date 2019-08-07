@@ -4,18 +4,28 @@ The `configtxgen` command allows users to create and inspect channel config
 related artifacts.  The content of the generated artifacts is dictated by the
 contents of `configtx.yaml`.
 
+
+`configtxgen` 工具能够让用户创建channel和查看channel对应的配置信息。相关的内容要参考`configtx.yaml` 配置文件。
+
 ## Syntax
 
 The `configtxgen` tool has no sub-commands, but supports flags which can be set
 to accomplish a number of tasks.
+
+`configtxgen` 工具没有子命令，但是支持不同的参数已完成不同的任务。
 
 ## configtxgen
 ```
 Usage of configtxgen:
   -asOrg string
     	Performs the config generation as a particular organization (by name), only including values in the write set that org (likely) has privilege to set
+
+      为指名的组织生成配置文件，只包含 具有写集合的组织的？写集合？
+
   -channelCreateTxBaseProfile string
     	Specifies a profile to consider as the orderer system channel current state to allow modification of non-application parameters during channel create tx generation. Only valid in conjunction with 'outputCreateChannelTx'.
+      
+      指定一个profile文件
   -channelID string
     	The channel ID to use in the configtx
   -configPath string
