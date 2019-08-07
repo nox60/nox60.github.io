@@ -37,7 +37,6 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
 
 ```
 
-
 # CA容器
 
 容器所用镜像：hyperledger/fabric-ca
