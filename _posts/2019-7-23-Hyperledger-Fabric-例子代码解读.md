@@ -175,7 +175,6 @@ hyperledger/fabric-couchdb
 
 上面的docker方式使用了五个环境变量对服务进行配置，而在二进制方式中，更多的配置方式来自于配置文件 orderer.yaml 里面的配置。
 
-
 # peer节点容器
 
 容器所用镜像：hyperledger/fabric-peer
