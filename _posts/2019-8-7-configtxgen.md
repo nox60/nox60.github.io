@@ -81,6 +81,8 @@ configtxgen -outputCreateChannelTx create_chan_tx.pb -profile SampleSingleMSPCha
 Print the contents of a genesis block named `genesis_block.pb` to the screen as
 JSON.
 
+将一个名为`genesis_block.pb`的创世区块信息以为json的格式打印出来。
+
 ```
 configtxgen -inspectBlock genesis_block.pb
 ```
@@ -89,6 +91,8 @@ configtxgen -inspectBlock genesis_block.pb
 
 Print the contents of a channel creation tx named `create_chan_tx.pb` to the
 screen as JSON.
+
+将一个名为 `create_chan_tx.pb` 创建通道的交易以json格式打印出来。
 
 ```
 configtxgen -inspectChannelCreateTx create_chan_tx.pb
@@ -100,6 +104,8 @@ Construct an organization definition based on the parameters such as MSPDir
 from `configtx.yaml` and print it as JSON to the screen. (This output is useful
 for channel reconfiguration workflows, such as adding a member).
 
+将一个组织的配置参数信息，比如 定义在 `configtx.yaml`中的 MSPDir 信息以json格式打印出来（这样的输出信息在重新配置通道的时候比较有用，比如增加一个成员？'peer?'） 
+
 ```
 configtxgen -printOrg Org1
 ```
@@ -109,6 +115,8 @@ configtxgen -printOrg Org1
 Output a configuration update transaction to `anchor_peer_tx.pb` which sets the
 anchor peers for organization Org1 as defined in profile
 SampleSingleMSPChannelV1_1 based on `configtx.yaml`.
+
+
 
 ```
 configtxgen -outputAnchorPeersUpdate anchor_peer_tx.pb -profile SampleSingleMSPChannelV1_1 -asOrg Org1
