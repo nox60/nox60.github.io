@@ -132,6 +132,7 @@ This configuration file may be edited, or, individual properties may be
 overridden by setting environment variables, such as
 `CONFIGTX_ORDERER_ORDERERTYPE=kafka`.
 
+
 For many `configtxgen` operations, a profile name must be supplied.  Profiles
 are a way to express multiple similar configurations in a single file.  For
 instance, one profile might define a channel with 3 orgs, and another might
