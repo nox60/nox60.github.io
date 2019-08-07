@@ -16,6 +16,7 @@ orderer容器
 peer节点容器
 couchdb容器
 
+
 docker ps -a
 
 # wait for Hyperledger Fabric to start
