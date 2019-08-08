@@ -231,3 +231,81 @@ PeerOrgs:
     Users:
       Count: 1
 ```
+
+## 测试执行
+
+执行命令：
+
+```testcommand
+cryptogen generate \
+--config=./crypto-config.yaml \
+--output="crypto-config-test" 
+```
+
+配置文件：
+
+
+```aaa
+
+OrdererOrgs:
+  - Name: Orderer
+    Domain: mydomain.net
+    Specs:
+      - Hostname: orderer
+```
+
+会生成如下文件，目录结构如下：
+
+```tree
+.
+└── mydomain.net
+    ├── ca
+    │   ├── 547f11276aa5a436d1d636b7c96507fbb42f4b31452a4aa2eb4697149bb909ea_sk
+    │   └── ca.mydomain.net-cert.pem
+    ├── msp
+    │   ├── admincerts
+    │   │   └── Admin@mydomain.net-cert.pem
+    │   ├── cacerts
+    │   │   └── ca.mydomain.net-cert.pem
+    │   └── tlscacerts
+    │       └── tlsca.mydomain.net-cert.pem
+    ├── orderers
+    │   └── orderer.mydomain.net
+    │       ├── msp
+    │       │   ├── admincerts
+    │       │   │   └── Admin@mydomain.net-cert.pem
+    │       │   ├── cacerts
+    │       │   │   └── ca.mydomain.net-cert.pem
+    │       │   ├── keystore
+    │       │   │   └── 1497ce9d6db52da30d589e25501b7b4e3cb96568e3385fc4150dcdf384cd705b_sk
+    │       │   ├── signcerts
+    │       │   │   └── orderer.mydomain.net-cert.pem
+    │       │   └── tlscacerts
+    │       │       └── tlsca.mydomain.net-cert.pem
+    │       └── tls
+    │           ├── ca.crt
+    │           ├── server.crt
+    │           └── server.key
+    ├── tlsca
+    │   ├── b9ae9473c90b0721a10da8f35ce7bf267fceab671b1d89ec2f81b3eae701ba2a_sk
+    │   └── tlsca.mydomain.net-cert.pem
+    └── users
+        └── Admin@mydomain.net
+            ├── msp
+            │   ├── admincerts
+            │   │   └── Admin@mydomain.net-cert.pem
+            │   ├── cacerts
+            │   │   └── ca.mydomain.net-cert.pem
+            │   ├── keystore
+            │   │   └── 00483868486b00f776ebe38c4df8da91fa5627be9ac1201a496a012b8e5239e6_sk
+            │   ├── signcerts
+            │   │   └── Admin@mydomain.net-cert.pem
+            │   └── tlscacerts
+            │       └── tlsca.mydomain.net-cert.pem
+            └── tls
+                ├── ca.crt
+                ├── client.crt
+                └── client.key
+
+
+```
