@@ -165,6 +165,7 @@ PeerOrgs:
     #
     # Specs is an array of Spec entries.  Each Spec entry consists of two fields:
     #   - Hostname:   (Required) The desired hostname, sans the domain.
+    #                 必填，隐式的会生成："foo.org1.example.com" ？这个需要验证
     #   - CommonName: (Optional) Specifies the template or explicit override for
     #                 the CN.  By default, this is the template:
     #
