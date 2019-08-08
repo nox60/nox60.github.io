@@ -113,11 +113,13 @@ Where config.yaml adds a new peer organization called ``org3.example.com``
 
 
 # ---------------------------------------------------------------------------
-# "OrdererOrgs" - Definition of organizations managing orderer nodes
+# "OrdererOrgs" - Definition of organizations managing orderer nodes 
+# 定义管理排序节点的相关组织信息
 # ---------------------------------------------------------------------------
 OrdererOrgs:
   # ---------------------------------------------------------------------------
-  # Orderer
+  # Orderer 
+  # 节点名称和域名
   # ---------------------------------------------------------------------------
   - Name: Orderer
     Domain: example.com
@@ -129,7 +131,7 @@ OrdererOrgs:
       - Hostname: orderer
 
 # ---------------------------------------------------------------------------
-# "PeerOrgs" - Definition of organizations managing peer nodes
+# "PeerOrgs" - Definition of organizations managing peer nodes 定义管理peer的组织名称
 # ---------------------------------------------------------------------------
 PeerOrgs:
   # ---------------------------------------------------------------------------
@@ -144,6 +146,7 @@ PeerOrgs:
     # ---------------------------------------------------------------------------
     # Uncomment this section to enable the explicit definition of the CA for this
     # organization.  This entry is a Spec.  See "Specs" section below for details.
+    # 该组织的CA信息？CSR信息？
     # ---------------------------------------------------------------------------
     # CA:
     #    Hostname: ca # implicitly ca.org1.example.com
