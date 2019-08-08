@@ -6,7 +6,7 @@ It would normally not be used in the operation of a production network.
 
 ## Syntax
 
-The ``cryptogen`` command has five subcommands, as follows:
+The ``cryptogen`` command `has` five subcommands, as follows:
 
   * help
   * generate
