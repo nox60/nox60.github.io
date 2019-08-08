@@ -4,9 +4,13 @@
 It is provided as a means of preconfiguring a network for testing purposes.
 It would normally not be used in the operation of a production network.
 
-## Syntax
+`cryptogen` 是一个生成Hyperledger Fabric相关秘钥的工具。为网络的预先配置提供了实现。一般来说不会用于生产环境。
 
-The ``cryptogen`` command `has` five subcommands, as follows:
+## Syntax
+## 语法
+
+The ``cryptogen`` command has five subcommands, as follows:
+`cryptogen` 命令有个五个子命令，如下：
 
   * help
   * generate
