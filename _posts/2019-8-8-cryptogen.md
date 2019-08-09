@@ -254,7 +254,12 @@ OrdererOrgs:
       - Hostname: orderer
 ```
 
-会生成如下文件，目录结构如下，其文件意义很容易懂：
+会生成如下文件，目录结构如下，可以看到，生成了以下文件：
+
+- ca的公私钥
+- org的msp目录
+- orderer节点的msp目录
+- admin的msp目录
 
 ```tree
 .
@@ -306,6 +311,4 @@ OrdererOrgs:
                 ├── ca.crt
                 ├── client.crt
                 └── client.key
-
-
 ```
