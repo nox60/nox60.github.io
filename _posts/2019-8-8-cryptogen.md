@@ -314,3 +314,36 @@ OrdererOrgs:
 ```
 
 
+用上面的信息生成创世区块：
+
+```genen
+configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock ./channel-artifacts/genesis.block
+configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./channel-artifacts/genesis.block
+
+```
+
+- 其中，-profile后面跟的是 configtx.yaml 配置文件中，最后的profile块里面定义的profile名称，用这样的方式，可以简化配置文件的编写。
+- channelID 需要明确
+- -outputBlock 就是输出的创世区块位置
+
+
+## 利用创世区块拉起orderer服务
+
+注意上面生成的目录中
+
+```pt
+.
+└── mydomain.net
+    │   
+    ├── msp
+    ├── orderers
+    │   └── orderer.mydomain.net
+    │       ├── msp
+```
+
+/root/softwares/fabric-samples/first-network/channel-artifacts
+
+/root/softwares/fabric-samples/first-network/crypto-config-test/ordererOrganizations/mydomain.net/orderers/orderer.mydomain.net/msp
+
+
+
