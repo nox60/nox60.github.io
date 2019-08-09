@@ -254,7 +254,7 @@ OrdererOrgs:
       - Hostname: orderer
 ```
 
-会生成如下文件，目录结构如下：
+会生成如下文件，目录结构如下，其文件意义很容易懂：
 
 ```tree
 .
