@@ -345,5 +345,11 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 
 /root/softwares/fabric-samples/first-network/crypto-config-test/ordererOrganizations/mydomain.net/orderers/orderer.mydomain.net/msp
 
+参考下面的orderer.yaml配置文件：
+
+```orderer
+
+```
+
 
 
