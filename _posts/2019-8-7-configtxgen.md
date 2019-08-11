@@ -116,8 +116,6 @@ Output a configuration update transaction to `anchor_peer_tx.pb` which sets the
 anchor peers for organization Org1 as defined in profile
 SampleSingleMSPChannelV1_1 based on `configtx.yaml`.
 
-
-
 ```
 configtxgen -outputAnchorPeersUpdate anchor_peer_tx.pb -profile SampleSingleMSPChannelV1_1 -asOrg Org1
 ```
