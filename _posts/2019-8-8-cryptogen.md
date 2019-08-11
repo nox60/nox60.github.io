@@ -352,5 +352,3 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 ```
 
 
-
-
