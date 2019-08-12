@@ -104,7 +104,6 @@ Let's quickly describe these PKI basics, and if you want to know more details,
 place to start.
 
 
-
 ## Digital Certificates
 
 A digital certificate is a document which holds a set of attributes relating to
