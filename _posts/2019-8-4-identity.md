@@ -247,6 +247,7 @@ digital identity.
 
 ### Root CAs, Intermediate CAs and Chains of Trust
 
+
 CAs come in two flavors: **Root CAs** and **Intermediate CAs**. Because Root CAs
 (Symantec, Geotrust, etc) have to **securely distribute** hundreds of millions
 of certificates to internet users, it makes sense to spread this process out
