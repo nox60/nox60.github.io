@@ -137,6 +137,7 @@ is not. This signing key must be kept private.*
 
 数字证书描述了Mary Morris的部分信息。Mary是证书的`SUBJECT`，`SUBJECT`高亮的信息代表了Mary的关键信息。这份证书因此也持有了更多的信息，更重要的是，Mary的公钥描述了她的数字签名，相反的，她的私钥则不是，私钥需要妥善的私有保存。
 
+
 What is important is that all of Mary's attributes can be recorded using a mathematical
 technique called cryptography (literally, "*secret writing*") so that tampering will
 invalidate the certificate. Cryptography allows Mary to present her certificate to others
