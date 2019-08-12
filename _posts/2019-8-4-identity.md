@@ -2,6 +2,7 @@
 
 ## What is an Identity?
 
+
 The different actors in a blockchain network include peers, orderers, client
 applications, administrators and more. Each of these actors --- active elements
 inside or outside a network able to consume services --- has a digital identity
