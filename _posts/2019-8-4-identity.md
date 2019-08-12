@@ -33,6 +33,7 @@ on PKI later).
 
 ## A Simple Scenario to Explain the Use of an Identity
 
+
 一个简单的使用身份的场景。
 
 Imagine that you visit a supermarket to buy some groceries. At the checkout you see
