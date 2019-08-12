@@ -187,7 +187,6 @@ only on the same message.
 公钥和私钥之间的特殊关系是cryptographic的魔力，它使得安全通信成为了一种可能，这种特殊的关系使得私钥对消息进行的签名只有对应的公钥才能匹配解出。
 
 
-
 ![AuthenticationKeys](./identity.diagram.9.png)
 
 In the example above, Mary uses her private key to sign the message. The signature
