@@ -104,6 +104,8 @@ Construct an organization definition based on the parameters such as MSPDir
 from `configtx.yaml` and print it as JSON to the screen. (This output is useful
 for channel reconfiguration workflows, such as adding a member).
 
+
+
 将一个组织的配置参数信息，比如 定义在 `configtx.yaml`中的 MSPDir 信息以json格式打印出来（这样的输出信息在重新配置通道的时候比较有用，比如增加一个成员？'peer?'） 
 
 ```
