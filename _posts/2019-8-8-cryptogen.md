@@ -314,7 +314,11 @@ OrdererOrgs:
 ```
 
 
-用上面的信息生成创世区块：
+用上面的信息生成创世区块，生成创世区块要用到的配置文件是configtx.yaml：
+
+注意命令里面的相关信息
+
+
 
 ```genen
 configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock ./channel-artifacts/genesis.block
@@ -350,7 +354,6 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 ```orderer
 
 ```
-
 
 
 
