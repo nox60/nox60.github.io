@@ -252,6 +252,14 @@ OrdererOrgs:
     Domain: mydomain.net
     Specs:
       - Hostname: orderer
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 2
 ```
 
 会生成如下文件，目录结构如下，可以看到，生成了以下文件：
@@ -312,6 +320,7 @@ OrdererOrgs:
                 ├── client.crt
                 └── client.key
 ```
+
 
 
 用上面的信息生成创世区块，生成创世区块要用到的配置文件是`configtx.yaml`：
