@@ -4,7 +4,7 @@
 It is provided as a means of preconfiguring a network for testing purposes.
 It would normally not be used in the operation of a production network.
 
-`cryptogen` 是一个生成Hyperledger Fabric相关秘钥的工具。为网络的预先配置提供了实现。一般来说不会用于生产环境。
+`cryptogen` 是一个生成Hyperledger Fabric相关秘钥的工具。为网络的预先配置提供了实现。一般来说不会用于生产环境。在生成创世区块之前，要用该工具先生成各种需要的秘钥。
 
 ## Syntax
 ## 语法
@@ -242,7 +242,7 @@ cryptogen generate \
 --output="crypto-config-test" 
 ```
 
-配置文件：
+对应的配置文件 crypto-config.yaml如：
 
 
 ```aaa
@@ -314,10 +314,9 @@ OrdererOrgs:
 ```
 
 
-用上面的信息生成创世区块，生成创世区块要用到的配置文件是configtx.yaml：
+用上面的信息生成创世区块，生成创世区块要用到的配置文件是`configtx.yaml`：
 
 注意命令里面的相关信息
-
 
 
 ```genen
@@ -354,6 +353,12 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 ```orderer
 
 ```
+
+
+出错信息：
+
+2019-08-14 00:30:51.446 CST [orderer.commmon.multichannel] checkResourcesOrPanic -> PANI 004 [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
+panic: [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
 
 
 

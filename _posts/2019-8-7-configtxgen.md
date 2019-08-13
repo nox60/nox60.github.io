@@ -70,7 +70,7 @@ configtxgen -outputBlock genesis_block.pb -profile SampleSingleMSPSoloV1_1 -chan
 Write a channel creation transaction to `create_chan_tx.pb` for profile
 `SampleSingleMSPChannelV1_1`.
 
-按照配置信息 `SampleSingleMSPChannelV1_1`  生成通道的创造性交易？生成的文件名为 `create_chan_tx.pb`
+按照配置信息 `SampleSingleMSPChannelV1_1`  生成通道的创世区块？生成的文件名为 `create_chan_tx.pb`
 
 ```
 configtxgen -outputCreateChannelTx create_chan_tx.pb -profile SampleSingleMSPChannelV1_1 -channelID application-channel-1
