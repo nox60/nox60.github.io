@@ -334,6 +334,7 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 
 ```
 
+
 - 其中，-profile后面跟的是 configtx.yaml 配置文件中，最后的profile块里面定义的profile名称，用这样的方式，可以简化配置文件的编写。
 - channelID 需要明确
 - -outputBlock 就是输出的创世区块位置
