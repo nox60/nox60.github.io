@@ -54,6 +54,7 @@ Usage of configtxgen:
 
 ### Output a genesis block
 
+
 Write a genesis block to `genesis_block.pb` for channel `orderer-system-channel`
 for profile `SampleSingleMSPSoloV1_1`.
 
@@ -70,7 +71,7 @@ configtxgen -outputBlock genesis_block.pb -profile SampleSingleMSPSoloV1_1 -chan
 Write a channel creation transaction to `create_chan_tx.pb` for profile
 `SampleSingleMSPChannelV1_1`.
 
-按照配置信息 `SampleSingleMSPChannelV1_1`  生成通道的创世区块？生成的文件名为 `create_chan_tx.pb`
+按照配置信息 `SampleSingleMSPChannelV1_1`  生成通道的创造性交易？生成的文件名为 `create_chan_tx.pb`
 
 ```
 configtxgen -outputCreateChannelTx create_chan_tx.pb -profile SampleSingleMSPChannelV1_1 -channelID application-channel-1
@@ -154,4 +155,16 @@ configuration options.  You may find this file in the `config` directory of
 the release artifacts tar, or you may find it under the `sampleconfig` folder
 if you are building from source.
 
+
+
+1. 大家先说问题
+2. 讨论邮件中的问题
+3. 健哥加入工作计划
+
+
+需求清晰，上线流程
+
+使用手册
+
+代码重构
 
