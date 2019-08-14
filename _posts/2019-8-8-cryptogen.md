@@ -328,8 +328,6 @@ PeerOrgs:
 注意命令里面的相关信息
 
 
-
-
 ```genen
 configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock genesis.block
 configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./channel-artifacts/genesis.block
