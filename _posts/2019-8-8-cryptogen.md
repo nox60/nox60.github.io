@@ -342,8 +342,6 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 
 
 
-
-
 ## 利用创世区块拉起orderer服务
 
 注意上面生成的目录中
