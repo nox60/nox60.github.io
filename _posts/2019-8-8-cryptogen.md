@@ -329,6 +329,7 @@ PeerOrgs:
 
 
 
+
 ```genen
 configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock genesis.block
 configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./channel-artifacts/genesis.block
