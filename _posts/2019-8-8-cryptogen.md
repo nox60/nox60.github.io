@@ -366,10 +366,4 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 ```
 
 
-出错信息：
-
-2019-08-14 00:30:51.446 CST [orderer.commmon.multichannel] checkResourcesOrPanic -> PANI 004 [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
-panic: [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
-
-
 
