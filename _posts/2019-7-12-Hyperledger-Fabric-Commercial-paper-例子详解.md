@@ -37,7 +37,9 @@ v10.16.0
 
 https://stackoverflow.com/questions/29468404/gyp-warn-eacces-user-root-does-not-have-permission-to-access-the-dev-dir
 
+## 全局梯子设置
 
+export ALL_PROXY=socks5://127.0.0.1:1080
 
 ## Docker
 
