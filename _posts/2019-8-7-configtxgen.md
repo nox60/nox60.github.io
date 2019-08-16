@@ -106,6 +106,9 @@ from `configtx.yaml` and print it as JSON to the screen. (This output is useful
 for channel reconfiguration workflows, such as adding a member).
 
 
+2712
+
+6500
 
 将一个组织的配置参数信息，比如 定义在 `configtx.yaml`中的 MSPDir 信息以json格式打印出来（这样的输出信息在重新配置通道的时候比较有用，比如增加一个成员？'peer?'） 
 
@@ -155,16 +158,4 @@ configuration options.  You may find this file in the `config` directory of
 the release artifacts tar, or you may find it under the `sampleconfig` folder
 if you are building from source.
 
-
-
-1. 大家先说问题
-2. 讨论邮件中的问题
-3. 健哥加入工作计划
-
-
-需求清晰，上线流程
-
-使用手册
-
-代码重构
 
