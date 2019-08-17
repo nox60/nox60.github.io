@@ -70,6 +70,7 @@ Flags:
 ```
 
 
+
 ## cryptogen extend
 ```
 usage: cryptogen extend [<flags>]
@@ -82,6 +83,7 @@ Flags:
   --input="crypto-config"  The input directory in which existing network place
   --config=CONFIG          The configuration template to use
 ```
+
 
 
 ## cryptogen version
