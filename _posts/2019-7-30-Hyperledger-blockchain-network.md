@@ -178,3 +178,5 @@ A1可以通过C1来连接特定的网络资源，在上图的例子中，A1可�
 ![avatar](/images/posts/hyperledger/network.diagram.10.png)
 
 此时，通道的配置信息CC2决定了通道内的权限，CC2的管理员是R2和R3。和CC1一样，CC2和NC4是完全隔离开的。没有关系。
+
+
