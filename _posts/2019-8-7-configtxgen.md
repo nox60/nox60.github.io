@@ -161,6 +161,7 @@ if you are building from source.
 
 configtx.yaml 配置文件说明
 
+config 目录里面可以找到该文件的更多说明。
 
 
 
