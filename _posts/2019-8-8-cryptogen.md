@@ -70,6 +70,7 @@ Flags:
 ```
 
 
+
 ## cryptogen extend
 ```
 usage: cryptogen extend [<flags>]
@@ -82,7 +83,6 @@ Flags:
   --input="crypto-config"  The input directory in which existing network place
   --config=CONFIG          The configuration template to use
 ```
-
 
 ## cryptogen version
 ```
@@ -333,7 +333,6 @@ configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock ge
 configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./channel-artifacts/genesis.block
 
 ```
-
 
 - 其中，-profile后面跟的是 configtx.yaml 配置文件中，最后的profile块里面定义的profile名称，用这样的方式，可以简化配置文件的编写。
 - channelID 需要明确
