@@ -287,3 +287,21 @@ peer节点需要首先启动couchdb和orderer节点之后再启动，peer节点�
 
 ```
 
+
+
+# 手动安装智能合约
+
+执行下面的命令
+
+export FABRIC_CFG_PATH=/root/codes/temp/crypto-config-test/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp
+
+peer chaincode install -n papercontract \
+-v 0 \
+-p /opt/gopath/src/github.com/contract \
+-l node
+
+其中相关参数都比较容易懂，可以查到
+
+export FABRIC_CFG_PATH=/root/codes/temp/crypto-config-test/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+
+peer chaincode install -n papercontract -v 0 -p /root/codes/fabric-samples/commercial-paper/organization/magnetocorp/contract -l node
