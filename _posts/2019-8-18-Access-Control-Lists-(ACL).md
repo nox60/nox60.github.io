@@ -5,14 +5,22 @@
 *Note: This topic deals with access control and policies on a channel
 administration level. To learn about access control within a chaincode, check out
 our [chaincode for developers tutorial](./chaincode4ade.html#Chaincode_API).*
+本文主要讨论关于通道管理的访问控制策略，更多关于在链代码的ACL，查看：
 
 Fabric uses access control lists (ACLs) to manage access to resources by associating
 a **policy** --- which specifies a rule that evaluates to true or false, given a set
 of identities --- with the resource. Fabric contains a number of default ACLs. In this
 document, we'll talk about how they're formatted and how the defaults can be overridden.
 
+Fabric 通过使用指定规则为true活着folse来控制具体的角色是否有权限，来实现管理访问策略。Fabric包含默认权限的数字。本文档将讨论这个数字是怎么构建成的，以及默认值是怎么被覆盖的。
+
 But before we can do that, it's necessary to understand a little about resources
 and policies.
+
+resources: 资源
+policy: 策略
+
+在分析实现之前，需要实现知道关于资源和策略的相关知识。
 
 ### Resources
 
@@ -20,6 +28,9 @@ Users interact with Fabric by targeting a [user chaincode](./chaincode4ade.html)
 [system chaincode](./chaincode4noah.html), or an [events stream source](./peer_event_services.html).
 As such, these endpoints are considered "resources" on which access control should be
 exercised.
+
+用户和Fabric是通过targer?一段用户链代码和系统链代码来实现的，或者，通过事件流代码。
+
 
 Application developers need to be aware of these resources and the default
 policies associated with them. The complete list of these resources are found in
