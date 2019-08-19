@@ -100,7 +100,7 @@ support default rules like "A majority of the organization admins". These polici
 use a different but still very simple syntax as compared to `Signature` policies:
 `<ALL|ANY|MAJORITY> <sub_policy>`.
 
-隐式元数据策略
+隐式元数据策略  深度聚合  主要是优化设计的 `Signature` 策略。它支持默认的规则，比如：“一个组织的主要管理者”。
 
 For example: `ANY` `Readers` or `MAJORITY` `Admins`.
 
