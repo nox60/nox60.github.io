@@ -191,6 +191,8 @@ but for this example we'll call it `MyPolicy`). The policy is defined in the
 checked to grant or deny access to a user. For this example, we'll be creating a
 `Signature` policy identifying `SampleOrg.admin`.
 
+以上方式通过添加一个`MyPolicy`权限（权限的名字可以自己命名，此处例子中的命名是 `MyPolicy`）。这个
+
 ```
 Policies: &ApplicationDefaultPolicies
     Readers:
