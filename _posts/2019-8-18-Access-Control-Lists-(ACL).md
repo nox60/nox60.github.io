@@ -115,7 +115,11 @@ they perform administrative tasks. These default policies can be added to,
 edited, or supplemented, for example by the new `peer` and `client` roles (if you
 have `NodeOU` support).*
 
+注意，在默认的策略里面，Admin都是有操作权限的。权限仅仅指派给Admin或者Admin子集的，可以访问一个 敏感或者 XXX 的资源。 `Writers` 一般倾向于能够对账本提交更新操作的，比如交易，一般不用指定管理员权限；`Readers`有被动权限，可以解除到资源信息，不用具有账本的更新和管理员权限。这些默认的权限可以被增加，编辑，或者提供。例如一个新的 `peer` 或者 `client` 角色，如果你支持 `NodeOU` 
+
 Here's an example of an `ImplicitMeta` policy structure:
+
+下面是一个隐式元数据策略例子。
 
 ```
 Policies:
@@ -126,6 +130,8 @@ Policies:
 
 Here, the policy `AnotherPolicy` can be satisfied by the `MAJORITY` of `Admins`,
 where `Admins` is eventually being specified by lower level `Signature` policy.
+
+此处，
 
 ### Where is access control specified?
 
