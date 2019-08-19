@@ -131,21 +131,29 @@ Policies:
 Here, the policy `AnotherPolicy` can be satisfied by the `MAJORITY` of `Admins`,
 where `Admins` is eventually being specified by lower level `Signature` policy.
 
-此处，
+此处， `AnotherPolicy` 可以被 `Admins` 的 `MAJORITY` 所满足？
+
+当 `Admins` 。。。。
 
 ### Where is access control specified?
 
 Access control defaults exist inside `configtx.yaml`, the file that `configtxgen`
 uses to build channel configurations.
 
+ACL的默认配置在  `configtx.yaml` 中，该文件 被 `configtxgen` 工具用来构建通道配置。
+
 Access control can be updated one of two ways, either by editing `configtx.yaml`
 itself, which will propagate the ACL change to any new channels, or by updating
 access control in the channel configuration of a particular channel.
+
+ACL能够被两种方式更新，一种是修改 `configtx.yaml`，当生成新通道的时候生效；另外一种是更新某个指定通道的ACL配置。
 
 ## How ACLs are formatted in `configtx.yaml`
 
 ACLs are formatted as a key-value pair consisting of a resource function name
 followed by a string. To see what this looks like, reference this [sample configtx.yaml file](https://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
+
+ACL是一种特定格式的KV键值对。
 
 Two excerpts from this sample:
 
