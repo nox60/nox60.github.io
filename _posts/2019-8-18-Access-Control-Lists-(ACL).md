@@ -212,16 +212,22 @@ Policies: &ApplicationDefaultPolicies
 Then, edit the `Application: ACLs` section inside `configtx.yaml` to change
 `peer/Propose` from this:
 
+现在，编辑`configtx.yaml` 文件中的 `Application: ACLs`部分，编辑内容如下：
+
+
 `peer/Propose: /Channel/Application/Writers`
 
 To this:
 
 `peer/Propose: /Channel/Application/MyPolicy`
 
+
 Once these fields have been changed in `configtx.yaml`, the `configtxgen` tool
 will use the policies and ACLs defined when creating a channel creation
 transaction. When appropriately signed and submitted by one of the admins of the
 consortium members, a new channel with the defined ACLs and policies is created.
+
+一旦这些在 `configtx.yaml`中的属性发生变化，这个
 
 Once `MyPolicy` has been bootstrapped into the channel configuration, it can also
 be referenced to override other ACL defaults. For example:
