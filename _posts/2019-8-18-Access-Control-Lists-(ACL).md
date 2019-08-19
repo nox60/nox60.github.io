@@ -29,17 +29,22 @@ Users interact with Fabric by targeting a [user chaincode](./chaincode4ade.html)
 As such, these endpoints are considered "resources" on which access control should be
 exercised.
 
-用户和Fabric是通过targer?一段用户链代码和系统链代码来实现的，或者，通过事件流代码。
+用户和Fabric是通过 targer? 一段用户链代码和系统链代码来实现的，或者，通过事件流代码。
 
 
 Application developers need to be aware of these resources and the default
 policies associated with them. The complete list of these resources are found in
 `configtx.yaml`. You can look at a [sample `configtx.yaml` file here](http://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
 
+应用程序开发者应该知道这些资源和默认的策略。完全的资源列表可以在 `configtx.yaml` 配置文件里面看到。通过这个链接可以看到文件模版：
+
 The resources named in `configtx.yaml` is an exhaustive list of all internal resources
 currently defined by Fabric. The loose convention adopted there is `<component>/<resource>`.
 So `cscc/GetConfigBlock` is the resource for the `GetConfigBlock` call in the `CSCC`
 component.
+
+这些在`configtx.yaml`中命名的资源是 所有已经定义在Fabric中的内部资源 的 详尽的列表。
+
 
 ### Policies
 
@@ -50,13 +55,20 @@ are used to determine whether a transaction has been appropriately endorsed. The
 policies defined in the channel configuration are referenced as modification policies
 as well as for access control, and are defined in the channel configuration itself.
 
+
+背书策略用来判断一个交易是否被有合理的背书信息。这些在通道配置中定义的策略被引用为修改策略（等同于控制策略），
+
 Policies can be structured in one of two ways: as `Signature` policies or as an
 `ImplicitMeta` policy.
+
+策略可以有两种组织方式：`签名`策略或者`隐式元数据`策略
 
 #### `Signature` policies
 
 These policies identify specific users who must sign in order for a policy
 to be satisfied. For example:
+
+
 
 ```
 Policies:
@@ -70,9 +82,15 @@ This policy construct can be interpreted as: *the policy named `MyPolicy` can
 only be satisfied by the signature of an identity with role of "a peer from
 Org1" or "a peer from Org2"*.
 
+策略的结构可以这样解读：
+
+策略被命名为`MyPolicy`仅仅能够被 "a peer from Org1" 或者 "a peer from Org2" 这样的签名所匹配
+
 Signature policies support arbitrary combinations of `AND`, `OR`, and `NOutOf`,
 allowing the construction of extremely powerful rules like: "An admin of org A
 and two other admins, or 11 of 20 org admins".
+
+签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins"
 
 #### `ImplicitMeta` policies
 
@@ -81,6 +99,8 @@ configuration hierarchy that are ultimately defined by `Signature` policies. The
 support default rules like "A majority of the organization admins". These policies
 use a different but still very simple syntax as compared to `Signature` policies:
 `<ALL|ANY|MAJORITY> <sub_policy>`.
+
+隐式元数据策略
 
 For example: `ANY` `Readers` or `MAJORITY` `Admins`.
 
