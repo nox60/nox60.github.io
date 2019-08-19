@@ -171,11 +171,15 @@ These ACLs define that access to `peer/Propose` and `event/Block` resources
 is restricted to identities satisfying the policy defined at the canonical path
 `/Channel/Application/Writers` and `/Channel/Application/Readers`, respectively.
 
+上面的ACL配置定义了对  `peer/Propose` 和 `event/Block`  两种资源的限制，配置信息在两个绝对路径中。
+
 ### Updating ACL defaults in `configtx.yaml`
 
 In cases where it will be necessary to override ACL defaults when bootstrapping
 a network, or to change the ACLs before a channel has been bootstrapped, the
 best practice will be to update `configtx.yaml`.
+
+
 
 Let's say you want to modify the `peer/Propose` ACL default --- which specifies
 the policy for invoking chaincodes on a peer -- from `/Channel/Application/Writers`
