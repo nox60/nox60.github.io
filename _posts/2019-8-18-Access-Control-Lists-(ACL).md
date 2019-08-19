@@ -191,7 +191,7 @@ but for this example we'll call it `MyPolicy`). The policy is defined in the
 checked to grant or deny access to a user. For this example, we'll be creating a
 `Signature` policy identifying `SampleOrg.admin`.
 
-以上方式通过添加一个`MyPolicy`权限（权限的名字可以自己命名，此处例子中的命名是 `MyPolicy`）。这个
+以上方式通过添加一个`MyPolicy`权限（权限的名字可以自己命名，此处例子中的命名是 `MyPolicy`）。这个策略的定义是在`configtx.yaml`文件的  `Application.Policies`部分，并且指定了一个规则可以用来检测或者赋予或者禁用用户的访问权限。比如，可以创建一个
 
 ```
 Policies: &ApplicationDefaultPolicies
