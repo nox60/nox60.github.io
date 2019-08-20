@@ -231,10 +231,14 @@ will use the policies and ACLs defined when creating a channel creation
 transaction. When appropriately signed and submitted by one of the admins of the
 consortium members, a new channel with the defined ACLs and policies is created.
 
-一旦这些在 `configtx.yaml`中的属性发生变化，这个
+
+-- 此处需要验证：
+一旦这些在 `configtx.yaml`中的属性发生变化，`configtxgen` 将使用更改过的策略和ACL配置来创建交易。当合适的签名和提交被一个管理员提交时，一个新的通道将会被创建，该通道的ACL和访问策略将会使用新的。
 
 Once `MyPolicy` has been bootstrapped into the channel configuration, it can also
 be referenced to override other ACL defaults. For example:
+
+一旦`MyPolicy`在通道配置中被加载起来，它将会覆盖其他默认的ACL配置，比如：
 
 ```
 SampleSingleMSPChannel:
