@@ -360,7 +360,7 @@ policies to ensure that the ACLs for peer proposals are not impossible to satisf
 
 在默认配置中， `Writers` 是 角色是 `SampleOrg.member` 的签名策略。换句话说，该组织的任何一个成员。 `MyPolicy` 是 `SampleOrg.admin` 的一种角色，或者 组织的任何一个管理员？
 
-要满足上面的ACL，这些成员必须同时拥有 `管理员` 和 `SampleOrg的成员身份` 双重身份。 默认的，所有的管理员都是成员（尽管不是所有的管理员都是成员），但是有可能
+要满足上面的ACL，这些成员必须同时拥有 `管理员` 和 `SampleOrg的成员身份` 双重身份。 默认的，所有的管理员都是成员（尽管不是所有的管理员都是成员），但是有可能覆盖这些策略来达到你想要的任何功能。作为一个结果 ， 要对这些策略保持跟踪来确定 这些策略不可能满足    是很重要的
 
 #### Migration considerations for customers using the experimental ACL feature
 
