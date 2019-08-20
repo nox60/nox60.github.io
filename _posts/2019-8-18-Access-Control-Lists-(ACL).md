@@ -90,7 +90,7 @@ Signature policies support arbitrary combinations of `AND`, `OR`, and `NOutOf`,
 allowing the construction of extremely powerful rules like: "An admin of org A
 and two other admins, or 11 of 20 org admins".
 
-签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins"
+签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins" 
 
 #### `ImplicitMeta` policies
 
@@ -100,9 +100,13 @@ support default rules like "A majority of the organization admins". These polici
 use a different but still very simple syntax as compared to `Signature` policies:
 `<ALL|ANY|MAJORITY> <sub_policy>`.
 
-隐式元数据策略  深度聚合  主要是优化设计的 `Signature` 策略。它支持默认的规则，比如：“一个组织的主要管理者”。
+隐式元数据策略  深度聚合  主要是优化设计的 `Signature` 策略。它支持默认的规则，比如：“一个组织的主要管理者”。 它自己的规则则是使用一种非常简单的语法来对比签名的方式，比如`<ALL|ANY|MAJORITY> <sub_policy>`.
+
+
 
 For example: `ANY` `Readers` or `MAJORITY` `Admins`.
+
+比如：任意写入者或者主要的管理员
 
 *Note that in the default policy configuration `Admins` have an operational role.
 Policies that specify that only Admins --- or some subset of Admins --- have access
@@ -114,6 +118,8 @@ information but do not have the permission to propose ledger updates nor do can
 they perform administrative tasks. These default policies can be added to,
 edited, or supplemented, for example by the new `peer` and `client` roles (if you
 have `NodeOU` support).*
+
+
 
 Here's an example of an `ImplicitMeta` policy structure:
 
