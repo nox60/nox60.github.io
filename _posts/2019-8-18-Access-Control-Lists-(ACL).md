@@ -22,6 +22,8 @@ policy: 策略
 
 在分析实现之前，需要实现知道关于资源和策略的相关知识。
 
+
+
 ### Resources
 
 Users interact with Fabric by targeting a [user chaincode](./chaincode4ade.html),
