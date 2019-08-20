@@ -119,9 +119,11 @@ they perform administrative tasks. These default policies can be added to,
 edited, or supplemented, for example by the new `peer` and `client` roles (if you
 have `NodeOU` support).*
 
-
+注意，在默认的策略里面，Admin都是有操作权限的。权限仅仅指派给Admin或者Admin子集的，可以访问一个 敏感或者 XXX 的资源。 `Writers` 一般倾向于能够对账本提交更新操作的，比如交易，一般不用指定管理员权限；`Readers`有被动权限，可以解除到资源信息，不用具有账本的更新和管理员权限。这些默认的权限可以被增加，编辑，或者提供。例如一个新的 `peer` 或者 `client` 角色，如果你支持 `NodeOU` 
 
 Here's an example of an `ImplicitMeta` policy structure:
+
+下面是一个隐式元数据策略例子。
 
 ```
 Policies:
@@ -133,19 +135,29 @@ Policies:
 Here, the policy `AnotherPolicy` can be satisfied by the `MAJORITY` of `Admins`,
 where `Admins` is eventually being specified by lower level `Signature` policy.
 
+此处， `AnotherPolicy` 可以被 `Admins` 的 `MAJORITY` 所满足？
+
+当 `Admins` 。。。。
+
 ### Where is access control specified?
 
 Access control defaults exist inside `configtx.yaml`, the file that `configtxgen`
 uses to build channel configurations.
 
+ACL的默认配置在  `configtx.yaml` 中，该文件 被 `configtxgen` 工具用来构建通道配置。
+
 Access control can be updated one of two ways, either by editing `configtx.yaml`
 itself, which will propagate the ACL change to any new channels, or by updating
 access control in the channel configuration of a particular channel.
+
+ACL能够被两种方式更新，一种是修改 `configtx.yaml`，当生成新通道的时候生效；另外一种是更新某个指定通道的ACL配置。
 
 ## How ACLs are formatted in `configtx.yaml`
 
 ACLs are formatted as a key-value pair consisting of a resource function name
 followed by a string. To see what this looks like, reference this [sample configtx.yaml file](https://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
+
+ACL是一种特定格式的KV键值对。
 
 Two excerpts from this sample:
 
@@ -163,11 +175,15 @@ These ACLs define that access to `peer/Propose` and `event/Block` resources
 is restricted to identities satisfying the policy defined at the canonical path
 `/Channel/Application/Writers` and `/Channel/Application/Readers`, respectively.
 
+上面的ACL配置定义了对  `peer/Propose` 和 `event/Block`  两种资源的限制，配置信息在两个绝对路径中。
+
 ### Updating ACL defaults in `configtx.yaml`
 
 In cases where it will be necessary to override ACL defaults when bootstrapping
 a network, or to change the ACLs before a channel has been bootstrapped, the
 best practice will be to update `configtx.yaml`.
+
+
 
 Let's say you want to modify the `peer/Propose` ACL default --- which specifies
 the policy for invoking chaincodes on a peer -- from `/Channel/Application/Writers`
@@ -178,6 +194,8 @@ but for this example we'll call it `MyPolicy`). The policy is defined in the
 `Application.Policies` section inside `configtx.yaml` and specifies a rule to be
 checked to grant or deny access to a user. For this example, we'll be creating a
 `Signature` policy identifying `SampleOrg.admin`.
+
+以上方式通过添加一个`MyPolicy`权限（权限的名字可以自己命名，此处例子中的命名是 `MyPolicy`）。这个策略的定义是在`configtx.yaml`文件的  `Application.Policies`部分，并且指定了一个规则可以用来检测或者赋予或者禁用用户的访问权限。比如，可以创建一个名为 `SampleOrg.admin`的策略ID。
 
 ```
 Policies: &ApplicationDefaultPolicies
@@ -198,16 +216,22 @@ Policies: &ApplicationDefaultPolicies
 Then, edit the `Application: ACLs` section inside `configtx.yaml` to change
 `peer/Propose` from this:
 
+现在，编辑`configtx.yaml` 文件中的 `Application: ACLs`部分，编辑内容如下：
+
+
 `peer/Propose: /Channel/Application/Writers`
 
 To this:
 
 `peer/Propose: /Channel/Application/MyPolicy`
 
+
 Once these fields have been changed in `configtx.yaml`, the `configtxgen` tool
 will use the policies and ACLs defined when creating a channel creation
 transaction. When appropriately signed and submitted by one of the admins of the
 consortium members, a new channel with the defined ACLs and policies is created.
+
+一旦这些在 `configtx.yaml`中的属性发生变化，这个
 
 Once `MyPolicy` has been bootstrapped into the channel configuration, it can also
 be referenced to override other ACL defaults. For example:
