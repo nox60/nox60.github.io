@@ -252,8 +252,12 @@ SampleSingleMSPChannel:
 
 This would restrict the ability to subscribe to block events to `SampleOrg.admin`.
 
+这将严格限制 `SampleOrg.admin` 订阅块的能力 
+
 If channels have already been created that want to use this ACL, they'll have
 to update their channel configurations one at a time using the following flow:
+
+如果通道已经被创建起来了，他们将每次一个的更新通道的配置
 
 ### Updating ACL defaults in the channel config
 
@@ -262,13 +266,19 @@ access to `peer/Propose` --- or if they want to create ACLs they don't want
 other channels to know about --- they'll have to update their channel
 configurations one at a time through config update transactions.
 
+如果通道已经创建起来，并且希望用  `MyPolicy` 策略来限制访问 `peer/Propose`，这将更新他们的通道配置 
+
 *Note: Channel configuration transactions are an involved process we won't
 delve into here. If you want to read more about them check out our document on
 [channel configuration updates](./config_update.html) and our ["Adding an Org to a Channel" tutorial](./channel_update_tutorial.html).*
 
+注意，此处没有计划深入分析通道配置交易。如果需要更多的信息请阅读文档： 
+
 After pulling, translating, and stripping the configuration block of its metadata,
 you would edit the configuration by adding `MyPolicy` under `Application: policies`,
 where the `Admins`, `Writers`, and `Readers` policies already live.
+
+当拉取，翻译，剖析这些元数据配置文件块。当`Admins`, `Writers`, and `Readers`这些策略已经上线的时候， 你会编辑这些配置文件，通过在`Application: policies`下面增加`MyPolicy`
 
 ```
 "MyPolicy": {
@@ -336,6 +346,8 @@ identity satisfying `Writers` and one system chaincode that requires an identity
 satisfying `MyPolicy`, then the member submitting the proposal must have an identity
 that evaluates to "true" for both `Writers` and `MyPolicy`.
 
+例如，`peer/Propose` 引用的是一个在通道上的提议请求。如果这个特殊的请求需要访问两个系统链代码，其中一个需要 满足  `Writers` 身份，另外一个 需要满足 `MyPolicy` 身份，那么这个用户在提交 proposal 请求的时候，必须同时满足 上面两种身份。
+
 In the default configuration, `Writers` is a signature policy whose `rule` is
 `SampleOrg.member`. In other words, "any member of my organization". `MyPolicy`,
 listed above, has a rule of `SampleOrg.admin`, or "any admin of my organization".
@@ -345,6 +357,10 @@ administrators are members), but it is possible to overwrite these policies to
 whatever you want them to be. As a result, it's important to keep track of these
 policies to ensure that the ACLs for peer proposals are not impossible to satisfy
 (unless that is the intention).
+
+在默认配置中， `Writers` 是 角色是 `SampleOrg.member` 的签名策略。换句话说，该组织的任何一个成员。 `MyPolicy` 是 `SampleOrg.admin` 的一种角色，或者 组织的任何一个管理员？
+
+要满足上面的ACL，这些成员必须同时拥有 `管理员` 和 `SampleOrg的成员身份` 双重身份。 默认的，所有的管理员都是成员（尽管不是所有的管理员都是成员），但是有可能
 
 #### Migration considerations for customers using the experimental ACL feature
 
