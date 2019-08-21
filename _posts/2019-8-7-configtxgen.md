@@ -14,6 +14,8 @@ to accomplish a number of tasks.
 
 `configtxgen` 工具没有子命令，但是支持不同的参数已完成不同的任务。
 
+
+
 ## configtxgen
 ```
 Usage of configtxgen:
@@ -63,6 +65,8 @@ for profile `SampleSingleMSPSoloV1_1`.
 ```
 configtxgen -outputBlock genesis_block.pb -profile SampleSingleMSPSoloV1_1 -channelID orderer-system-channel
 ```
+
+
 
 要注意上面的配置信息段落：SampleSingleMSPSoloV1_1
 
