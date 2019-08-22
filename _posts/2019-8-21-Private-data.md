@@ -84,7 +84,7 @@ A collection definition is composed of the following properties:
   enforce that only clients belonging to one of the collection member organizations
   are allowed read access to private data.
 
-如果字段设置为true，则表明peer节点
+如果字段设置为true，则表明peer节点会强制仅仅客户 连接 其中之一的 组织成员节点，并且读取该节点数据。成员只读节点
 
 To illustrate usage of private data, the marbles private data example contains
 two private data collection definitions: ``collectionMarbles``
@@ -93,6 +93,16 @@ and ``collectionMarblePrivateDetails``. The ``policy`` property in the
 Org2) to have the private data in a private database. The
 ``collectionMarblesPrivateDetails`` collection allows only members of Org1 to
 have the private data in their private database.
+
+进一步描述私有数据的用法，参考弹珠游戏例子的几个定义：
+
+``collectionMarbles``
+和 
+``collectionMarblePrivateDetails``，
+
+其中 ``collectionMarbles`` 的 ``policy``属性定义了通道上的所有成员 (Org1 和 Org2) 都可以在私有数据库上有私有数据。
+``collectionMarblesPrivateDetails`` 定义了仅仅允许 Org1的成员可以 在其 私有数据库有私有数据。
+
 
 For more information on building a policy definition refer to the :doc:`endorsement-policies`
 topic.
