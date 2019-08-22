@@ -138,6 +138,8 @@ This collection definition file is deployed when the chaincode definition is
 committed to the channel using the `peer lifecycle chaincode commit command <http://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchaincode.html#peer-chaincode-instantiate>`__.
 More details on this process are provided in Section 3 below.
 
+提交这些配置
+
 .. _pd-read-write-private-data:
 
 Read and Write private data using chaincode APIs
