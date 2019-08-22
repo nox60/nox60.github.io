@@ -62,10 +62,14 @@ A collection definition is composed of the following properties:
 - ``requiredPeerCount``: Number of peers required to disseminate the private data as
   a condition of the endorsement of the chaincode
 
+需要同步？（散播）该私有数据的节点，以此来为链代码背书
+
 - ``maxPeerCount``: For data redundancy purposes, the number of other peers
   that the current endorsing peer will attempt to distribute the data to.
   If an endorsing peer goes down, these other peers are available at commit time
   if there are requests to pull the private data.
+
+作为冗余目的，其他节点来同步背书，如果背书节点挂掉，其他节点可以提供数据。
 
 - ``blockToLive``: For very sensitive information such as pricing or personal information,
   this value represents how long the data should live on the private database in terms
@@ -74,9 +78,13 @@ A collection definition is composed of the following properties:
   To keep private data indefinitely, that is, to never purge private data, set
   the ``blockToLive`` property to ``0``.
 
+金额或者一些个人信息这样的敏感信息在区块内，可以提供一个最长的存活时间。这个值决定了这样的数据在私有数据库里面的存活时间。当该值达到之后，数据就会被清理掉，通过这样的方式来保证这些数据和网络的隔离？如果要无期限的保存这些数据，则需要将该字段设置为0.
+
 - ``memberOnlyRead``: a value of ``true`` indicates that peers automatically
   enforce that only clients belonging to one of the collection member organizations
   are allowed read access to private data.
+
+如果字段设置为true，则表明peer节点
 
 To illustrate usage of private data, the marbles private data example contains
 two private data collection definitions: ``collectionMarbles``
