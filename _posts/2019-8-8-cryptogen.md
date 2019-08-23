@@ -70,7 +70,6 @@ Flags:
 ```
 
 
-
 ## cryptogen extend
 ```
 usage: cryptogen extend [<flags>]
