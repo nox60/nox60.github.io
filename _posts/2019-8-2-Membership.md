@@ -23,7 +23,6 @@ MSP不仅仅能够列出一个网络中有哪些账户或者一个通道有哪�
 MSP不仅仅是列出网络中的账户或者通道里的成员。MSP可以实现权限识别，
 
 
-
 The configuration of an MSP is advertised to all the channels where members of
 the corresponding organization participate (in the form of a **channel MSP**). In
 addition to the channel MSP, peers, orderers, and clients also maintain a **local MSP**
