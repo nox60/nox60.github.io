@@ -6,6 +6,7 @@ It would normally not be used in the operation of a production network.
 
 `cryptogen` 是一个生成Hyperledger Fabric相关秘钥的工具。为网络的预先配置提供了实现。一般来说不会用于生产环境。在生成创世区块之前，要用该工具先生成各种需要的秘钥。
 
+
 ## Syntax
 ## 语法
 
@@ -366,10 +367,13 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock gen
 ```
 
 
+<<<<<<< HEAD
 出错信息：
 
 2019-08-14 00:30:51.446 CST [orderer.commmon.multichannel] checkResourcesOrPanic -> PANI 004 [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
 panic: [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
 
+=======
+>>>>>>> 3604071a39ea24ef33ee41205b5f8cd2238f55aa
 
 
