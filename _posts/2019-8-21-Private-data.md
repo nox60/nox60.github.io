@@ -261,6 +261,7 @@ For example, in the following snippet of the ``initMarble`` function,
 	}
 
 
+
 To summarize, the policy definition above for our ``collection.json``
 allows all peers in Org1 and Org2 to store and transact
 with the marbles private data ``name, color, size, owner`` in their
