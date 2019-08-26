@@ -187,7 +187,6 @@ resides on and is maintained by the channel or the network.
 
 本地MSP只是定义在节点或者用户的本地文件环境中。因此，对于一个peer节点或者用户来说，物理上或者逻辑上也只能有一个MSP配置文件存在。无论如何，通道的MSP配置对于所有连接到该通道的节点来说都是可用的，他们？逻辑上都只会定义一次在通道定义的时候。无论如何，一个通道MSP将在所有的文件系统中保存并且依靠共识机制保持同步。因此在所有节点中都有通道MSP的本地拷贝存在。逻辑上讲，一个通道是由该通道维护的。
 
-
 ### MSP Levels
 
 The split between channel and local MSPs reflects the needs of organizations
