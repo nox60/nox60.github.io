@@ -70,7 +70,6 @@ Flags:
 ```
 
 
-
 ## cryptogen extend
 ```
 usage: cryptogen extend [<flags>]
@@ -83,6 +82,7 @@ Flags:
   --input="crypto-config"  The input directory in which existing network place
   --config=CONFIG          The configuration template to use
 ```
+
 
 ## cryptogen version
 ```
@@ -330,14 +330,13 @@ PeerOrgs:
 
 ```genen
 configtxgen -profile TwoOrgsOrdererGenesis -channelID my-channel -outputBlock genesis.block
-configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./channel-artifacts/genesis.block
+configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock genesis.block
 
 ```
 
 - 其中，-profile后面跟的是 configtx.yaml 配置文件中，最后的profile块里面定义的profile名称，用这样的方式，可以简化配置文件的编写。
 - channelID 需要明确
 - -outputBlock 就是输出的创世区块位置
-
 
 
 ## 利用创世区块拉起orderer服务
@@ -354,6 +353,8 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
     │       ├── msp
 ```
 
+/root/test/crypto-config-test/ordererOrganizations/mydomain.net/orderers/orderer.mydomain.net/msp
+
 /root/softwares/fabric-samples/first-network/channel-artifacts
 
 /root/softwares/fabric-samples/first-network/crypto-config-test/ordererOrganizations/mydomain.net/orderers/orderer.mydomain.net/msp
@@ -363,4 +364,12 @@ configtxgen -profile OnlyOrdererGenesis -channelID myme-channel -outputBlock ./c
 ```orderer
 
 ```
+
+
+出错信息：
+
+2019-08-14 00:30:51.446 CST [orderer.commmon.multichannel] checkResourcesOrPanic -> PANI 004 [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
+panic: [channel my-channel] config requires unsupported orderer capabilities: Orderer capability V1_4_2 is required but not supported: Orderer capability V1_4_2 is required but not supported
+
+
 
