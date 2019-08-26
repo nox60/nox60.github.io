@@ -189,6 +189,8 @@ private data sample.
  .. image:: images/SideDB-org2.png
 
 
+
+
 Reading collection data
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
