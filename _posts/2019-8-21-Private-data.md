@@ -180,6 +180,7 @@ access is controlled by chaincode APIs. Specifically, reading and writing
 private data using a collection definition is performed by calling ``GetPrivateData()``
 and ``PutPrivateData()``, which can be found `here <https://github.com/hyperledger/fabric/blob/master/core/chaincode/shim/interfaces.go#L179>`_.
 
+
 The following diagrams illustrate the private data model used by the marbles
 private data sample.
 
