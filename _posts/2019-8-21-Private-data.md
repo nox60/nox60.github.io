@@ -104,6 +104,7 @@ have the private data in their private database.
 ``collectionMarblesPrivateDetails`` 定义了仅仅允许 Org1的成员可以 在其 私有数据库有私有数据。
 
 
+
 For more information on building a policy definition refer to the :doc:`endorsement-policies`
 topic.
 
