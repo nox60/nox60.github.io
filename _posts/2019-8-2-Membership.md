@@ -127,7 +127,6 @@ be channel admins, and vice versa).
 
 所有节点和用户都能够有一个本地MSP定义，就像定义每个人的管理员权限和成员权限一样。节点管理员不需要是通道管理员，反之亦然。
 
-
 In contrast, **channel MSPs define administrative and participatory rights at the
 channel level**. Every organization participating in a channel must have an MSP
 defined for it. Peers and orderers on a channel will all share the same view of channel
