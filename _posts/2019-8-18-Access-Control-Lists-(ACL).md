@@ -5,6 +5,7 @@
 *Note: This topic deals with access control and policies on a channel
 administration level. To learn about access control within a chaincode, check out
 our [chaincode for developers tutorial](./chaincode4ade.html#Chaincode_API).*
+
 本文主要讨论关于通道管理的访问控制策略，更多关于在链代码的ACL，查看：
 
 Fabric uses access control lists (ACLs) to manage access to resources by associating
@@ -92,7 +93,7 @@ Signature policies support arbitrary combinations of `AND`, `OR`, and `NOutOf`,
 allowing the construction of extremely powerful rules like: "An admin of org A
 and two other admins, or 11 of 20 org admins".
 
-签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins" 
+签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，可以通过这样的方式组装出较强的规则，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins" 
 
 #### `ImplicitMeta` policies
 
