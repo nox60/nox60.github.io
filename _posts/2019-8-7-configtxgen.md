@@ -66,6 +66,9 @@ for profile `SampleSingleMSPSoloV1_1`.
 
 ```
 configtxgen -outputBlock genesis_block.pb -profile SampleSingleMSPSoloV1_1 -channelID orderer-system-channel
+
+configtxgen -outputBlock genesis_block.pb -profile TwoOrgsOrdererGenesis -channelID orderer-system-channel
+
 ```
 
 
@@ -130,6 +133,7 @@ SampleSingleMSPChannelV1_1 based on `configtx.yaml`.
 
 ```
 configtxgen -outputAnchorPeersUpdate anchor_peer_tx.pb -profile SampleSingleMSPChannelV1_1 -asOrg Org1
+
 ```
 
 ## Configuration
