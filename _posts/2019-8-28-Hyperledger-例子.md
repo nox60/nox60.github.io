@@ -1,4 +1,5 @@
 ```start.sh
+
 #!/bin/bash
 
 rm -rf /root/codes/temp/crypto-config
@@ -13,21 +14,46 @@ cryptogen generate \
 --config=./crypto-config.yaml \
 --output="crypto-config"
 
+echo 'Create genesis block'
 # 创世区块
 configtxgen -outputBlock genesis_block.pb \
 -profile TwoOrgsOrdererGenesis \
 -channelID orderer-system-channel
 
+echo 'Create tx'
 # tx
 configtxgen -profile TwoOrgsChannel \
 -outputCreateChannelTx /root/codes/temp/channel.tx \
 -channelID mychannel
 
+echo 'start orderer'
 # start orderer
-orderer &
+nohup orderer > orderer.log   2>&1 &
+
+echo 'create channel'
 
 # create channel
 peer channel create -o orderer.test.com:7050 \
--c ca -f /root/codes/temp/channel.tx \
---tls true --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
+-c ca \
+-f /root/codes/temp/channel.tx \
+--tls true \
+--cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
+
+
+
+
+
+
+# 列出所有的通道
+
+peer channel list \
+-o orderer.test.com:7050 \
+--tls true \
+--cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
+
+peer channel getinfo \
+-c ca \
+-o orderer.test.com:7050 \
+--tls true \
+--cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 ```
