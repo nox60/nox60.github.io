@@ -14,10 +14,14 @@ cryptogen generate \
 --output="crypto-config"
 
 # 创世区块
-configtxgen -outputBlock genesis_block.pb -profile TwoOrgsOrdererGenesis -channelID orderer-system-channel
+configtxgen -outputBlock genesis_block.pb \
+-profile TwoOrgsOrdererGenesis \
+-channelID orderer-system-channel
 
 # tx
-configtxgen -profile TwoOrgsChannel -outputCreateChannelTx /root/codes/temp/channel.tx -channelID mychannel
+configtxgen -profile TwoOrgsChannel \
+-outputCreateChannelTx /root/codes/temp/channel.tx \
+-channelID mychannel
 
 # start orderer
 orderer &
@@ -26,5 +30,4 @@ orderer &
 peer channel create -o orderer.test.com:7050 \
 -c ca -f /root/codes/temp/channel.tx \
 --tls true --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
-
 ```
