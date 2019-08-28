@@ -71,3 +71,9 @@ peer channel getinfo \
 --tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 ```
+
+
+
+配置文件模板
+
+https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/configtx.yaml
