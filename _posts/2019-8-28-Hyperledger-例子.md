@@ -38,6 +38,7 @@ nohup peer node start > peer.log 2>&1 &
 
 sleep 2
 
+
 echo 'create channel'
 
 # create channel
