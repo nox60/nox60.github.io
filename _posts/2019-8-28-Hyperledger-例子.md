@@ -70,3 +70,4 @@ peer channel getinfo \
 配置文件模板
 
 https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/configtx.yaml
+
