@@ -18,8 +18,7 @@ cryptogen generate \
 echo 'Create genesis block'
 # 创世区块
 configtxgen -outputBlock genesis_block.pb \
--profile TwoOrgsOrdererGenesis \
--channelID orderer-system-channel
+-profile TwoOrgsOrdererGenesis
 
 echo 'Create tx'
 # tx
@@ -32,25 +31,17 @@ echo 'start orderer'
 nohup orderer > orderer.log   2>&1 &
 
 sleep 2
-
 echo 'start peer'
 nohup peer node start > peer.log 2>&1 &
 
 sleep 2
-
-
 echo 'create channel'
-
 # create channel
 peer channel create -o orderer.test.com:7050 \
 -c mychannel \
 -f /root/codes/temp/channel.tx \
 --tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
-
-
-
-
 
 
 
