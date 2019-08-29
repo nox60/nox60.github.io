@@ -44,20 +44,22 @@ peer channel create -o orderer.test.com:7050 \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
 
-
-
-
+# 加入通道
+peer channel join \
+-b mychannel.block \
+-o orderer.test.com:7050 \
+--cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
 
 # 列出所有的通道
 
 peer channel list \
 -o orderer.test.com:7050 \
---tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
+
 peer channel getinfo \
--c ca \
+-c mychannel \
 -o orderer.test.com:7050 \
 --tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
