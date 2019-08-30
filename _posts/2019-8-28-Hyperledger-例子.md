@@ -18,8 +18,7 @@ cryptogen generate \
 echo 'Create genesis block'
 # 创世区块
 configtxgen -outputBlock genesis_block.pb \
--profile TwoOrgsOrdererGenesis \
--channelID orderer-system-channel
+-profile TwoOrgsOrdererGenesis
 
 echo 'Create tx'
 # tx
@@ -32,15 +31,11 @@ echo 'start orderer'
 nohup orderer > orderer.log   2>&1 &
 
 sleep 2
-
 echo 'start peer'
 nohup peer node start > peer.log 2>&1 &
 
 sleep 2
-
-
 echo 'create channel'
-
 # create channel
 peer channel create -o orderer.test.com:7050 \
 -c mychannel \
@@ -49,24 +44,22 @@ peer channel create -o orderer.test.com:7050 \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
 
-
-
-
-
-
-
-
+# 加入通道
+peer channel join \
+-b mychannel.block \
+-o orderer.test.com:7050 \
+--cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
 
 # 列出所有的通道
 
 peer channel list \
 -o orderer.test.com:7050 \
---tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
+
 peer channel getinfo \
--c ca \
+-c mychannel \
 -o orderer.test.com:7050 \
 --tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
@@ -78,6 +71,3 @@ peer channel getinfo \
 
 https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/configtx.yaml
 
-重要的权限策略：
-
-https://hyperledger-fabric.readthedocs.io/en/latest/access_control.html

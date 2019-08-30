@@ -5,6 +5,7 @@ you've seen how a PKI can provide verifiable identities through a chain
 of trust. Now let's see how these identities can be used to represent the
 trusted members of a blockchain network.
 
+
 This is where a **Membership Service** Provider (MSP) comes into play ---
 **it identifies which Root CAs and Intermediate CAs are trusted to define
 the members of a trust domain, e.g., an organization**, either by listing the
@@ -62,7 +63,6 @@ multiple MSPs and name them accordingly, e.g., `ORG2-MSP-NATIONAL` and
 channel.
 
 一个组织和他的MSP之间的特别的关系使得在对msp命名的时候，将MSP的名字放在组织后面让人很易懂。比如，组织'ORG1'如果有一个MSP，则很合适将名字取为：ORG1-MSP。在很多情况下，一个组织会有多个会员身份，比如说，当有多个通道被用于在不同的组织之间处理不同的业务逻辑，在这种情况下，就比较合适使用上面的命名方式：'ORG2-MSP-NATIONAL'和'ORG2-MSP-GOVERNMENT'，分别是ORG2的销售通道和处理政府相关事务的常规通道。
-
 
 
 ![MSP1](./membership.diagram.3.png)
@@ -195,6 +195,7 @@ network administration concerns** while **MSPs at a lower level handle
 identity for the administration of private resources**. MSPs are mandatory
 at every level of administration --- they must be defined for the network,
 channel, peer, orderer, and users.
+
 
 通道MSP和本地MSP的区别反应了组织和其管理员在他们本地资源管理上的不同需求，例如一个peer节点或者排序节点，以及他们的通道资源（比如账本，智能合约以及联盟信息）这都是通道或者网络级别的资源；这些资源是不同级别的，高等级的MSP和网络相关的管理有关；而低等级的MSP处理身份权限等信息。MSP是强制的，必须在网络定义，通道，节点，排序节点，以及用户中存在。
 
