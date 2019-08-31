@@ -6,7 +6,6 @@ It would normally not be used in the operation of a production network.
 
 `cryptogen` 是一个生成Hyperledger Fabric相关秘钥的工具。为网络的预先配置提供了实现。一般来说不会用于生产环境。在生成创世区块之前，要用该工具先生成各种需要的秘钥。
 
-
 ## Syntax
 ## 语法
 
