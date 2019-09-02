@@ -69,7 +69,6 @@ configtxgen -outputBlock genesis_block.pb -profile TwoOrgsOrdererGenesis -channe
 
 
 
-
 要注意上面的配置信息段落：SampleSingleMSPSoloV1_1
 
 ### Output a channel creation tx
