@@ -15,7 +15,6 @@ to accomplish a number of tasks.
 `configtxgen` 工具没有子命令，但是支持不同的参数已完成不同的任务。
 
 
-
 ## configtxgen
 ```
 Usage of configtxgen:
