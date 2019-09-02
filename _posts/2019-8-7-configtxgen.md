@@ -4,7 +4,6 @@ The `configtxgen` command allows users to create and inspect channel config
 related artifacts.  The content of the generated artifacts is dictated by the
 contents of `configtx.yaml`.
 
-
 `configtxgen` 工具能够让用户创建channel和查看channel对应的配置信息。相关的内容要参考`configtx.yaml` 配置文件。
 
 ## Syntax
