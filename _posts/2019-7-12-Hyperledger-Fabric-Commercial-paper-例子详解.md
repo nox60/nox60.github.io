@@ -49,7 +49,8 @@ docker安装有多种方式，有使用apt-get或者yum工具进行安装，此�
 
 到  https://download.docker.com/linux/static/stable/x86_64/ 下载需要版本的docker
 
-此处需要提及的是，如果没有描述的梯子来加速下载，如果不用代理速度很慢。
+此处需要提及的是，如果没有上述的梯子来加速下载，下载速度可能会很慢。
+
 ```docker
 curl -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.8.tgz
 ```
@@ -81,7 +82,7 @@ curl -L -O https://github.com/docker/compose/releases/download/1.24.1/docker-com
 编辑下面的文件，文件名为docker.service, 注意这两行，要和上面的路径对应：
 
 Environment="PATH=/root/bin/docker:/bin:/sbin:/usr/bin:/usr/sbin"
-ExecStart=/root/bin/docker/dockerd --log-level=error
+ExecStart=/opt/local/docker/dockerd --log-level=error
 
 vi docker.service
 
