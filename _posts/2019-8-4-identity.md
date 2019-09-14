@@ -284,6 +284,7 @@ different Intermediate CAs --- it really does depend on the needs of the network
 
 ### Fabric CA
 
+
 It's because CAs are so important that Fabric provides a built-in CA component to
 allow you to create CAs in the blockchain networks you form. This component --- known
 as **Fabric CA** is a private root CA provider capable of managing digital identities of
