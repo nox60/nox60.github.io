@@ -9,6 +9,7 @@ encapsulated in an X.509 digital certificate. These identities really matter
 because they **determine the exact permissions over resources and access to
 information that actors have in a blockchain network.**
 
+
 区块链网络中的不同actor包括peer节点，排序节点，客户端程序，管理员等，这些actor组成了所有的内部和外部的能够消费服务的活跃单元，这些actor都有X.509证书。这些身份非常重要，因为他们决定了这些actor的具体权限，包含能够在区块链网络中使用哪些资源或者接触哪些信息。
 
 A digital identity furthermore has some additional attributes that Fabric uses
