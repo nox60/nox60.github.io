@@ -60,7 +60,6 @@ by the store, determining which identities are the trusted members (actors)
 of the store payment network. **MSPs turn verifiable identities into the members
 of a blockchain network**.
 
-
 PKI身份体系和MSP结合起来提供认证：PKI就像发卡方，发型了多种不同的身份，而MSP就想商店所列出的接受的卡类型的列表，确认了哪些身份是该商店的支付网络中的受信成员。MSP将可验证的身份转化为区块链网络的成员列表。
 
 Let's drill into these concepts in a little more detail.
