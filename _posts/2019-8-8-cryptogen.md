@@ -58,7 +58,6 @@ Flags:
   --config=CONFIG           The configuration template to use
 ```
 
-
 ## cryptogen showtemplate
 ```
 usage: cryptogen showtemplate
