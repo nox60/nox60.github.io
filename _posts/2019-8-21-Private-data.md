@@ -4,6 +4,7 @@ Using Private Data in Fabric
 
 
 
+
 This tutorial will demonstrate the use of collections to provide storage
 and retrieval of private data on the blockchain network for authorized peers
 of organizations.
