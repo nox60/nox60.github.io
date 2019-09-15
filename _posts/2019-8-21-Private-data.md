@@ -1000,7 +1000,6 @@ automatically deployed upon chaincode instantiation on the channel when
 the  ``--collections-config`` flag is specified pointing to the location of
 the collection JSON file.
 
-
 .. _pd-ref-material:
 
 Additional resources
