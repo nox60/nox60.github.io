@@ -83,7 +83,6 @@ Flags:
   --config=CONFIG          The configuration template to use
 ```
 
-
 ## cryptogen version
 ```
 usage: cryptogen version
