@@ -273,7 +273,6 @@ As an additional data privacy benefit, since a collection is being used,
 only the private data hashes go through orderer, not the private data itself,
 keeping private data confidential from orderer.
 
-
 Start the network
 -----------------
 
