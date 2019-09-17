@@ -68,7 +68,6 @@ peer channel getinfo \
 
 https://github.com/hyperledger/fabric/blob/release-1.4/sampleconfig/configtx.yaml
 
-
 byfn官方例子
 
 ```byfnsh
