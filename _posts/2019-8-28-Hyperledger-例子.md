@@ -56,7 +56,6 @@ peer channel list \
 -o orderer.test.com:7050 \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
-
 peer channel getinfo \
 -c mychannel \
 -o orderer.test.com:7050 \
