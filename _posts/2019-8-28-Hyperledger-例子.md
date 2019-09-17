@@ -43,7 +43,6 @@ peer channel create -o orderer.test.com:7050 \
 --tls true \
 --cafile /root/codes/temp/crypto-config/ordererOrganizations/test.com/tlsca/tlsca.test.com-cert.pem
 
-
 # 加入通道
 peer channel join \
 -b mychannel.block \
