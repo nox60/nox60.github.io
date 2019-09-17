@@ -154,6 +154,7 @@ bea694c61eab        hyperledger/fabric-peer:latest      "peer node start"   1 se
 15976701bf05        hyperledger/fabric-peer:latest      "peer node start"   1 second ago             Up Less than a second   0.0.0.0:9051->9051/tcp     peer0.org2.example.com
 187045d6061a        hyperledger/fabric-peer:latest      "peer node start"   1 second ago             Up Less than a second   0.0.0.0:7051->7051/tcp     peer0.org1.example.com
 
+
  ____    _____      _      ____    _____
 / ___|  |_   _|    / \    |  _ \  |_   _|
 \___ \    | |     / _ \   | |_) |   | |
