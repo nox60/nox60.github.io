@@ -40,6 +40,9 @@ understand the tutorial without actually running the sample.
 本文将使用弹珠游戏的例子 <https://github.com/hyperledger/fabric-samples/tree/master/chaincode/marbles02_private>
 
 运行byfn来创建网络，演示如果和创建，部署，并且使用私有数据集。弹珠游戏私有数据例子将部署。
+byfn不是一个本例子的前提要求。安装必要的命令。
+
+本文后面将描述如何完成每一步，通过这些过程来理解本例子。
 
 .. _pd-build-json:
 
