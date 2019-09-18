@@ -37,6 +37,10 @@ Instead the necessary commands are provided throughout this tutorial to use the
 network. We will describe what is happening at each step, making it possible to
 understand the tutorial without actually running the sample.
 
+本文将使用弹珠游戏的例子 <https://github.com/hyperledger/fabric-samples/tree/master/chaincode/marbles02_private>
+
+运行byfn来创建网络，演示如果和创建，部署，并且使用私有数据集。弹珠游戏私有数据例子将部署。
+
 .. _pd-build-json:
 
 Build a collection definition JSON file
