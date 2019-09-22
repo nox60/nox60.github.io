@@ -136,6 +136,7 @@ Policies:
     Rule: "MAJORITY Admins"
 ```
 
+
 Here, the policy `AnotherPolicy` can be satisfied by the `MAJORITY` of `Admins`,
 where `Admins` is eventually being specified by lower level `Signature` policy.
 
