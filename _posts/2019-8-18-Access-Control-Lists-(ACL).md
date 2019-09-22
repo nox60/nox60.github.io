@@ -2,6 +2,7 @@
 
 ## What is an Access Control List?
 
+
 *Note: This topic deals with access control and policies on a channel
 administration level. To learn about access control within a chaincode, check out
 our [chaincode for developers tutorial](./chaincode4ade.html#Chaincode_API).*
