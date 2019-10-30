@@ -9,6 +9,7 @@ encapsulated in an X.509 digital certificate. These identities really matter
 because they **determine the exact permissions over resources and access to
 information that actors have in a blockchain network.**
 
+
 区块链网络中的不同actor包括peer节点，排序节点，客户端程序，管理员等，这些actor组成了所有的内部和外部的能够消费服务的活跃单元，这些actor都有X.509证书。这些身份非常重要，因为他们决定了这些actor的具体权限，包含能够在区块链网络中使用哪些资源或者接触哪些信息。
 
 A digital identity furthermore has some additional attributes that Fabric uses
@@ -59,7 +60,6 @@ by the store, determining which identities are the trusted members (actors)
 of the store payment network. **MSPs turn verifiable identities into the members
 of a blockchain network**.
 
-
 PKI身份体系和MSP结合起来提供认证：PKI就像发卡方，发型了多种不同的身份，而MSP就想商店所列出的接受的卡类型的列表，确认了哪些身份是该商店的支付网络中的受信成员。MSP将可验证的身份转化为区块链网络的成员列表。
 
 Let's drill into these concepts in a little more detail.
@@ -103,7 +103,6 @@ There are four key elements to PKI:
 Let's quickly describe these PKI basics, and if you want to know more details,
 [Wikipedia](https://en.wikipedia.org/wiki/Public_key_infrastructure) is a good
 place to start.
-
 
 ## Digital Certificates
 
@@ -284,6 +283,7 @@ different Intermediate CAs --- it really does depend on the needs of the network
 在一个权限管理的区块链系统中，当给很多组织提供证书安全时，中级CA提供了很大量的灵活性，比如，你会看到不同的组织可能会使用不同的根CA，或者同一个根CA，但是使用不同的中级CA，这完全取决于对网络的需求。
 
 ### Fabric CA
+
 
 It's because CAs are so important that Fabric provides a built-in CA component to
 allow you to create CAs in the blockchain networks you form. This component --- known

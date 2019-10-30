@@ -39,20 +39,28 @@ https://stackoverflow.com/questions/29468404/gyp-warn-eacces-user-root-does-not-
 
 ## 全局梯子设置
 
+因为hyperledger很多依赖在github上，虽然没有被墙，但是直接安装速度会非常慢，梯子的安装配置不是本文要讨论的目标，此处假设读者会自己安装和配置好梯子，此处只是给建议的设置，有更好的其他方式请自行研究，下面的设置是假设设置在本机的1080端口：
+
+```export
 export ALL_PROXY=socks5://127.0.0.1:1080
+```
+
+在下载速度较快的资源比如国内有的资源的时候，可以选择关闭梯子，操作如下：
+```export
+export ALL_PROXY=
+```
+
 
 ## Docker
 
-本Demo对Docker版本的要求是高于18.06
+docker安装有多种方式，有使用apt-get或者yum工具进行安装，此处给出的是略微复杂但是可以高度定制化的二进制安装方式：
 
-docker安装
+到  https://download.docker.com/linux/static/stable/x86_64/ 下载需要版本的docker
 
-到： https://download.docker.com/linux/static/stable/x86_64/ 下载需要版本的docker
+此处需要提及的是，如果没有上述的梯子来加速下载，下载速度可能会很慢。
 
-此处用到了代理来加速下载，如果不用代理速度很慢。
 ```docker
-使用代理：curl -x socks5://192.168.16.233:33333 -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.8.tgz
-不用代理：curl -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.8.tgz
+curl -O https://download.docker.com/linux/static/stable/x86_64/docker-18.09.8.tgz
 ```
 
 解压
@@ -82,7 +90,7 @@ curl -L -O https://github.com/docker/compose/releases/download/1.24.1/docker-com
 编辑下面的文件，文件名为docker.service, 注意这两行，要和上面的路径对应：
 
 Environment="PATH=/root/bin/docker:/bin:/sbin:/usr/bin:/usr/sbin"
-ExecStart=/root/bin/docker/dockerd --log-level=error
+ExecStart=/opt/local/docker/dockerd --log-level=error
 
 vi docker.service
 

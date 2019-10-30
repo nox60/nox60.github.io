@@ -2,6 +2,7 @@
 
 ## What is an Access Control List?
 
+
 *Note: This topic deals with access control and policies on a channel
 administration level. To learn about access control within a chaincode, check out
 our [chaincode for developers tutorial](./chaincode4ade.html#Chaincode_API).*
@@ -135,6 +136,7 @@ Policies:
     Type: ImplicitMeta
     Rule: "MAJORITY Admins"
 ```
+
 
 Here, the policy `AnotherPolicy` can be satisfied by the `MAJORITY` of `Admins`,
 where `Admins` is eventually being specified by lower level `Signature` policy.

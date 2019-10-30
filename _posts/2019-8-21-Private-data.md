@@ -37,6 +37,13 @@ Instead the necessary commands are provided throughout this tutorial to use the
 network. We will describe what is happening at each step, making it possible to
 understand the tutorial without actually running the sample.
 
+本文将使用弹珠游戏的例子 <https://github.com/hyperledger/fabric-samples/tree/master/chaincode/marbles02_private>
+
+运行byfn来创建网络，演示如果和创建，部署，并且使用私有数据集。弹珠游戏私有数据例子将部署。
+byfn不是一个本例子的前提要求。安装必要的命令。
+
+本文后面将描述如何完成每一步，通过这些过程来理解本例子。
+
 .. _pd-build-json:
 
 Build a collection definition JSON file
@@ -102,7 +109,6 @@ have the private data in their private database.
 
 其中 ``collectionMarbles`` 的 ``policy``属性定义了通道上的所有成员 (Org1 和 Org2) 都可以在私有数据库上有私有数据。
 ``collectionMarblesPrivateDetails`` 定义了仅仅允许 Org1的成员可以 在其 私有数据库有私有数据。
-
 
 
 For more information on building a policy definition refer to the :doc:`endorsement-policies`
@@ -271,7 +277,6 @@ the ``price`` private data in its private database.
 As an additional data privacy benefit, since a collection is being used,
 only the private data hashes go through orderer, not the private data itself,
 keeping private data confidential from orderer.
-
 
 Start the network
 -----------------
@@ -999,7 +1004,6 @@ installed on a peer and instantiated on a channel. The associated indexes are
 automatically deployed upon chaincode instantiation on the channel when
 the  ``--collections-config`` flag is specified pointing to the location of
 the collection JSON file.
-
 
 .. _pd-ref-material:
 
