@@ -59,9 +59,11 @@ are used to determine whether a transaction has been appropriately endorsed. The
 policies defined in the channel configuration are referenced as modification policies
 as well as for access control, and are defined in the channel configuration itself.
 
+Fabric的工作基础是策略，因为策略允许一个和请求所关联的角色，能够被检查是否能够和其希望访问的资源，
 
+因为策略的存在，实现了身份和其访问的资源的匹配检查，
 
-背书策略用来判断一个交易是否被有合理的背书信息。这些在通道配置中定义的策略被引用为修改策略（等同于控制策略），
+背书策略用来判断一个交易是否被有足够的背书信息。这些在通道配置中定义的策略被引用为修改策略（等同于控制策略），
 
 Policies can be structured in one of two ways: as `Signature` policies or as an
 `ImplicitMeta` policy.
