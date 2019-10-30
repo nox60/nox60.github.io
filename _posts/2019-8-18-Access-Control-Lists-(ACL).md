@@ -13,7 +13,7 @@ a **policy** --- which specifies a rule that evaluates to true or false, given a
 of identities --- with the resource. Fabric contains a number of default ACLs. In this
 document, we'll talk about how they're formatted and how the defaults can be overridden.
 
-Fabric 通过使用指定规则为true活着folse来控制具体的角色是否有权限，来实现管理访问策略。Fabric包含默认权限的数字。本文档将讨论这个数字是怎么构建成的，以及默认值是怎么被覆盖的。
+Fabric 通过使用指定规则为true活着folse来控制具体的角色是否有权限，来实现管理访问策略。Fabric包含一些默认权限。本文档将讨论这些权限是怎么构成的，并且讨论默认值是怎么被覆盖的。
 
 But before we can do that, it's necessary to understand a little about resources
 and policies.
@@ -57,6 +57,7 @@ associated with the resource needed to fulfill the request. Endorsement policies
 are used to determine whether a transaction has been appropriately endorsed. The
 policies defined in the channel configuration are referenced as modification policies
 as well as for access control, and are defined in the channel configuration itself.
+
 
 
 背书策略用来判断一个交易是否被有合理的背书信息。这些在通道配置中定义的策略被引用为修改策略（等同于控制策略），
