@@ -158,7 +158,7 @@ Access control can be updated one of two ways, either by editing `configtx.yaml`
 itself, which will propagate the ACL change to any new channels, or by updating
 access control in the channel configuration of a particular channel.
 
-ACL能够被两种方式更新，一种是修改 `configtx.yaml`，当生成新通道的时候生效；另外一种是更新某个指定通道的ACL配置。
+ACL能够被两种方式更新，一种是修改 `configtx.yaml`，这样当生成新通道的时候，会自动设置到所有新通道上；另外一种是更新某个指定通道的ACL配置。
 
 ## How ACLs are formatted in `configtx.yaml`
 
@@ -169,15 +169,19 @@ ACL是一种特定格式的KV键值对。
 
 Two excerpts from this sample:
 
+例子中的两个片段
+
 ```
 # ACL policy for invoking chaincodes on peer
 peer/Propose: /Channel/Application/Writers
 ```
+上面的片段是在peer上执行链代码，对应的是通道应用程序上的writer
 
 ```
 # ACL policy for sending block events
 event/Block: /Channel/Application/Readers
 ```
+上面的片段是发送块事件信息，对应的具备权限的是通道应用程序上的reader
 
 These ACLs define that access to `peer/Propose` and `event/Block` resources
 is restricted to identities satisfying the policy defined at the canonical path
@@ -186,16 +190,19 @@ is restricted to identities satisfying the policy defined at the canonical path
 上面的ACL配置定义了对  `peer/Propose` 和 `event/Block`  两种资源的限制，配置信息在两个绝对路径中。
 
 ### Updating ACL defaults in `configtx.yaml`
+通过 configtx.yaml文件来更新ACL
 
 In cases where it will be necessary to override ACL defaults when bootstrapping
 a network, or to change the ACLs before a channel has been bootstrapped, the
 best practice will be to update `configtx.yaml`.
-
+当引导一个区块链网络的时候，需要覆盖默认的ACL策略，或者在引导一个通道之前改变ACL策略。这里的最佳实践是修改 'configtx.yaml'文件
 
 
 Let's say you want to modify the `peer/Propose` ACL default --- which specifies
 the policy for invoking chaincodes on a peer -- from `/Channel/Application/Writers`
 to a policy called `MyPolicy`.
+
+假如说你想要修改'peer/Propose'这操作的默认权限， 
 
 This is done by adding a policy called `MyPolicy` (it could be called anything,
 but for this example we'll call it `MyPolicy`). The policy is defined in the
