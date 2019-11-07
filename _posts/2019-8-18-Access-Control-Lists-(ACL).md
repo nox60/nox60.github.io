@@ -90,19 +90,16 @@ This policy construct can be interpreted as: *the policy named `MyPolicy` can
 only be satisfied by the signature of an identity with role of "a peer from
 Org1" or "a peer from Org2"*.
 
-上面的策略结构可以这样讲解读：名为'MyPolicy'的策略，匹配的是来自org1的peer或者来自org2的peer.
-
-策略的结构可以这样解读：
-
-策略被命名为`MyPolicy`仅仅能够被 "a peer from Org1" 或者 "a peer from Org2" 这样的签名所匹配
+上面的策略的意思是：名为'MyPolicy'的策略，匹配的是来自org1的peer或者来自org2的peer.
 
 Signature policies support arbitrary combinations of `AND`, `OR`, and `NOutOf`,
 allowing the construction of extremely powerful rules like: "An admin of org A
 and two other admins, or 11 of 20 org admins".
 
-签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，可以通过这样的方式组装出较强的规则，比如 "  组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins" 
+签名策略支持 `AND`, `OR`, and `NOutOf` 的任意组合，可以通过这样的方式组装出较强的规则，比如 "组织A和的一个管理员或者两个管理员，或者 11个或者20个其他管理员  "  "An admin of org A and two other admins, or 11 of 20 org admins" 
 
 #### `ImplicitMeta` policies
+隐式元数据策略
 
 `ImplicitMeta` policies aggregate the result of policies deeper in the
 configuration hierarchy that are ultimately defined by `Signature` policies. They
