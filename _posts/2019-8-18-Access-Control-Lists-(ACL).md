@@ -36,11 +36,15 @@ exercised.
 用户和Fabric是通过 targer? 一段用户链代码和系统链代码来实现的，或者，通过事件流代码。
 
 
+用户和fabric交互的方式有用户链代码、系统链代码、事件流。如上所述，上面这些操作点都要被识为需要管控的资源。
+
 Application developers need to be aware of these resources and the default
 policies associated with them. The complete list of these resources are found in
 `configtx.yaml`. You can look at a [sample `configtx.yaml` file here](http://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
 
 应用程序开发者应该知道这些资源和默认的策略。完全的资源列表可以在 `configtx.yaml` 配置文件里面看到。通过这个链接可以看到文件模版：
+
+
 
 The resources named in `configtx.yaml` is an exhaustive list of all internal resources
 currently defined by Fabric. The loose convention adopted there is `<component>/<resource>`.
