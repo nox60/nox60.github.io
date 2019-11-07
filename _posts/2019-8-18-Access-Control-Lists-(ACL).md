@@ -109,11 +109,11 @@ use a different but still very simple syntax as compared to `Signature` policies
 
 隐式元数据策略  深度聚合  主要是优化设计的 `Signature` 策略。它支持默认的规则，比如：“一个组织的主要管理者”。 它自己的规则则是使用一种非常简单的语法来对比签名的方式，比如`<ALL|ANY|MAJORITY> <sub_policy>`.
 
-
+相比签名式策略，他的语法不同但是也非常简洁：`<ALL|ANY|MAJORITY> <sub_policy>`.
 
 For example: `ANY` `Readers` or `MAJORITY` `Admins`.
 
-比如：任意写入者或者主要的管理员
+比如：任意读者或者主要的管理员
 
 *Note that in the default policy configuration `Admins` have an operational role.
 Policies that specify that only Admins --- or some subset of Admins --- have access
