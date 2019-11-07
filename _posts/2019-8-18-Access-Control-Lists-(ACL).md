@@ -47,11 +47,11 @@ policies associated with them. The complete list of these resources are found in
 
 
 The resources named in `configtx.yaml` is an exhaustive list of all internal resources
-currently defined by Fabric. The loose convention adopted there is `<component>/<resource>`.
+currently defined by Fabric. The loose convention adopted there is `<component>/<resourc/
 So `cscc/GetConfigBlock` is the resource for the `GetConfigBlock` call in the `CSCC`
 component.
 
-这些在`configtx.yaml`中命名的资源是 所有已经定义在Fabric中的内部资源 的 详尽的列表。
+这些在`configtx.yaml`中命名的资源是 所有已经定义在Fabric中的内部资源 的 详尽的列表。约定的写法是：`<component>/<resource>`，即组件/资源，因此`cscc/GetConfigBlock`是一个在'CSCC'组件中的GetConfigBlock命令。
 
 
 ### Policies
