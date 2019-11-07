@@ -71,10 +71,11 @@ Policies can be structured in one of two ways: as `Signature` policies or as an
 策略可以有两种组织方式：`签名`策略或者`隐式元数据`策略
 
 #### `Signature` policies
+签名策略
 
 These policies identify specific users who must sign in order for a policy
 to be satisfied. For example:
-
+签名策略指定了具体要满足哪些策略，用户才可以在order上登录。
 
 
 ```
@@ -88,6 +89,8 @@ Policies:
 This policy construct can be interpreted as: *the policy named `MyPolicy` can
 only be satisfied by the signature of an identity with role of "a peer from
 Org1" or "a peer from Org2"*.
+
+上面的策略结构可以这样讲解读：名为'MyPolicy'的策略，匹配的是来自org1的peer或者来自org2的peer.
 
 策略的结构可以这样解读：
 
