@@ -71,7 +71,7 @@ Policies can be structured in one of two ways: as `Signature` policies or as an
 策略可以有两种组织方式：`签名`策略或者`隐式元数据`策略
 
 #### `Signature` policies
-签名策略
+声明式策略
 
 These policies identify specific users who must sign in order for a policy
 to be satisfied. For example:
@@ -233,7 +233,6 @@ Then, edit the `Application: ACLs` section inside `configtx.yaml` to change
 
 现在，编辑`configtx.yaml` 文件中的 `Application: ACLs`部分，编辑内容如下：
 
-
 `peer/Propose: /Channel/Application/Writers`
 
 To this:
@@ -266,6 +265,7 @@ SampleSingleMSPChannel:
 ```
 
 This would restrict the ability to subscribe to block events to `SampleOrg.admin`.
+
 
 这将严格限制 `SampleOrg.admin` 订阅块事件的能力 
 
@@ -346,14 +346,19 @@ To this:
 
 Note: If you do not have ACLs defined in your channel configuration, you will
 have to add the entire ACL structure.
+注意，如果你没有在通道定义上配置任何ACL，那么你就需要添加整个ACL结构？
 
 Once the configuration has been updated, it will need to be submitted by the
 usual channel update process.
+
+一旦配置被改变，就需要提交到通道更新流程中？
 
 ### Satisfying an ACL that requires access to multiple resources
 
 If a member makes a request that calls multiple system chaincodes, all of the ACLs
 for those system chaincodes must be satisfied.
+
+如果一个成员在多链代码系统中提交了请求，就需要对该系统链路的所有ACL配置均匹配。
 
 For example, `peer/Propose` refers to any proposal request on a channel. If the
 particular proposal requires access to two system chaincodes that requires an
@@ -372,6 +377,8 @@ administrators are members), but it is possible to overwrite these policies to
 whatever you want them to be. As a result, it's important to keep track of these
 policies to ensure that the ACLs for peer proposals are not impossible to satisfy
 (unless that is the intention).
+
+在默认的配置中，`Writers`是一个申明式的策略，其角色是 `SampleOrg.member`，即SampleOrg的成员。换句话说，SampleOrg的任何成员。而上面的 MyPolicy，则有这样的角色，或者说是SampleOrg的
 
 在默认配置中， `Writers` 是 角色是 `SampleOrg.member` 的签名策略。换句话说，该组织的任何一个成员。 `MyPolicy` 是 `SampleOrg.admin` 的一种角色，或者 组织的任何一个管理员？
 
