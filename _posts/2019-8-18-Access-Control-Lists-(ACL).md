@@ -378,11 +378,14 @@ whatever you want them to be. As a result, it's important to keep track of these
 policies to ensure that the ACLs for peer proposals are not impossible to satisfy
 (unless that is the intention).
 
-在默认的配置中，`Writers`是一个申明式的策略，其角色是 `SampleOrg.member`，即SampleOrg的成员。换句话说，SampleOrg的任何成员。而上面的 MyPolicy，则有这样的角色，或者说是SampleOrg的
+在默认的配置中，`Writers`是一个申明式的策略，其角色是 `SampleOrg.member`，即SampleOrg的成员。换句话说，SampleOrg的任何成员;
 
-在默认配置中， `Writers` 是 角色是 `SampleOrg.member` 的签名策略。换句话说，该组织的任何一个成员。 `MyPolicy` 是 `SampleOrg.admin` 的一种角色，或者 组织的任何一个管理员？
+而上面的 MyPolicy，则有一个角色`SampleOrg.admin` ，或者说是SampleOrg的任何一个管理员。
 
-要满足上面的ACL，这些成员必须同时拥有 `管理员` 和 `SampleOrg的成员身份` 双重身份。 默认的，所有的管理员都是成员（尽管不是所有的管理员都是成员），但是有可能覆盖这些策略来达到你想要的任何功能。作为一个结果 ， 要对这些策略保持跟踪来确定 这些策略不可能满足    是很重要的
+所以要满足这些ACL，这个成员必须同时是`SampleOrg`的一个管理员或者成员。当然，所有管理员都必然是成员。
+
+但是也有可能覆盖这些权限，以达到你的需求。所以，注意你的策略配置以保证ACL是你想要的。
+
 
 #### Migration considerations for customers using the experimental ACL feature
 
@@ -391,6 +394,9 @@ section of the channel creation transaction and updated via `PEER_RESOURCE_UPDAT
 transactions. Originally, it was thought that the `resources` tree would handle the
 update of several functions that, ultimately, were handled in other ways, so
 maintaining a separate parallel peer configuration tree was judged to be unnecessary.
+
+
+
 
 Migration for customers using the experimental resources tree in v1.1 is possible.
 Because the official v1.2 release does not support the old ACL methods, the network
